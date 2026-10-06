@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 function db(): PDO
 {
@@ -146,7 +146,7 @@ function migrate(PDO $pdo): void
     $ins = $pdo->prepare('INSERT OR IGNORE INTO lead_sources (slug, label, sort_order) VALUES (?, ?, ?)');
     $sources = [
         ['contato', 'Página de Contato'],
-        ['executivo', 'Serviço Executivo'],
+        ['executivo', 'Executivo (Call Out)'],
         ['fretamento', 'Fretamento'],
         ['turismo', 'Turismo'],
         ['rodoviario', 'Rodoviário'],
@@ -156,6 +156,8 @@ function migrate(PDO $pdo): void
     foreach ($sources as $i => [$slug, $label]) {
         $ins->execute([$slug, $label, $i]);
     }
+    // nome atualizado no briefing (só troca se ainda estiver com o nome antigo padrão)
+    $pdo->exec("UPDATE lead_sources SET label = 'Executivo (Call Out)' WHERE slug = 'executivo' AND label = 'Serviço Executivo'");
     $pdo->exec('PRAGMA user_version = ' . SCHEMA_VERSION);
 }
 

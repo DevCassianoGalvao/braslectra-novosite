@@ -37,7 +37,7 @@ view_header([
           <dt><?= e($k) ?></dt><dd><?= nl2br(e(is_array($v) ? implode(', ', $v) : (string) $v)) ?></dd>
         <?php endforeach; ?>
         <?php if ($lead['attachment']): ?>
-          <dt>Currículo</dt><dd><a class="btn-ghost sm" href="<?= e(url('download.php?id=' . $lead['id'])) ?>"><?= icon('download') ?> Baixar arquivo</a></dd>
+          <dt><?= str_starts_with((string) $lead['attachment'], 'anexos/') ? 'Anexo' : 'Currículo' ?></dt><dd><a class="btn-ghost sm" href="<?= e(url('download.php?id=' . $lead['id'])) ?>"><?= icon('download') ?> Baixar arquivo</a></dd>
         <?php endif; ?>
       </dl>
       <div class="actions" style="margin-top:18px">

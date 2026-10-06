@@ -1,104 +1,253 @@
 {
   "site": "https://www.braslectra.com.br",
   "pages": [
-    { "file": "Braslectra Home", "slug": "", "og": "home", "priority": "1.0", "changefreq": "weekly",
+    {
+      "file": "Braslectra Home",
+      "slug": "",
+      "og": "home",
+      "priority": "1.0",
+      "changefreq": "weekly",
       "name": "Início",
       "title": "Grupo Braslectra | Transporte Executivo e Fretamento no RJ",
       "description": "Há 29 anos transportando pessoas com segurança. Transporte executivo, fretamento de colaboradores, turismo e rodoviário com frota própria em Macaé, Rio de Janeiro e região.",
-      "summary": "Página inicial: apresentação do grupo (fundado em 1997, 4 empresas, +250 colaboradores), frota, serviços, diferenciais, sustentabilidade, treinamentos, blog e perguntas frequentes." },
-    { "file": "Sobre", "slug": "sobre", "og": "sobre", "priority": "0.8", "changefreq": "monthly",
+      "summary": "Página inicial: apresentação do grupo (fundado em 1997, 4 empresas, +250 colaboradores), frota, serviços, diferenciais, sustentabilidade, treinamentos, blog e perguntas frequentes."
+    },
+    {
+      "file": "Sobre",
+      "slug": "sobre",
+      "og": "sobre",
+      "priority": "0.8",
+      "changefreq": "monthly",
       "name": "Sobre o Grupo",
       "title": "Sobre o Grupo Braslectra | 29 anos de transporte de pessoas",
       "description": "Conheça o Grupo Braslectra: Diretriz, Braslectra, Eco Polo Brasil e B.A.J Transportes. Sedes em Macaé e no Rio de Janeiro e bases de apoio no RJ e no ES.",
-      "summary": "História desde 1997, empresas do grupo, significado da rosa dos ventos, sedes (Macaé e Rio de Janeiro), bases de apoio (Itaguaí, Niterói, Cabo Frio, Campos dos Goytacazes e Vitória), missão, visão e valores." },
-    { "file": "Frota", "slug": "frota", "og": "frota", "priority": "0.8", "changefreq": "monthly",
+      "summary": "História desde 1997, empresas do grupo, significado da rosa dos ventos, sedes (Macaé e Rio de Janeiro), bases de apoio (Itaguaí, Niterói, Cabo Frio, Campos dos Goytacazes e Vitória), missão, visão e valores."
+    },
+    {
+      "file": "Frota",
+      "slug": "frota",
+      "og": "frota",
+      "priority": "0.8",
+      "changefreq": "monthly",
       "name": "Frota",
       "title": "Frota Própria: Carros, Vans, Micro-ônibus e Ônibus | Braslectra",
       "description": "Frota própria, moderna, caracterizada e rastreada: carros executivos, híbridos e elétricos, vans, micro-ônibus e ônibus executivos para empresas e grupos.",
-      "summary": "Visão geral da frota própria por categoria: carros, vans, micro-ônibus e ônibus." },
-    { "file": "Frota-Carros", "slug": "frota-carros", "og": "frota-carros", "priority": "0.7", "changefreq": "monthly",
+      "summary": "Visão geral da frota própria por categoria: carros, vans, micro-ônibus e ônibus."
+    },
+    {
+      "file": "Frota-Carros",
+      "slug": "frota-carros",
+      "og": "frota-carros",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Carros executivos",
       "title": "Carros Executivos e SUVs para Empresas | Frota Braslectra",
       "description": "Carros executivos para transporte corporativo: Toyota Corolla, VW Virtus, Hilux, SW4 e Tiguan, com motoristas capacitados, ar-condicionado e veículos rastreados.",
-      "summary": "Modelos de carros executivos da frota (Toyota Corolla XEi, VW Virtus TSI, Toyota Hilux CD 4x4, Hilux SW4 SRX, VW Tiguan R-Line), com ano, classe, lotação e galeria de fotos." },
-    { "file": "Frota-Vans", "slug": "frota-vans", "og": "frota-vans", "priority": "0.7", "changefreq": "monthly",
+      "summary": "Modelos de carros executivos da frota (Toyota Corolla XEi, VW Virtus TSI, Toyota Hilux CD 4x4, Hilux SW4 SRX, VW Tiguan R-Line), com ano, classe, lotação e galeria de fotos."
+    },
+    {
+      "file": "Frota-Vans",
+      "slug": "frota-vans",
+      "og": "frota-vans",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Vans",
       "title": "Aluguel de Vans Executivas no RJ e ES | Frota Braslectra",
       "description": "Vans executivas de 15 a 17 lugares com ar-condicionado para transporte de equipes, traslados e viagens em Macaé, Rio de Janeiro, Niterói, Cabo Frio, Campos e Vitória.",
-      "summary": "Modelos de vans da frota (Mercedes-Benz Sprinter 416, Renault Master Minibus, Ford Transit 460), de 15 a 17 lugares, com galeria de fotos." },
-    { "file": "Frota-Micro-Onibus", "slug": "frota-micro-onibus", "og": "frota-micro-onibus", "priority": "0.7", "changefreq": "monthly",
+      "summary": "Modelos de vans da frota (Mercedes-Benz Sprinter 416, Renault Master Minibus, Ford Transit 460), de 15 a 17 lugares, com galeria de fotos."
+    },
+    {
+      "file": "Frota-Micro-Onibus",
+      "slug": "frota-micro-onibus",
+      "og": "frota-micro-onibus",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Micro-ônibus",
       "title": "Aluguel de Micro-ônibus com Banheiro | Frota Braslectra",
       "description": "Micro-ônibus com ar-condicionado, bancos reclináveis, TV e banheiro para grupos de 26 a 30 passageiros. Fretamento e turismo no RJ e no ES.",
-      "summary": "Modelos de micro-ônibus (Volare Fly 9, Fly 10, W9, Marcopolo Senior), lotação e disponibilidade de banheiro." },
-    { "file": "Frota-Onibus", "slug": "frota-onibus", "og": "frota-onibus", "priority": "0.7", "changefreq": "monthly",
+      "summary": "Modelos de micro-ônibus (Volare Fly 9, Fly 10, W9, Marcopolo Senior), lotação e disponibilidade de banheiro."
+    },
+    {
+      "file": "Frota-Onibus",
+      "slug": "frota-onibus",
+      "og": "frota-onibus",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Ônibus",
       "title": "Aluguel e Fretamento de Ônibus Executivos | Frota Braslectra",
       "description": "Ônibus executivos de até 46 lugares para grandes grupos, com ar-condicionado, abastecimento de água e ambiente limpo e arejado. Fretamento e turismo.",
-      "summary": "Modelos de ônibus executivos (Mascarello Elo, Marcopolo Ideale, Busscar El 340, Marcopolo Viaggio, Comil Campione, Irizar i6 370), de 45 a 46 lugares, ano e lotação." },
-    { "file": "Servicos", "slug": "servicos", "og": "servicos", "priority": "0.8", "changefreq": "monthly",
+      "summary": "Modelos de ônibus executivos (Mascarello Elo, Marcopolo Ideale, Busscar El 340, Marcopolo Viaggio, Comil Campione, Irizar i6 370), de 45 a 46 lugares, ano e lotação."
+    },
+    {
+      "file": "Servicos",
+      "slug": "servicos",
+      "og": "servicos",
+      "priority": "0.8",
+      "changefreq": "monthly",
       "name": "Serviços",
-      "title": "Serviços de Transporte: Executivo, Fretamento e Turismo | Braslectra",
-      "description": "Transporte executivo, fretamento de colaboradores, turismo e transporte rodoviário com frota própria, motoristas treinados e logística 24 horas.",
-      "summary": "Resumo dos 4 serviços: executivo, fretamento, turismo e rodoviário." },
-    { "file": "Servicos-Executivo", "slug": "servicos-executivo", "og": "servicos-executivo", "priority": "0.8", "changefreq": "monthly",
-      "name": "Transporte executivo",
-      "title": "Transporte Executivo em Macaé e Rio de Janeiro | Braslectra",
-      "description": "Transporte executivo com segurança, conforto e pontualidade: traslados para aeroportos, hotéis, bases e operações onshore e offshore em Macaé, Rio e região.",
-      "summary": "Serviço de transporte executivo corporativo, com formulário de solicitação de proposta.",
-      "service": "Transporte executivo" },
-    { "file": "Servicos-Fretamento", "slug": "servicos-fretamento", "og": "servicos-fretamento", "priority": "0.8", "changefreq": "monthly",
+      "title": "Serviços de Transporte para Empresas e Grupos | Grupo Braslectra",
+      "description": "Executivo (Call Out) sob demanda, fretamento com foco industrial, rodoviário em parceria com a Buser e turismo. Encontre o serviço certo e fale com o comercial.",
+      "summary": "Visão geral dos 4 segmentos (Executivo/Call Out, Fretamento, Rodoviário, Turismo), escolha por necessidade, estrutura da Braslectra e formulário comercial por segmento."
+    },
+    {
+      "file": "Servicos-Executivo",
+      "slug": "servicos-executivo",
+      "og": "servicos-executivo",
+      "priority": "0.8",
+      "changefreq": "monthly",
+      "name": "Executivo (Call Out)",
+      "title": "Executivo (Call Out): Transporte Executivo sob Demanda | Braslectra",
+      "description": "Transporte executivo sob demanda para empresas: traslados, receptivos, agendas corporativas, trocas de turma e operações offshore, com carros, blindados, vans e ônibus.",
+      "summary": "Executivo (Call Out): transporte terrestre sob demanda para empresas, incluindo trocas de turma e operações offshore; aplicações, veículos, como solicitar (BID, rotas recorrentes, cobrança) e formulário comercial.",
+      "service": "Transporte executivo sob demanda (Call Out)",
+      "faq": [
+        [
+          "Call out é apenas transporte em carro?",
+          "Não. O atendimento também pode utilizar vans, micro-ônibus e ônibus, conforme o tamanho do grupo e a necessidade da operação."
+        ],
+        [
+          "Como é formada a proposta?",
+          "O comercial analisa o escopo, as rotas, a demanda e os requisitos do cliente. As condições de cobrança são tratadas na proposta, sem preço automático no site."
+        ],
+        [
+          "Ter rotas recorrentes transforma o atendimento em fretamento?",
+          "Não automaticamente. No call out, cada solicitação é organizada conforme a demanda apresentada; o fretamento atende uma rotina recorrente com programação de rotas e horários. O comercial orienta qual modalidade se aplica."
+        ]
+      ]
+    },
+    {
+      "file": "Servicos-Fretamento",
+      "slug": "servicos-fretamento",
+      "og": "servicos-fretamento",
+      "priority": "0.8",
+      "changefreq": "monthly",
       "name": "Fretamento",
-      "title": "Fretamento de Ônibus e Vans para Empresas | Braslectra",
-      "description": "Fretamento de colaboradores com rotas personalizadas, segurança e pontualidade: a alternativa ao vale-transporte para a sua empresa no RJ e no ES.",
-      "summary": "Fretamento contínuo de colaboradores (substitui o vale-transporte), com formulário de solicitação.",
-      "service": "Fretamento de ônibus e vans" },
-    { "file": "Servicos-Turismo", "slug": "servicos-turismo", "og": "servicos-turismo", "priority": "0.8", "changefreq": "monthly",
+      "title": "Fretamento para Indústrias e Transporte Recorrente | Braslectra",
+      "description": "Fretamento com foco no transporte de colaboradores da indústria, por rotas e turnos. Também avaliamos projetos para condomínios, escolas e faculdades.",
+      "summary": "Fretamento com foco industrial (rotas, turnos e escalas) e consultas para condomínios, escolas e faculdades; como a operação é planejada e formulário por público.",
+      "service": "Fretamento de transporte recorrente",
+      "faq": [
+        [
+          "Qual a diferença entre fretamento e call out?",
+          "O fretamento atende uma rotina recorrente de transporte, com programação de rotas e horários. No call out, cada solicitação é organizada conforme a demanda apresentada."
+        ],
+        [
+          "Ainda não tenho as rotas definidas. Posso entrar em contato?",
+          "Sim. Apresente os locais e a demanda estimada para avaliação do comercial. Você também pode solicitar uma reunião sem preencher o formulário."
+        ]
+      ]
+    },
+    {
+      "file": "Servicos-Turismo",
+      "slug": "servicos-turismo",
+      "og": "servicos-turismo",
+      "priority": "0.8",
+      "changefreq": "monthly",
       "name": "Turismo",
-      "title": "Turismo e Excursões: Aluguel de Vans e Ônibus | Braslectra",
-      "description": "Carros, vans, micro-ônibus e ônibus para viagens turísticas, excursões, passeios culturais e confraternizações. Peça seu orçamento gratuito online.",
-      "summary": "Transporte para turismo e excursões, com formulário de orçamento (origem, destino, datas, passageiros).",
-      "service": "Transporte para turismo e excursões" },
-    { "file": "Servicos-Rodoviario", "slug": "servicos-rodoviario", "og": "servicos-rodoviario", "priority": "0.7", "changefreq": "monthly",
+      "title": "Transporte para Turismo e Viagens em Grupo | Braslectra",
+      "description": "Transporte para excursões, passeios culturais, confraternizações e eventos, com veículos definidos conforme o roteiro e o grupo. Peça sua cotação online.",
+      "summary": "Transporte para turismo e viagens em grupo; aplicações, o que informar e formulário de cotação (ida/ida e volta, datas, passageiros, veículo à disposição).",
+      "service": "Transporte para turismo e viagens em grupo",
+      "faq": [
+        [
+          "O veículo pode atender deslocamentos no destino?",
+          "Essa necessidade deve ser informada na solicitação e prevista na proposta, com programação e condições de atendimento definidas."
+        ],
+        [
+          "O serviço inclui hospedagem, ingressos e passeios?",
+          "Esta página apresenta o serviço de transporte. A proposta identifica exatamente o que está incluído no atendimento."
+        ]
+      ]
+    },
+    {
+      "file": "Servicos-Rodoviario",
+      "slug": "servicos-rodoviario",
+      "og": "servicos-rodoviario",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Rodoviário",
       "title": "Transporte Rodoviário em Parceria com a Buser | Braslectra",
-      "description": "Ônibus executivos, semi-leito e leito operados pelo Grupo Braslectra em parceria com a Buser para viagens rodoviárias por diversas regiões do Brasil.",
+      "description": "Viagens rodoviárias com ônibus executivos, semi-leito e leito do Grupo Braslectra em parceria com a Buser. Consulte datas, horários e reservas no site da Buser.",
       "summary": "Transporte rodoviário em parceria com a Buser e tipos de assento (executiva, semi-leito, leito).",
-      "service": "Transporte rodoviário de passageiros" },
-    { "file": "Sustentabilidade", "slug": "sustentabilidade", "og": "sustentabilidade", "priority": "0.7", "changefreq": "monthly",
+      "service": "Transporte rodoviário de passageiros"
+    },
+    {
+      "file": "Sustentabilidade",
+      "slug": "sustentabilidade",
+      "og": "sustentabilidade",
+      "priority": "0.7",
+      "changefreq": "monthly",
       "name": "Sustentabilidade",
       "title": "Sustentabilidade no Transporte Corporativo: CO₂ Neutro | Braslectra",
       "description": "Frota com selo CO₂ Neutro, carros híbridos e 100% elétricos: mobilidade corporativa alinhada aos critérios ESG das grandes empresas.",
-      "summary": "Pilares ESG, compensação de CO₂ (selo CO₂ Neutro), frota híbrida (Toyota Corolla) e elétrica (BYD Dolphin)." },
-    { "file": "Treinamentos", "slug": "treinamentos", "og": "treinamentos", "priority": "0.5", "changefreq": "monthly",
+      "summary": "Pilares ESG, compensação de CO₂ (selo CO₂ Neutro), frota híbrida (Toyota Corolla) e elétrica (BYD Dolphin)."
+    },
+    {
+      "file": "Treinamentos",
+      "slug": "treinamentos",
+      "og": "treinamentos",
+      "priority": "0.5",
+      "changefreq": "monthly",
       "name": "Treinamentos",
       "title": "Treinamentos e Capacitação da Equipe | Grupo Braslectra",
       "description": "Capacitação contínua da equipe: direção defensiva, primeiros socorros, QSMS, combate a incêndio e mais de 20 módulos na plataforma própria de treinamentos.",
-      "summary": "Programa de treinamentos dos colaboradores (25 módulos) e acesso à plataforma treinamentos.braslectra.com.br." },
-    { "file": "Blog", "slug": "blog", "og": "home", "priority": "0.6", "changefreq": "weekly",
+      "summary": "Programa de treinamentos dos colaboradores (25 módulos) e acesso à plataforma treinamentos.braslectra.com.br."
+    },
+    {
+      "file": "Blog",
+      "slug": "blog",
+      "og": "home",
+      "priority": "0.6",
+      "changefreq": "weekly",
       "name": "Blog",
       "title": "Blog do Grupo Braslectra | Transporte Executivo e Fretamento",
       "description": "Notícias da frota, novidades do Grupo Braslectra e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.",
-      "summary": "Lista de artigos e notícias." },
-    { "file": "Blog-Post", "slug": "blog-post", "og": "home", "priority": "0.5", "changefreq": "monthly", "nosite": true,
+      "summary": "Lista de artigos e notícias."
+    },
+    {
+      "file": "Blog-Post",
+      "slug": "blog-post",
+      "og": "home",
+      "priority": "0.5",
+      "changefreq": "monthly",
+      "nosite": true,
       "name": "Artigo",
       "title": "Blog | Grupo Braslectra",
       "description": "Artigos do Grupo Braslectra sobre transporte executivo, fretamento e mobilidade corporativa.",
-      "summary": "Artigo do blog." },
-    { "file": "Contato", "slug": "contato", "og": "home", "priority": "0.7", "changefreq": "yearly",
+      "summary": "Artigo do blog."
+    },
+    {
+      "file": "Contato",
+      "slug": "contato",
+      "og": "home",
+      "priority": "0.7",
+      "changefreq": "yearly",
       "name": "Contato",
       "title": "Contato e Orçamento | Grupo Braslectra",
       "description": "Fale com o Grupo Braslectra: orçamentos de transporte executivo, fretamento e turismo. Telefone (22) 2773-2800, WhatsApp e atendimento em Macaé e no Rio.",
-      "summary": "Telefones, e-mails, endereços das sedes e formulário de contato." },
-    { "file": "Trabalhe-Conosco", "slug": "trabalhe-conosco", "og": "home", "priority": "0.4", "changefreq": "yearly",
+      "summary": "Telefones, e-mails, endereços das sedes e formulário de contato."
+    },
+    {
+      "file": "Trabalhe-Conosco",
+      "slug": "trabalhe-conosco",
+      "og": "trabalhe-conosco",
+      "priority": "0.4",
+      "changefreq": "yearly",
       "name": "Trabalhe conosco",
       "title": "Trabalhe Conosco | Vagas no Grupo Braslectra",
       "description": "Faça parte da equipe do Grupo Braslectra. Envie seu currículo e participe do nosso processo seletivo para motoristas e áreas administrativas.",
-      "summary": "Formulário de envio de currículo." },
-    { "file": "Politica-de-Privacidade", "slug": "politica-de-privacidade", "og": "home", "priority": "0.2", "changefreq": "yearly",
+      "summary": "Formulário de envio de currículo."
+    },
+    {
+      "file": "Politica-de-Privacidade",
+      "slug": "politica-de-privacidade",
+      "og": "home",
+      "priority": "0.2",
+      "changefreq": "yearly",
       "name": "Política de Privacidade",
       "title": "Política de Privacidade | Grupo Braslectra",
       "description": "Saiba como o Grupo Braslectra coleta, utiliza e protege os seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).",
-      "summary": "Política de privacidade (LGPD)." }
+      "summary": "Política de privacidade (LGPD)."
+    }
   ]
 }

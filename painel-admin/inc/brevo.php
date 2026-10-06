@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @param string[] $to
  * @return array{0:bool,1:string} [ok, mensagem]
  */
-function brevo_send(array $to, string $subject, string $html, string $text = '', ?string $replyTo = null, ?string $replyName = null): array
+function brevo_send(array $to, string $subject, string $html, string $text = '', ?string $replyTo = null, ?string $replyName = null, array $attachments = []): array
 {
     $key = trim(setting('brevo_api_key'));
     $sender = trim(setting('brevo_sender_email'));
@@ -28,6 +28,9 @@ function brevo_send(array $to, string $subject, string $html, string $text = '',
     }
     if ($replyTo && filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
         $payload['replyTo'] = ['email' => $replyTo] + ($replyName ? ['name' => $replyName] : []);
+    }
+    if ($attachments) {
+        $payload['attachment'] = $attachments; // [['name' => ..., 'content' => base64]]
     }
     $endpoint = (string) cfg('brevo_endpoint', 'https://api.brevo.com/v3/smtp/email');
     $body = json_encode($payload, JSON_UNESCAPED_UNICODE);
@@ -123,7 +126,24 @@ function notify_new_lead(int $leadId): void
         . '<table style="width:100%;border-collapse:collapse;border:1px solid #eee;border-top:0;font-size:14px">' . $tr . '</table>'
         . '<p style="margin:18px 0"><a href="' . e($link) . '" style="background:#c8850f;color:#fff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700;display:inline-block">Abrir no painel</a></p>'
         . '<p style="color:#8a8377;font-size:12px">Recebido em ' . e(fmt_date($lead['created_at'])) . '</p></div>';
-    $subject = 'Novo lead (' . $label . ')' . ($lead['name'] !== '' ? ' - ' . $lead['name'] : '');
-    [$ok, $msg] = brevo_send($to, $subject, $html, $txt, $lead['email'] ?: null, $lead['name'] ?: null);
+    // Assunto: Site | Segmento | Empresa ou solicitante | Finalidade (padrão do briefing comercial)
+    $who = trim((string) ($lead['company'] ?: ($data['Organização ou grupo'] ?? '') ?: $lead['name']));
+    $why = '';
+    foreach (['Finalidade', 'Público', 'Tipo de viagem'] as $k) {
+        if (!empty($data[$k])) {
+            $why = (string) $data[$k];
+            break;
+        }
+    }
+    $subject = implode(' | ', array_filter(['Site', $label, $who, mb_substr($why, 0, 80)], static fn ($p) => trim((string) $p) !== ''));
+    // anexo comercial vai junto no e-mail (até 8 MB)
+    $files = [];
+    if (!empty($lead['attachment']) && str_starts_with((string) $lead['attachment'], 'anexos/')) {
+        $path = rtrim((string) cfg('private_dir'), '/\\') . '/' . $lead['attachment'];
+        if (is_file($path) && filesize($path) <= 8 * 1024 * 1024) {
+            $files[] = ['name' => (string) ($data['Anexo'] ?? basename($path)), 'content' => base64_encode((string) file_get_contents($path))];
+        }
+    }
+    [$ok, $msg] = brevo_send($to, $subject, $html, $txt, $lead['email'] ?: null, $lead['name'] ?: null, $files);
     q('INSERT INTO notify_log (lead_id, recipients, ok, message, created_at) VALUES (?, ?, ?, ?, ?)', [$leadId, implode(', ', $to), $ok ? 1 : 0, $msg, now()]);
 }

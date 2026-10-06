@@ -36,6 +36,42 @@ function public_cors(array $methods = ['GET', 'POST', 'OPTIONS']): void
 }
 
 /** Salva um currículo enviado pelo formulário. Retorna caminho relativo ao private_dir ou lança Exception. */
+/** Anexo comercial (planilha de rotas, escopo de BID…): PDF, XLSX, XLS ou CSV, até 10 MB. */
+function save_commercial_attachment(array $file): string
+{
+    if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+        throw new RuntimeException('Falha no envio do arquivo. Tente novamente ou envie depois por e-mail.');
+    }
+    if (($file['size'] ?? 0) > 10 * 1024 * 1024) {
+        throw new RuntimeException('O anexo deve ter no máximo 10 MB.');
+    }
+    $ext = strtolower(pathinfo((string) $file['name'], PATHINFO_EXTENSION));
+    $allowed = [
+        'pdf'  => ['application/pdf'],
+        'xlsx' => ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip', 'application/octet-stream'],
+        'xls'  => ['application/vnd.ms-excel', 'application/msexcel', 'application/x-ole-storage', 'application/CDFV2', 'application/octet-stream'],
+        'csv'  => ['text/csv', 'text/plain', 'application/csv', 'application/vnd.ms-excel', 'text/x-csv', 'application/octet-stream'],
+    ];
+    if (!isset($allowed[$ext])) {
+        throw new RuntimeException('Formato não aceito. Envie PDF, XLSX, XLS ou CSV.');
+    }
+    $mime = class_exists('finfo') ? ((new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']) ?: '') : '';
+    if ($mime !== '' && !in_array($mime, $allowed[$ext], true)) {
+        throw new RuntimeException('O arquivo enviado não parece ser um ' . strtoupper($ext) . ' válido.');
+    }
+    $private = rtrim((string) cfg('private_dir'), '/\\');
+    $dir = $private . '/anexos/' . date('Y-m');
+    if (!is_dir($dir) && !@mkdir($dir, 0755, true)) {
+        throw new RuntimeException('Não foi possível salvar o arquivo.');
+    }
+    protect_dir($private);
+    $name = bin2hex(random_bytes(12)) . '.' . $ext;
+    if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) {
+        throw new RuntimeException('Não foi possível salvar o arquivo.');
+    }
+    return 'anexos/' . date('Y-m') . '/' . $name;
+}
+
 function save_resume(array $file): string
 {
     if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {

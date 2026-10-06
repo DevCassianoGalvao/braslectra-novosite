@@ -11,7 +11,8 @@
 - Colaboradores: mais de 250.
 - Sedes: Macaé (RJ) — R. Antenor Maciel de Azevedo, 284, Sol y Mar, CEP 27940-530; Rio de Janeiro (RJ) — R. Bulhões Marcial, 973, Vigário Geral, CEP 21241-369.
 - Bases de apoio: Itaguaí, Niterói, Cabo Frio e Campos dos Goytacazes (RJ) e Vitória (ES).
-- Serviços: transporte executivo (inclusive operações onshore e offshore), fretamento contínuo de colaboradores, turismo e excursões, transporte rodoviário em parceria com a Buser.
+- Serviços (4 segmentos): Executivo (Call Out) — transporte executivo sob demanda para empresas, incluindo traslados, receptivos, agendas corporativas, trocas de turma e operações offshore; Fretamento — transporte recorrente por rotas e turnos com foco industrial, recebendo também projetos de condomínios, escolas e faculdades para avaliação; Turismo — transporte para viagens em grupo, excursões, passeios e eventos; Rodoviário — viagens em parceria com a Buser (consulta e reserva no site da Buser).
+- Como contratar: formulários por segmento no site (sem preço automático; o comercial analisa e envia a proposta), WhatsApp ou solicitação de reunião por e-mail. Executivo e Fretamento aceitam planilhas (PDF, XLSX, XLS, CSV).
 - Frota própria: carros executivos (Toyota Corolla XEi, VW Virtus TSI, Toyota Hilux CD 4x4, Hilux SW4 SRX, VW Tiguan R-Line), carros híbridos e 100% elétricos (BYD Dolphin), vans de 15 a 17 lugares (Mercedes-Benz Sprinter 416, Renault Master Minibus, Ford Transit 460), micro-ônibus de 26 a 30 lugares (Volare Fly 9, Fly 10, W9 e Marcopolo Senior) e ônibus executivos de 45 a 46 lugares (Mascarello Elo, Marcopolo Ideale, Busscar El 340, Marcopolo Viaggio R, Comil Campione R e Irizar i6 370).
 - Diferenciais: não terceiriza o serviço (frota e motoristas próprios), frota caracterizada, veículos rastreados com acompanhamento em tempo real pelo cliente, equipe de logística 24 horas.
 - Sustentabilidade: participa do Projeto de Logística Sustentável, com compensação de emissões de CO₂ reconhecida pelo selo CO₂ Neutro; opera carros híbridos e elétricos.
@@ -27,10 +28,10 @@
 
 ## Serviços
 
-- [Serviços](https://www.braslectra.com.br/servicos): Resumo dos 4 serviços: executivo, fretamento, turismo e rodoviário.
-- [Transporte executivo](https://www.braslectra.com.br/servicos-executivo): Serviço de transporte executivo corporativo, com formulário de solicitação de proposta.
-- [Fretamento](https://www.braslectra.com.br/servicos-fretamento): Fretamento contínuo de colaboradores (substitui o vale-transporte), com formulário de solicitação.
-- [Turismo](https://www.braslectra.com.br/servicos-turismo): Transporte para turismo e excursões, com formulário de orçamento (origem, destino, datas, passageiros).
+- [Serviços](https://www.braslectra.com.br/servicos): Visão geral dos 4 segmentos (Executivo/Call Out, Fretamento, Rodoviário, Turismo), escolha por necessidade, estrutura da Braslectra e formulário comercial por segmento.
+- [Executivo (Call Out)](https://www.braslectra.com.br/servicos-executivo): Executivo (Call Out): transporte terrestre sob demanda para empresas, incluindo trocas de turma e operações offshore; aplicações, veículos, como solicitar (BID, rotas recorrentes, cobrança) e formulário comercial.
+- [Fretamento](https://www.braslectra.com.br/servicos-fretamento): Fretamento com foco industrial (rotas, turnos e escalas) e consultas para condomínios, escolas e faculdades; como a operação é planejada e formulário por público.
+- [Turismo](https://www.braslectra.com.br/servicos-turismo): Transporte para turismo e viagens em grupo; aplicações, o que informar e formulário de cotação (ida/ida e volta, datas, passageiros, veículo à disposição).
 - [Rodoviário](https://www.braslectra.com.br/servicos-rodoviario): Transporte rodoviário em parceria com a Buser e tipos de assento (executiva, semi-leito, leito).
 
 ## Frota
@@ -52,7 +53,7 @@
 
 ### Quais serviços o Grupo Braslectra oferece?
 
-Transporte executivo (traslados corporativos, aeroportos, hotéis e operações onshore e offshore), fretamento contínuo de colaboradores, transporte para turismo e excursões e transporte rodoviário em parceria com a Buser.
+Quatro serviços: Executivo (Call Out), transporte executivo sob demanda para empresas, incluindo trocas de turma e operações offshore; Fretamento, transporte recorrente com foco industrial (e projetos para condomínios, escolas e faculdades sob avaliação); Turismo, transporte para viagens em grupo, excursões e eventos; e Rodoviário, em parceria com a Buser.
 
 ### Em quais cidades o Grupo Braslectra atende?
 

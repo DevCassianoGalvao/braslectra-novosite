@@ -37,8 +37,10 @@ $json = json_encode($cfg, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON
       var k;
       if ((k = el.getAttribute('data-site')) && S[k] != null && el.textContent !== S[k]) el.textContent = S[k];
       if ((k = el.getAttribute('data-site-tel')) && S[k]) { el.setAttribute('href', 'tel:+' + (digits(S[k]).length <= 11 ? '55' : '') + digits(S[k])); if (!el.hasAttribute('data-site') && !el.children.length && !el.textContent.trim()) el.textContent = S[k]; }
-      if ((k = el.getAttribute('data-site-mail')) && S[k]) { el.setAttribute('href', 'mailto:' + S[k]); if (!el.hasAttribute('data-site') && !el.children.length && !el.textContent.trim()) el.textContent = S[k]; }
-      if ((k = el.getAttribute('data-site-wa')) && S[k]) el.setAttribute('href', waLink(S[k]));
+      // preserva "?subject=…" / "?text=…" que já estiverem no link
+      var qs = (el.getAttribute('href') || '').split('?')[1]; qs = qs ? '?' + qs : '';
+      if ((k = el.getAttribute('data-site-mail')) && S[k]) { el.setAttribute('href', 'mailto:' + S[k] + qs); if (!el.hasAttribute('data-site') && !el.children.length && !el.textContent.trim()) el.textContent = S[k]; }
+      if ((k = el.getAttribute('data-site-wa')) && S[k]) el.setAttribute('href', waLink(S[k]) + qs);
       if ((k = el.getAttribute('data-site-href')) && S[k]) el.setAttribute('href', S[k]);
     });
   }
@@ -170,7 +172,7 @@ $json = json_encode($cfg, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON
       body = new FormData();
       Object.keys(data).forEach(function (k) { body.append(k, data[k]); });
       Object.keys(extra).forEach(function (k) { body.append(k, extra[k]); });
-      body.append('curriculo', file, file.name);
+      body.append(source === 'trabalhe-conosco' ? 'curriculo' : 'anexo', file, file.name);
     } else {
       body = JSON.stringify(Object.assign({}, data, extra)); headers['Content-Type'] = 'application/json';
     }

@@ -15,8 +15,8 @@ if (!$file || strpos($file, $base) !== 0 || !is_file($file)) {
     exit('Arquivo não encontrado.');
 }
 $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-$types = ['pdf' => 'application/pdf', 'doc' => 'application/msword', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'odt' => 'application/vnd.oasis.opendocument.text', 'rtf' => 'application/rtf'];
-$nice = 'curriculo-' . slugify($lead['name'] ?: 'candidato') . '-' . $lead['id'] . '.' . $ext;
+$types = ['xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xls' => 'application/vnd.ms-excel', 'csv' => 'text/csv', 'pdf' => 'application/pdf', 'doc' => 'application/msword', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'odt' => 'application/vnd.oasis.opendocument.text', 'rtf' => 'application/rtf'];
+$nice = (str_starts_with((string) $lead['attachment'], 'anexos/') ? 'anexo-' . slugify($lead['company'] ?: ($lead['name'] ?: 'lead')) : 'curriculo-' . slugify($lead['name'] ?: 'candidato')) . '-' . $lead['id'] . '.' . $ext;
 header('X-Content-Type-Options: nosniff');
 header('Content-Type: ' . ($types[$ext] ?? 'application/octet-stream'));
 header('Content-Disposition: attachment; filename="' . $nice . '"');

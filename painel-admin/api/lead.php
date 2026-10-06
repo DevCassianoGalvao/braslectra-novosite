@@ -87,12 +87,12 @@ $data = $extraFromSource;
 $n = 0;
 foreach ($in as $k => $v) {
     $k = (string) $k;
-    if (in_array(strtolower($k), $reserved, true) || stripos($k, 'utm_') === 0 || $n >= 30) {
+    if (in_array(strtolower($k), $reserved, true) || stripos($k, 'utm_') === 0 || $n >= 120) {
         continue;
     }
     // PHP troca espaços por "_" em nomes de campo de formulário; desfaz para exibir bonito
-    $label = mb_substr(trim(preg_replace('/[^\p{L}\p{N} \-\/\.\?]+/u', '', str_replace('_', ' ', $k)) ?? ''), 0, 60);
-    $val = $str($v, 1000);
+    $label = mb_substr(trim(preg_replace('/[^\p{L}\p{N} \-\/\.\?\(\)·]+/u', '', str_replace('_', ' ', $k)) ?? ''), 0, 80);
+    $val = $str($v, 3000);
     if ($label === '' || $val === '') {
         continue;
     }
@@ -114,6 +114,15 @@ $attachment = null;
 if ($source === 'trabalhe-conosco' && !empty($_FILES['curriculo']) && ($_FILES['curriculo']['error'] ?? 4) !== UPLOAD_ERR_NO_FILE) {
     try {
         $attachment = save_resume($_FILES['curriculo']);
+    } catch (Throwable $e) {
+        json_out(['ok' => false, 'error' => $e->getMessage()], 422);
+    }
+}
+// Anexo comercial (planilhas de rotas, escopo de BID) nos formulários de Executivo e Fretamento
+if ($source !== 'trabalhe-conosco' && !empty($_FILES['anexo']) && ($_FILES['anexo']['error'] ?? 4) !== UPLOAD_ERR_NO_FILE) {
+    try {
+        $attachment = save_commercial_attachment($_FILES['anexo']);
+        $data['Anexo'] = $str($_FILES['anexo']['name'] ?? 'arquivo', 160);
     } catch (Throwable $e) {
         json_out(['ok' => false, 'error' => $e->getMessage()], 422);
     }
