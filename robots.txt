@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /painel-admin/
+
+Sitemap: https://braslectra.com.br/sitemap.xml

@@ -22,3 +22,12 @@ Site + painel juntos (precisa de PHP 8): `php -S 127.0.0.1:8000 -t .` e abra htt
 4. Abra `/novosite/painel-admin/` → cria o administrador. Detalhes em `painel-admin/README.md`.
 
 O site funciona sem o painel, mas formulários, blog dinâmico, dados de contato e rastreamento dependem dele.
+
+## SEO e endereços (`.htaccess`)
+- URLs amigáveis: `/sobre`, `/frota`, `/frota-vans`, `/servicos-turismo`, `/blog-post?slug=…` etc. (os arquivos `.dc.html` continuam os mesmos; quem acessa o `.dc.html` é redirecionado com 301 para a URL amigável).
+- Redirecionamentos 301 das URLs do WordPress antigo (páginas, landing pages de SEO local e os 20 artigos do blog) para as páginas novas — preserva o ranqueamento no Google.
+- Funciona na raiz do domínio e em subpasta (`/novosite/`). Testado em Apache 2.4.
+- Cada página tem título, descrição, canonical e Open Graph; a Home tem dados estruturados (JSON-LD) da empresa.
+- `sitemap.xml` e `robots.txt` na raiz. Depois de publicar no domínio final, envie `https://braslectra.com.br/sitemap.xml` no Google Search Console.
+- Para ativar HTTPS obrigatório, descomente as 2 linhas indicadas no `.htaccess`.
+- Se algo der errado com os endereços, renomeie `.htaccess` para `.htaccess-off` — o site volta a funcionar pelos nomes `.dc.html`.

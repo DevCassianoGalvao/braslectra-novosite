@@ -134,7 +134,14 @@ $json = json_encode($cfg, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON
         if (lone) data[lab] = 'Sim'; else { var g = groupOf(el); (groups[g] = groups[g] || []).push(lab); }
         return;
       }
+      if (el.type === 'radio') {
+        if (el.checked) data[groupOf(el)] = labelOf(el);
+        return;
+      }
       var val = String(el.value || '').trim(); if (!val) return;
+      // datas no formato brasileiro: 2026-10-10T08:30 -> 10/10/2026 08:30
+      var dm = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}:\d{2}))?$/.exec(val);
+      if (dm && (el.type === 'date' || el.type === 'datetime-local')) val = dm[3] + '/' + dm[2] + '/' + dm[1] + (dm[4] ? ' ' + dm[4] : '');
       var name = el.name || labelOf(el); if (!name) return;
       var std = null; for (var i = 0; i < MAP.length; i++) if (MAP[i][0].test(name)) { std = MAP[i][1]; break; }
       if (std && !(std in data)) data[std] = val; else data[name] = val;

@@ -1,0 +1,150 @@
+# ============================================================
+#  Grupo Braslectra — URLs amigáveis, redirecionamentos e cache
+#  Funciona na raiz do domínio ou numa subpasta (ex.: /novosite/).
+# ============================================================
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+AddType image/webp .webp
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# BASE = pasta onde o site está (vazio na raiz)
+RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+RewriteRule ^(.*)$ - [E=BASE:%1]
+
+# HTTPS (descomente quando o SSL estiver ativo)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- 1) URLs do site antigo (WordPress) -> páginas novas (301) ---
+RewriteRule ^sobre-o-grupo-braslectra-4/sobre-o-grupo-braslectra/?$ %{ENV:BASE}sobre [R=301,L,NC]
+RewriteRule ^sobre-o-grupo-braslectra-4/sobre-o-grupo-braslectra-4/?$ %{ENV:BASE}servicos [R=301,L,NC]
+RewriteRule ^sobre-o-grupo-braslectra-4/?$ %{ENV:BASE} [R=301,L,NC]
+RewriteRule ^home_form/?$ %{ENV:BASE} [R=301,L,NC]
+RewriteRule ^home-teste/?$ %{ENV:BASE} [R=301,L,NC]
+RewriteRule ^home-nova-teste-02-08-2025/?$ %{ENV:BASE} [R=301,L,NC]
+RewriteRule ^frota/carros/?$ %{ENV:BASE}frota-carros [R=301,L,NC]
+RewriteRule ^frota/aluguel-van/?$ %{ENV:BASE}frota-vans [R=301,L,NC]
+RewriteRule ^frota/aluguel-van-(rj|macae)/?$ %{ENV:BASE}frota-vans [R=301,L,NC]
+RewriteRule ^frota/aluguel-vans-vitoria-es/?$ %{ENV:BASE}frota-vans [R=301,L,NC]
+RewriteRule ^frota/aluguel-van-micro-onibus-niteroi/?$ %{ENV:BASE}frota-micro-onibus [R=301,L,NC]
+RewriteRule ^frota/aluguel-micro-onibus(-[a-z-]+)?/?$ %{ENV:BASE}frota-micro-onibus [R=301,L,NC]
+RewriteRule ^frota/aluguel-onibus(-[a-z-]+)?/?$ %{ENV:BASE}frota-onibus [R=301,L,NC]
+RewriteRule ^frota/fretamento-onibus-[a-z-]+/?$ %{ENV:BASE}servicos-fretamento [R=301,L,NC]
+RewriteRule ^contato/blog/?$ %{ENV:BASE}trabalhe-conosco [R=301,L,NC]
+RewriteRule ^transporte-executivo-[a-z-]+/?$ %{ENV:BASE}servicos-executivo [R=301,L,NC]
+RewriteRule ^transfer-[a-z-]+/?$ %{ENV:BASE}servicos-executivo [R=301,L,NC]
+RewriteRule ^sustentabilidade-no-transporte-corporativo/?$ %{ENV:BASE}sustentabilidade [R=301,L,NC]
+RewriteRule ^(category|tag|author)/.*/?$ %{ENV:BASE}blog [R=301,L,NC]
+RewriteRule ^feed/?$ %{ENV:BASE}blog [R=301,L,NC]
+# artigos do blog antigo (/slug/) -> /blog-post?slug=slug
+RewriteRule ^frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras/?$ %{ENV:BASE}blog-post?slug=frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras [R=301,L,NC]
+RewriteRule ^renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa/?$ %{ENV:BASE}blog-post?slug=renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa [R=301,L,NC]
+RewriteRule ^seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra/?$ %{ENV:BASE}blog-post?slug=seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra [R=301,L,NC]
+RewriteRule ^como-a-gestao-de-transporte-impacta-a-produtividade-e-a-imagem-corporativa/?$ %{ENV:BASE}blog-post?slug=como-a-gestao-de-transporte-impacta-a-produtividade-e-a-imagem-corporativa [R=301,L,NC]
+RewriteRule ^por-que-grandes-empresas-estao-terceirizando-o-transporte-corporativo-com-parceiros-estrategicos/?$ %{ENV:BASE}blog-post?slug=por-que-grandes-empresas-estao-terceirizando-o-transporte-corporativo-com-parceiros-estrategicos [R=301,L,NC]
+RewriteRule ^fretamento-de-van/?$ %{ENV:BASE}blog-post?slug=fretamento-de-van [R=301,L,NC]
+RewriteRule ^o-que-e-transporte-executivo/?$ %{ENV:BASE}blog-post?slug=o-que-e-transporte-executivo [R=301,L,NC]
+RewriteRule ^fretamento-de-onibus-para-excursao/?$ %{ENV:BASE}blog-post?slug=fretamento-de-onibus-para-excursao [R=301,L,NC]
+RewriteRule ^aluguel-de-onibus-para-excursao/?$ %{ENV:BASE}blog-post?slug=aluguel-de-onibus-para-excursao [R=301,L,NC]
+RewriteRule ^otimizacao-de-rotas/?$ %{ENV:BASE}blog-post?slug=otimizacao-de-rotas [R=301,L,NC]
+RewriteRule ^braslectra-micro-onibus-volare-fly10-semileito/?$ %{ENV:BASE}blog-post?slug=braslectra-micro-onibus-volare-fly10-semileito [R=301,L,NC]
+RewriteRule ^braslectra-novos-onibus-elo330-executivo/?$ %{ENV:BASE}blog-post?slug=braslectra-novos-onibus-elo330-executivo [R=301,L,NC]
+RewriteRule ^aquisicao-de-04-novos-onibus-ideale-800/?$ %{ENV:BASE}blog-post?slug=aquisicao-de-04-novos-onibus-ideale-800 [R=301,L,NC]
+RewriteRule ^aquisicao-de-02-novos-micro-onibus-fly-9/?$ %{ENV:BASE}blog-post?slug=aquisicao-de-02-novos-micro-onibus-fly-9 [R=301,L,NC]
+RewriteRule ^chegou-novidade/?$ %{ENV:BASE}blog-post?slug=chegou-novidade [R=301,L,NC]
+RewriteRule ^renovacao-de-frota/?$ %{ENV:BASE}blog-post?slug=renovacao-de-frota [R=301,L,NC]
+RewriteRule ^escolha-viajar-com-a-buser-e-o-grupo-braslectra/?$ %{ENV:BASE}blog-post?slug=escolha-viajar-com-a-buser-e-o-grupo-braslectra [R=301,L,NC]
+RewriteRule ^parceria-buser/?$ %{ENV:BASE}blog-post?slug=parceria-buser [R=301,L,NC]
+RewriteRule ^poltronas/?$ %{ENV:BASE}blog-post?slug=poltronas [R=301,L,NC]
+RewriteRule ^a-jornada-de-renovacao-do-grupo-braslectra-no-mundo-do-transporte-executivo/?$ %{ENV:BASE}blog-post?slug=a-jornada-de-renovacao-do-grupo-braslectra-no-mundo-do-transporte-executivo [R=301,L,NC]
+
+# --- 2) Endereços antigos dos arquivos (.dc.html) -> URL amigável (301) ---
+#     (só quando o visitante pediu o arquivo; os rewrites internos abaixo não entram em loop)
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Braslectra%20Home\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE} [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Sobre\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}sobre [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}frota [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Carros\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}frota-carros [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Vans\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}frota-vans [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Micro\-Onibus\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}frota-micro-onibus [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Onibus\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}frota-onibus [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}servicos [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Executivo\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}servicos-executivo [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Fretamento\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}servicos-fretamento [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Turismo\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}servicos-turismo [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Rodoviario\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}servicos-rodoviario [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Sustentabilidade\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}sustentabilidade [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Treinamentos\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}treinamentos [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Blog\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}blog [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Blog\-Post\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}blog-post [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Contato\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}contato [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Trabalhe\-Conosco\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}trabalhe-conosco [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Politica\-de\-Privacidade\.dc\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE}politica-de-privacidade [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?index\.html[\s?] [NC]
+RewriteRule ^ %{ENV:BASE} [R=301,L]
+
+# --- 3) Barra no final -> sem barra (as páginas usam caminhos relativos) ---
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ %{ENV:BASE}$1 [R=301,L]
+
+# --- 4) URL amigável -> arquivo (interno, sem redirecionar) ---
+RewriteRule ^$ Braslectra\ Home.dc.html [L]
+RewriteRule ^sobre$ Sobre.dc.html [L,NC]
+RewriteRule ^frota$ Frota.dc.html [L,NC]
+RewriteRule ^frota-carros$ Frota-Carros.dc.html [L,NC]
+RewriteRule ^frota-vans$ Frota-Vans.dc.html [L,NC]
+RewriteRule ^frota-micro-onibus$ Frota-Micro-Onibus.dc.html [L,NC]
+RewriteRule ^frota-onibus$ Frota-Onibus.dc.html [L,NC]
+RewriteRule ^servicos$ Servicos.dc.html [L,NC]
+RewriteRule ^servicos-executivo$ Servicos-Executivo.dc.html [L,NC]
+RewriteRule ^servicos-fretamento$ Servicos-Fretamento.dc.html [L,NC]
+RewriteRule ^servicos-turismo$ Servicos-Turismo.dc.html [L,NC]
+RewriteRule ^servicos-rodoviario$ Servicos-Rodoviario.dc.html [L,NC]
+RewriteRule ^sustentabilidade$ Sustentabilidade.dc.html [L,NC]
+RewriteRule ^treinamentos$ Treinamentos.dc.html [L,NC]
+RewriteRule ^blog$ Blog.dc.html [L,NC]
+RewriteRule ^blog-post$ Blog-Post.dc.html [L,NC]
+RewriteRule ^contato$ Contato.dc.html [L,NC]
+RewriteRule ^trabalhe-conosco$ Trabalhe-Conosco.dc.html [L,NC]
+RewriteRule ^politica-de-privacidade$ Politica-de-Privacidade.dc.html [L,NC]
+</IfModule>
+
+
+# Cache de arquivos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+</IfModule>
+<FilesMatch "\.(md|json)$">
+  Require all denied
+</FilesMatch>

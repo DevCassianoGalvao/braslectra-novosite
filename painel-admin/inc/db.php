@@ -208,7 +208,7 @@ function settings_defaults(): array
         'social_instagram'  => 'https://www.instagram.com/grupobraslectra/',
         'social_facebook'   => 'https://www.facebook.com/grupobraslectra',
         'social_linkedin'   => 'https://www.linkedin.com/company/grupobraslectra/',
-        'footer_text'       => 'Transporte executivo de pessoas com segurança, conforto e pontualidade há mais de 25 anos.',
+        'footer_text'       => 'Transporte executivo de pessoas com segurança, conforto e pontualidade há 29 anos.',
         'stat_years'        => '29',
         'stat_employees'    => '250',
         'url_courses'       => 'https://treinamentos.braslectra.com.br/',

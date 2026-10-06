@@ -1,7 +1,7 @@
 <?php
 /**
  * API pública do blog (somente leitura).
- *   GET api/blog.php                 -> lista paginada  (?page=1&per=9&q=termo)
+ *   GET api/blog.php                 -> lista paginada  (?page=1&per=9&q=termo; &text=1 inclui o texto puro)
  *   GET api/blog.php?slug=meu-artigo -> artigo completo
  */
 require dirname(__DIR__) . '/inc/bootstrap.php';
@@ -10,7 +10,7 @@ require dirname(__DIR__) . '/inc/public_api.php';
 public_cors(['GET', 'OPTIONS']);
 header('Cache-Control: public, max-age=60');
 
-function post_public(array $p, bool $full): array
+function post_public(array $p, bool $full, bool $text = false): array
 {
     $img = (string) $p['image'];
     $out = [
@@ -26,6 +26,11 @@ function post_public(array $p, bool $full): array
     if ($full) {
         // imagens enviadas pelo painel são guardadas com caminho relativo; devolve absoluto p/ o site
         $out['content'] = preg_replace_callback('#(src|href)="(uploads/[^"]+)"#', static fn ($m) => $m[1] . '="' . abs_url($m[2]) . '"', (string) $p['content']);
+    }
+    if ($text) {
+        // texto puro do artigo, para a busca do site encontrar palavras do corpo
+        $plain = html_entity_decode(strip_tags((string) $p['content']), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $out['text'] = mb_substr(trim(preg_replace('/\s+/u', ' ', $plain)), 0, 20000);
     }
     return $out;
 }
@@ -47,11 +52,11 @@ $where = "status = 'published' AND (published_at IS NULL OR published_at <= ?)";
 $params = [now()];
 $term = trim((string) ($_GET['q'] ?? ''));
 if ($term !== '') {
-    $where .= ' AND (title LIKE ? OR excerpt LIKE ?)';
-    $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], $term) . '%';
-    array_push($params, $like, $like);
-    $where = str_replace('(title LIKE ? OR excerpt LIKE ?)', "(title LIKE ? ESCAPE '\\' OR excerpt LIKE ? ESCAPE '\\')", $where);
+    $where .= " AND (title LIKE ? ESCAPE '\\' OR excerpt LIKE ? ESCAPE '\\' OR content LIKE ? ESCAPE '\\')";
+    $like = '%' . str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $term) . '%';
+    array_push($params, $like, $like, $like);
 }
+$withText = ($_GET['text'] ?? '') === '1';
 $total = (int) scalar("SELECT COUNT(*) FROM posts WHERE $where", $params);
 $pg = pagination($total, $page, $per);
 $list = rows("SELECT * FROM posts WHERE $where ORDER BY published_at DESC, id DESC LIMIT $per OFFSET {$pg['offset']}", $params);
@@ -60,5 +65,5 @@ json_out([
     'total' => $total,
     'page'  => $pg['page'],
     'pages' => $pg['pages'],
-    'posts' => array_map(static fn ($p) => post_public($p, false), $list),
+    'posts' => array_map(static fn ($p) => post_public($p, false, $withText), $list),
 ]);
