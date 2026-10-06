@@ -17,9 +17,15 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
 RewriteRule ^(.*)$ - [E=BASE:%1]
 
-# --- 0) Domínio oficial: https://www.braslectra.com.br (só age nesse domínio; ambientes de teste não são afetados) ---
+# --- 0) Domínio oficial: https://www.braslectra.com.br ---
+#     Só age quando o site novo está na RAIZ do domínio (llms-full.php existe no DOCUMENT_ROOT).
+#     Numa subpasta de teste (ex.: /novosite/) não faz nada.
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{DOCUMENT_ROOT}/llms-full.php -f
 RewriteCond %{HTTP_HOST} ^braslectra\.com\.br$ [NC]
 RewriteRule ^(.*)$ https://www.braslectra.com.br/$1 [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{DOCUMENT_ROOT}/llms-full.php -f
 RewriteCond %{HTTP_HOST} ^www\.braslectra\.com\.br$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !=https
