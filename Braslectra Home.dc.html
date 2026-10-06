@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  @keyframes braslectraSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  body { margin: 0; background: #FBF8F3; }
+  * { box-sizing: border-box; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="./braslectra-config.js"></script>
+</helmet>
+
+<div ref="{{ setRootEl }}" style="font-family:Manrope, sans-serif;color:#2A2622;background:#FBF8F3;overflow-x:hidden;position:relative">
+
+<header style="position:sticky;top:0;z-index:100;background:rgba(251,248,243,0.96);backdrop-filter:blur(10px);border-bottom:1px solid #ECE3D2;box-shadow:{{ headerShadow }};transition:padding .3s ease, box-shadow .3s ease">
+  <div style="max-width:1280px;margin:0 auto;padding:{{ headerPadding }};display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .3s ease" data-container="">
+    <a href="#hero" style="display:flex;align-items:center;flex:0 0 auto" aria-label="Grupo Braslectra">
+      <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:38px;display:block"/>
+    </a>
+
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:36px">
+        <a href="#hero" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px" style-hover="color:#8A5B0A">Início</a>
+        <div style="position:relative;display:flex" onMouseEnter="{{ openSobreMenu }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Sobre.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Sobre</a>
+          <sc-if value="{{ sobreMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
+              <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:200px;display:flex;flex-direction:column;gap:2px">
+                <a href="Sustentabilidade.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="position:relative;display:flex" onMouseEnter="{{ openFrotaMenu }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Frota.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Frota</a>
+          <sc-if value="{{ frotaMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
+              <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:190px;display:flex;flex-direction:column;gap:2px">
+                <a href="Frota-Carros.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Carros</a>
+                <a href="Frota-Vans.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Vans</a>
+                <a href="Frota-Micro-Onibus.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Micro-Ônibus</a>
+                <a href="Frota-Onibus.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Ônibus</a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="position:relative;display:flex" onMouseEnter="{{ openServicosMenu }}" onMouseLeave="{{ closeMenu }}">
+          <a href="Servicos.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Serviços</a>
+          <sc-if value="{{ servicosMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
+              <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:190px;display:flex;flex-direction:column;gap:2px">
+                <a href="Servicos-Executivo.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Executivo</a>
+                <a href="Servicos-Fretamento.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Fretamento</a>
+                <a href="Servicos-Turismo.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Turismo</a>
+                <a href="Servicos-Rodoviario.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Rodoviário</a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <a href="Contato.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Contato</a>
+        <a href="Treinamentos.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Treinamentos</a>
+        <a href="Blog.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Blog</a>
+      </nav>
+      <a href="Contato.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;text-decoration:none;box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 6px 16px rgba(200,133,15,.3);transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px) scale(1.03);box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 14px 28px rgba(200,133,15,.5)">Orçamento</a>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMobileMenu }}" aria-label="Abrir menu" style="width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+    </sc-if>
+  </div>
+</header>
+
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:200;background:#FBF8F3;display:flex;flex-direction:column;padding:22px clamp(20px,6vw,40px)">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:34px"/>
+      <button onClick="{{ closeMobileMenu }}" aria-label="Fechar menu" style="width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:6px;margin-top:40px">
+      <a href="#hero" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Início</a>
+      <a href="Sobre.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Sobre</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
+        <a href="Sustentabilidade.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Sustentabilidade</a>
+      </div>
+      <a href="Frota.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Frota</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
+        <a href="Frota-Carros.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Carros</a>
+        <a href="Frota-Vans.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Vans</a>
+        <a href="Frota-Micro-Onibus.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Micro-Ônibus</a>
+        <a href="Frota-Onibus.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Ônibus</a>
+      </div>
+      <a href="Servicos.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Serviços</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
+        <a href="Servicos-Executivo.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Executivo</a>
+        <a href="Servicos-Fretamento.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Fretamento</a>
+        <a href="Servicos-Turismo.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Turismo</a>
+        <a href="Servicos-Rodoviario.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Rodoviário</a>
+      </div>
+      <a href="Contato.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Contato</a>
+      <a href="Treinamentos.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Treinamentos</a>
+      <a href="Blog.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Blog</a>
+    </nav>
+    <a href="Contato.dc.html" onClick="{{ closeMobileMenu }}" style="margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:16px;padding:16px 24px;border-radius:999px;text-decoration:none;box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 8px 18px rgba(200,133,15,.3);transition:transform .2s ease" style-hover="transform:scale(1.02)">Solicitar orçamento</a>
+  </div>
+</sc-if>
+
+<main>
+
+<section id="hero" style="position:relative;min-height:clamp(560px,86vh,760px);display:flex;align-items:flex-end;padding:0 0 clamp(48px,7vw,96px)">
+  <div style="position:absolute;inset:0;z-index:0">
+    <image-slot id="hero-bg" shape="rect" src="midia/home/hero-frota.jpg" placeholder="Foto: veículo/frota Braslectra em destaque" fit="cover" style="width:100%;height:100%"></image-slot>
+    <div style="position:absolute;inset:0;background:{{ heroOverlayGradient }};pointer-events:none"></div>
+    <div style="position:absolute;top:-8%;right:-4%;width:440px;height:440px;background:radial-gradient(circle, rgba(232,178,79,0.32) 0%, rgba(232,178,79,0) 68%);border-radius:50%;pointer-events:none"></div>
+    <div style="position:absolute;bottom:-14%;left:-6%;width:340px;height:340px;background:radial-gradient(circle, rgba(200,133,15,0.22) 0%, rgba(200,133,15,0) 70%);border-radius:50%;pointer-events:none"></div>
+  </div>
+  <div style="position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,48px);width:100%;text-align:center;display:flex;flex-direction:column;align-items:center" data-reveal-group="">
+    <span data-reveal-item="" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:999px;backdrop-filter:blur(6px);transition:background .25s ease, border-color .25s ease" style-hover="background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.55)">HÁ MAIS DE 25 ANOS</span>
+    <h1 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#FFFFFF;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.08;letter-spacing:-0.01em;margin:20px 0 0;text-transform:uppercase">TRANSPORTANDO PESSOAS COM SEGURANÇA!</h1>
+    
+  </div>
+</section>
+
+<section style="padding:clamp(64px,9vw,120px) 0;background:#FBF8F3">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+    <div data-reveal-group="" style="flex:1 1 460px;min-width:0">
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.75rem);line-height:1.15;letter-spacing:-0.01em;margin:0">Conheça o Grupo Braslectra</h2>
+      <p data-reveal-item="" style="font-family:Manrope,sans-serif;font-size:16.5px;line-height:1.7;color:#4A443C;margin:20px 0 0;max-width:560px">O Grupo Braslectra, foi fundado em 1997, formado por empresas especializadas no setor de transporte executivo de passageiros com carros, vans, micro-ônibus e ônibus, oferecendo um atendimento personalizado e de alta qualidade, visando sempre a segurança dos nossos clientes.</p>
+      <div ref="{{ setCountersEl }}" data-reveal-item="" style="display:flex;flex-wrap:wrap;gap:18px;margin-top:36px">
+        <div style="flex:1 1 160px;background:#FFFFFF;border:1px solid #ECE3D2;border-radius:20px;padding:22px 20px;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(200,133,15,.15);border-color:#E3AE4F">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2rem,3.6vw,2.6rem);color:#8A5B0A;line-height:1">+{{ anosVal }}</div>
+          <div style="font-size:13.5px;color:#6B6459;font-weight:600;margin-top:6px">Anos de Experiência</div>
+        </div>
+        <div style="flex:1 1 160px;background:#FFFFFF;border:1px solid #ECE3D2;border-radius:20px;padding:22px 20px;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-4px);box-shadow:0 16px 32px rgba(200,133,15,.15);border-color:#E3AE4F">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(2rem,3.6vw,2.6rem);color:#8A5B0A;line-height:1">+{{ colabVal }}</div>
+          <div style="font-size:13.5px;color:#6B6459;font-weight:600;margin-top:6px">Colaboradores ativos</div>
+        </div>
+      </div>
+      <a data-reveal-item="" href="Sobre.dc.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:36px;background:transparent;color:#1E1B18;font-weight:700;font-size:15px;padding:15px 27px;border-radius:999px;border:1.5px solid #1E1B18;text-decoration:none;transition:all .25s ease" style-hover="background:#1E1B18;color:#FBF8F3">Saiba mais</a>
+    </div>
+    <div style="flex:1 1 420px;min-width:0">
+      <image-slot id="grupo-braslectra-photo" shape="rounded" radius="28" src="midia/sobre/logos-empresas-grupo.png" placeholder="Foto: equipe ou frota Braslectra" style="width:100%;height:clamp(240px,34vw,460px);max-height:380px"></image-slot>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(64px,9vw,120px) 0;background:#FBF8F3">
+  <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);text-align:center">
+    <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0">Confira nosso vídeo institucional!</h2>
+    <div data-reveal-item="" style="position:relative;max-width:920px;margin:40px auto 0">
+      <image-slot id="video-thumb" shape="rounded" radius="28" src="midia/servicos/turismo.png" placeholder="Thumbnail: vídeo institucional Braslectra" style="width:100%;height:clamp(280px,42vw,520px)"></image-slot>
+      <button aria-label="Reproduzir vídeo institucional" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:999px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 20px 40px rgba(0,0,0,.3);transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease" style-hover="transform:translate(-50%,-50%) scale(1.1);box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 24px 48px rgba(0,0,0,.35)">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#1E1B18" stroke="none"><path d="M8 5v14l11-7-11-7z"></path></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="frota" style="padding:clamp(64px,9vw,120px) 0;background:#FFFFFF">
+  <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0">Nossa frota de veículos</h2>
+      <a data-reveal-item="" href="Frota.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#1E1B18;font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:2px solid #C8850F;padding-bottom:4px">CONHEÇA NOSSA FROTA
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px">
+      <a data-reveal-item="" href="Frota-Carros.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FBF8F3;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:210px;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:16px 18px 6px"><img data-slot="fleet-carros" src="midia/frota/corolla-2.png" alt="carros da frota" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
+        <div style="padding:20px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Carros</div>
+      </a>
+      <a data-reveal-item="" href="Frota-Vans.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FBF8F3;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:210px;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:16px 18px 6px"><img data-slot="fleet-vans" src="midia/frota/transit-1.png" alt="vans da frota" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
+        <div style="padding:20px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Vans</div>
+      </a>
+      <a data-reveal-item="" href="Frota-Micro-Onibus.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FBF8F3;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:210px;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:16px 18px 6px"><img data-slot="fleet-micro" src="midia/frota/senior.png" alt="micro-ônibus da frota" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
+        <div style="padding:20px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Micro-Ônibus</div>
+      </a>
+      <a data-reveal-item="" href="Frota-Onibus.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FBF8F3;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:210px;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:16px 18px 6px"><img data-slot="fleet-onibus" src="midia/frota/mascarello.png" alt="ônibus da frota" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
+        <div style="padding:20px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Ônibus</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" style="padding:clamp(64px,9vw,120px) 0;background:#FBF8F3">
+  <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0">O que o Grupo Braslectra pode fazer por você</h2>
+      <a data-reveal-item="" href="Servicos.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#1E1B18;font-weight:700;font-size:14.5px;text-decoration:none;border-bottom:2px solid #C8850F;padding-bottom:4px">CONHEÇA NOSSOS SERVIÇOS
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px">
+      <a data-reveal-item="" href="Servicos-Executivo.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:180px"><image-slot id="serv-executivo" shape="rect" src="midia/home/servico-executivo.jpg" placeholder="Foto: transporte executivo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Executivo</div></div>
+      </a>
+      <a data-reveal-item="" href="Servicos-Turismo.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:180px"><image-slot id="serv-turismo" shape="rect" src="midia/home/servico-turismo.jpg" placeholder="Foto: turismo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Turismo</div></div>
+      </a>
+      <a data-reveal-item="" href="Servicos-Fretamento.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:180px"><image-slot id="serv-fretamento" shape="rect" src="midia/home/servico-fretamento.jpg" placeholder="Foto: fretamento" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Fretamento</div></div>
+      </a>
+      <a data-reveal-item="" href="Servicos-Rodoviario.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:180px"><image-slot id="serv-rodoviario" shape="rect" src="midia/home/servico-rodoviario.jpg" placeholder="Foto: rodoviário" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1E1B18">Rodoviário</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:clamp(64px,9vw,120px) 0;background:#FFFFFF">
+  <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0;text-align:center">Por que o Grupo Braslectra?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:28px;margin-top:48px;max-width:980px;margin-left:auto;margin-right:auto">
+      <div data-reveal-item="" onMouseEnter="{{ setDiffHover0 }}" onMouseLeave="{{ clearDiffHover }}" style="background:#FBF8F3;border-radius:28px;padding:clamp(32px,3.5vw,44px);border:1.5px solid {{ diffBorder0 }};transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(200,133,15,.16)">
+        <div style="width:64px;height:64px;border-radius:18px;background:{{ diffIconBg0 }};display:flex;align-items:center;justify-content:center;transition:background .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ diffIconStroke0 }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ diffIconTransform0 }};transition:transform .35s cubic-bezier(.34,1.56,.64,1)"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:21px;color:#1E1B18;margin-top:24px">Não terceirizamos o serviço</div>
+        <p style="font-size:15.5px;line-height:1.75;color:#5A5348;margin:12px 0 0;max-width:44ch">Trabalhamos com mão de obra e frota própria, com motoristas capacitados a bordo de uma frota moderna, constantemente revisada, visando um atendimento seguro e acertivo.</p>
+      </div>
+      <div data-reveal-item="" onMouseEnter="{{ setDiffHover1 }}" onMouseLeave="{{ clearDiffHover }}" style="background:#FBF8F3;border-radius:28px;padding:clamp(32px,3.5vw,44px);border:1.5px solid {{ diffBorder1 }};transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(200,133,15,.16)">
+        <div style="width:64px;height:64px;border-radius:18px;background:{{ diffIconBg1 }};display:flex;align-items:center;justify-content:center;transition:background .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ diffIconStroke1 }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ diffIconTransform1 }};transition:transform .35s cubic-bezier(.34,1.56,.64,1)"><circle cx="12" cy="12" r="8"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:21px;color:#1E1B18;margin-top:24px">Frota caracterizada</div>
+        <p style="font-size:15.5px;line-height:1.75;color:#5A5348;margin:12px 0 0;max-width:44ch">Toda a nossa frota tem identificação visual externa para evitar roubos e furtos dos nossos veículos com passageiros.</p>
+      </div>
+      <div data-reveal-item="" onMouseEnter="{{ setDiffHover2 }}" onMouseLeave="{{ clearDiffHover }}" style="background:#FBF8F3;border-radius:28px;padding:clamp(32px,3.5vw,44px);border:1.5px solid {{ diffBorder2 }};transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(200,133,15,.16)">
+        <div style="width:64px;height:64px;border-radius:18px;background:{{ diffIconBg2 }};display:flex;align-items:center;justify-content:center;transition:background .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ diffIconStroke2 }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ diffIconTransform2 }};transition:transform .35s cubic-bezier(.34,1.56,.64,1)"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:21px;color:#1E1B18;margin-top:24px">Atendimento de logística 24h</div>
+        <p style="font-size:15.5px;line-height:1.75;color:#5A5348;margin:12px 0 0;max-width:44ch">Nossa equipe de logística está 24 horas por dia a disposição para melhor lhe atender.</p>
+      </div>
+      <div data-reveal-item="" onMouseEnter="{{ setDiffHover3 }}" onMouseLeave="{{ clearDiffHover }}" style="background:#FBF8F3;border-radius:28px;padding:clamp(32px,3.5vw,44px);border:1.5px solid {{ diffBorder3 }};transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(200,133,15,.16)">
+        <div style="width:64px;height:64px;border-radius:18px;background:{{ diffIconBg3 }};display:flex;align-items:center;justify-content:center;transition:background .35s ease, transform .35s cubic-bezier(.34,1.56,.64,1)">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ diffIconStroke3 }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ diffIconTransform3 }};transition:transform .35s cubic-bezier(.34,1.56,.64,1)"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 1 1 18.5 10c0 5.3-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
+        </div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:21px;color:#1E1B18;margin-top:24px">Veículos rastreados</div>
+        <p style="font-size:15.5px;line-height:1.75;color:#5A5348;margin:12px 0 0;max-width:44ch">Contamos com um sistema de rastreamento e monitoramento de todos os veículos da operação, visando total segurança em nossos serviços. Disponibilizamos ao solicitante da viagem, acesso a plataforma de rastreamento para acompanharem em tempo real o andamento do serviço.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sustentabilidade" style="position:relative;overflow:hidden;padding:clamp(72px,10vw,128px) 0;background:linear-gradient(160deg,#173B2C 0%,#1F4D39 55%,#2F6E52 100%);color:#E4EFE8">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1.6px);background-size:26px 26px;pointer-events:none"></div>
+  <div style="position:absolute;left:-160px;bottom:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle, rgba(140,214,160,.22) 0%, rgba(140,214,160,0) 70%);pointer-events:none"></div>
+  <div data-reveal-group="" style="position:relative;max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center">
+    <div style="flex:1 1 480px;min-width:0">
+      <span data-reveal-item="" style="display:inline-flex;align-items:center;gap:8px;background:rgba(228,239,232,.12);border:1px solid rgba(228,239,232,.25);color:#CDE8D6;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19c8-1 14-7 14-15C11 5 5 11 5 19z"></path><path d="M5 19c2-4 5-7 9-9"></path></svg>
+        Neutralize: Frete Neutro
+      </span>
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#FFFFFF;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.15;letter-spacing:-0.01em;margin:20px 0 0">O Grupo Braslectra possui uma logística sustentável</h2>
+      <p data-reveal-item="" style="font-size:16.5px;line-height:1.75;color:rgba(228,239,232,.86);margin:20px 0 0;max-width:560px">Participamos de um programa de avaliação, mensuração e compensação das emissões de CO₂, com apoio a projetos de preservação ambiental e tecnologia limpa — certificados e auditados internacionalmente, com o selo de CO₂ neutro.</p>
+      <div data-reveal-item="" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;max-width:560px">
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(228,239,232,.16);border-radius:18px;padding:12px 10px 14px;text-align:center">
+          <img src="midia/sustentabilidade/co2-neutro-van.png" alt="Van com selo CO₂ neutro" style="width:100%;height:84px;object-fit:contain;display:block"/>
+          <div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-top:8px">CO₂ Neutro</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(228,239,232,.16);border-radius:18px;padding:12px 10px 14px;text-align:center">
+          <img src="midia/sustentabilidade/hibrida-corolla.png" alt="Corolla híbrido" style="width:100%;height:84px;object-fit:contain;display:block"/>
+          <div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-top:8px">Frota híbrida</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(228,239,232,.16);border-radius:18px;padding:12px 10px 14px;text-align:center">
+          <img src="midia/sustentabilidade/eletrica-byd.png" alt="BYD Dolphin elétrico" style="width:100%;height:84px;object-fit:contain;display:block"/>
+          <div style="font-weight:700;font-size:13.5px;color:#FFFFFF;margin-top:8px">100% elétrica</div>
+        </div>
+      </div>
+      <a data-reveal-item="" href="Sustentabilidade.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:32px;background:#E4EFE8;color:#173B2C;font-weight:700;font-size:15px;padding:16px 28px;border-radius:999px;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.25)">Conheça nossa sustentabilidade
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <div data-reveal-item="" style="flex:1 1 420px;min-width:0;position:relative;display:flex;justify-content:center">
+      <div style="position:absolute;width:86%;aspect-ratio:1;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle, rgba(228,239,232,.16) 0%, rgba(228,239,232,0) 68%)"></div>
+      <img src="midia/sustentabilidade/hero-virtus.png" alt="Frota sustentável Braslectra" style="position:relative;width:100%;max-width:520px;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(0,0,0,.28))"/>
+      <div style="position:absolute;right:4%;bottom:6%;background:#FFFFFF;color:#173B2C;border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 16px 32px rgba(0,0,0,.25)">
+        <div style="width:38px;height:38px;border-radius:12px;background:#2F6E52;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px">CO₂</div>
+        <div><div style="font-weight:800;font-size:14px">Selo CO₂ Neutro</div><div style="font-size:12px;color:#4A6B5A">Certificação internacional</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treinamentos" style="position:relative;overflow:hidden;padding:clamp(72px,10vw,128px) 0;background:linear-gradient(180deg,#FFFFFF 0%,#FBF6EC 100%)">
+  <div style="position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle, rgba(232,178,79,.18) 0%, rgba(232,178,79,0) 70%);pointer-events:none"></div>
+  <div data-reveal-group="" style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,88px);align-items:center">
+    <div data-reveal-item="" style="flex:0 1 380px;min-width:260px;margin:0 auto;position:relative">
+      <div style="position:absolute;inset:18px -18px -18px 18px;border-radius:200px 200px 28px 28px;border:1.5px solid #E3AE4F"></div>
+      <div style="position:relative;aspect-ratio:4/5;border-radius:200px 200px 28px 28px;overflow:hidden;box-shadow:0 30px 60px rgba(30,27,24,.18)">
+        <image-slot id="home-aristoteles-photo" shape="rect" src="midia/home/aristoteles.jpg" placeholder="Foto: Aristóteles" style="width:100%;height:100%"></image-slot>
+      </div>
+      <div style="position:absolute;left:-14px;bottom:28px;background:#1E1B18;color:#FBF8F3;border-radius:16px;padding:12px 18px;box-shadow:0 14px 30px rgba(30,27,24,.25)">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16px">Aristóteles</div>
+        <div style="font-size:12px;color:#C9C2B6;margin-top:2px">Filósofo grego · 384–322 a.C.</div>
+      </div>
+    </div>
+    <div style="flex:1 1 460px;min-width:0">
+      <span data-reveal-item="" style="display:inline-flex;align-items:center;gap:8px;background:#F6E8CC;color:#8A5B0A;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px">Treinamentos</span>
+      <svg data-reveal-item="" width="54" height="42" viewBox="0 0 54 42" fill="#E3AE4F" style="display:block;margin-top:26px"><path d="M0 42V25.2C0 10.6 7.6 2.2 22.8 0l2.1 6.3C16.6 8.4 12.6 12.8 12.3 19.5H22V42H0zm31.6 0V25.2C31.6 10.6 39.2 2.2 54 0l-.5 6.3c-8.3 2.1-12.3 6.5-12.6 13.2H54V42H31.6z"></path></svg>
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.15;letter-spacing:-0.01em;margin:16px 0 0">O conhecimento é o caminho para a excelência.</h2>
+      <p data-reveal-item="" style="font-size:16.5px;line-height:1.75;color:#4A443C;margin:22px 0 0;max-width:540px">Valorizamos o conhecimento e o aprendizado. Por isso investimos a fundo na capacitação da nossa equipe, com cursos que melhoram o desempenho nas atividades diárias.</p>
+      <div data-reveal-item="" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+        <span style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:#4A443C">Direção defensiva</span>
+        <span style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:#4A443C">Primeiros socorros</span>
+        <span style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:#4A443C">QSMS</span>
+        <span style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:600;color:#4A443C">+20 módulos</span>
+      </div>
+      <a data-reveal-item="" href="Treinamentos.dc.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:32px;background:#1E1B18;color:#FBF8F3;font-weight:700;font-size:15px;padding:16px 28px;border-radius:999px;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 28px rgba(30,27,24,.22)">Conheça nossos cursos
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="blog" style="padding:clamp(64px,9vw,120px) 0;background:#FBF8F3">
+  <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <div style="text-align:center">
+      <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0">Nosso Blog</h2>
+      <p data-reveal-item="" style="font-size:16px;color:#6B6459;margin:10px 0 0">Acesse nosso blog!</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px">
+      <a data-reveal-item="" href="Blog-Post.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-1" shape="rect" src="midia/blog/selo-co2-neutro.png" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras.</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+      <a data-reveal-item="" href="Blog.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-2" shape="rect" src="midia/blog/renovacao-frota-transit.png" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+      <a data-reveal-item="" href="Blog.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-3" shape="rect" src="midia/galerias/mascarello/01.jpg" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+      <a data-reveal-item="" href="Blog.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-4" shape="rect" src="midia/blog/gestao-transporte.jpg" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Como a gestão de transporte impacta a produtividade e a imagem corporativa</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+      <a data-reveal-item="" href="Blog.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-5" shape="rect" src="midia/blog/produtividade-corporativa.jpg" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+      <a data-reveal-item="" href="Blog.dc.html" style="text-decoration:none;color:inherit;display:block;border-radius:24px;overflow:hidden;background:#FFFFFF;border:1.5px solid #ECE3D2;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.22);border-color:#E3AE4F">
+        <div style="overflow:hidden;height:190px"><image-slot id="blog-6" shape="rect" src="midia/galerias/master/02.jpg" placeholder="Imagem do artigo" style="width:100%;height:100%;transition:transform .5s ease" style-hover="transform:scale(1.06)"></image-slot></div>
+        <div style="padding:22px">
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16.5px;color:#1E1B18;line-height:1.35">Fretamento de Van: A Braslectra Oferecendo Eficiência</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:13.5px;color:#8A5B0A">Leia mais &gt;&gt;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer style="background-color:#1E1B18;background-image:radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1.6px);background-size:24px 24px;padding:clamp(60px,7vw,92px) 0 0;color:#C9C2B6">
+  <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
+      <div>
+        <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:34px"/>
+        <p data-site="footer_text" style="font-size:14px;line-height:1.7;color:#8A8377;margin:20px 0 0;max-width:34ch">Transporte executivo de pessoas com segurança, conforto e pontualidade há mais de 25 anos.</p>
+        <div style="display:flex;gap:10px;margin-top:24px">
+          <a href="#" data-site-href="social_instagram" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="#" data-site-href="social_facebook" target="_blank" rel="noopener" aria-label="Facebook" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8.5h2.5V5.4c-.44-.06-1.94-.19-3.14-.19-3.1 0-4.36 1.87-4.36 4.6V12H6.5v3.4H9V22h3.6v-6.6h2.9l.45-3.4h-3.35V9.9c0-1 .3-1.4 1.4-1.4z"></path></svg>
+          </a>
+          <a href="#" data-site-href="social_linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"></rect><line x1="7.5" y1="10" x2="7.5" y2="17"></line><circle cx="7.5" cy="7" r="0.4" fill="currentColor"></circle><path d="M12 17v-4.2c0-1.5 1-2.6 2.4-2.6 1.4 0 2.1 1 2.1 2.6V17"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Contato</div>
+        <div style="display:flex;flex-direction:column;gap:14px;font-size:14px">
+          <a href="mailto:orcamento@braslectra.com.br" data-site-mail="email_orcamento" style="display:flex;align-items:center;gap:10px;color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease" style-hover="color:#E3AE4F;transform:translateX(3px)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M4 6.5l8 6 8-6"></path></svg>
+            <span data-site="email_orcamento">orcamento@braslectra.com.br</span>
+          </a>
+          <a href="tel:+552297586858" data-site-tel="whatsapp" style="display:flex;align-items:center;gap:10px;color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease" style-hover="color:#E3AE4F;transform:translateX(3px)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M6.5 3.5c1 0 2.4 2.6 2.4 3.4 0 .8-1.6 1.5-1.6 2.3 0 1.6 3.5 5.1 5.1 5.1.8 0 1.5-1.6 2.3-1.6.8 0 3.4 1.4 3.4 2.4 0 1.5-1.4 2.9-2.8 2.9-4 0-11.1-7.1-11.1-11.1 0-1.4 1.4-2.8 2.9-2.8z"></path></svg>
+            <span data-site="whatsapp">(22) 9.9758-6858</span>
+          </a>
+          <a href="tel:+552227732800" data-site-tel="phone_main" style="display:flex;align-items:center;gap:10px;color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease" style-hover="color:#E3AE4F;transform:translateX(3px)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M6.5 3.5c1 0 2.4 2.6 2.4 3.4 0 .8-1.6 1.5-1.6 2.3 0 1.6 3.5 5.1 5.1 5.1.8 0 1.5-1.6 2.3-1.6.8 0 3.4 1.4 3.4 2.4 0 1.5-1.4 2.9-2.8 2.9-4 0-11.1-7.1-11.1-11.1 0-1.4 1.4-2.8 2.9-2.8z"></path></svg>
+            <span data-site="phone_main">(22) 2773-2800</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Mapa do Site</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+          <a href="Braslectra Home.dc.html#hero" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Início</a>
+          <a href="Sobre.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sobre o Grupo</a>
+          <a href="Frota.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Frota</a>
+          <a href="Servicos.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Serviços</a>
+          <a href="Sustentabilidade.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
+          <a href="Contato.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Contato</a>
+          <a href="#" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Política de Privacidade</a>
+        </div>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Links Úteis</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
+          <a href="Treinamentos.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Nossos Cursos</a>
+          <a href="Trabalhe-Conosco.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Trabalhe Conosco</a>
+          <a href="Sustentabilidade.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:52px;padding:24px 0;font-size:13px;color:#8A8377;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+      <span>© 2026 Grupo Braslectra. Todos os direitos reservados.</span>
+      <span>Diretriz · Braslectra · Eco Polo Brasil · B.A.J Transportes</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 1000},
+  &quot;motionIntensity&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;padrao&quot;, &quot;options&quot;: [&quot;sutil&quot;, &quot;padrao&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Movimento&quot;},
+  &quot;heroOverlay&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 0.55, &quot;min&quot;: 0, &quot;max&quot;: 1, &quot;step&quot;: 0.05, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Hero&quot;},
+  &quot;sustentabilidadeAccent&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sustentabilidade&quot;}
+}">
+class Component extends DCLogic {
+  state = {
+    isMobile: false,
+    mobileMenuOpen: false,
+    scrolled: false,
+    openDropdown: null,
+    diffHover: null,
+    formStep: 0,
+    tipoViagem: 'ida_volta',
+    veiculos: [],
+    veiculoDisposicao: '',
+    formSubmitted: false,
+    anosVal: 0,
+    colabVal: 0,
+    countersDone: false
+  };
+
+  _reveal(targets, vars) {
+    // CSS transitions on reveal targets fight GSAP's inline opacity/transform and leave them stuck:
+    // suspend them during the tween, then restore the original inline transition.
+    targets.forEach((t) => { t.dataset.trOrig = t.style.transition || ''; t.style.transition = 'none'; });
+    const restore = () => targets.forEach((t) => { t.style.transition = t.dataset.trOrig || ''; });
+    return gsap.from(targets, Object.assign({}, vars, { clearProps: 'opacity,transform', onComplete: restore, onInterrupt: restore }));
+  }
+
+  componentDidMount() {
+    this.checkMobile();
+    this._resizeHandler = () => this.checkMobile();
+    window.addEventListener('resize', this._resizeHandler);
+    this._scrollHandler = () => {
+      const sc = window.scrollY > 40;
+      if (sc !== this.state.scrolled) this.setState({ scrolled: sc });
+    };
+    window.addEventListener('scroll', this._scrollHandler, { passive: true });
+
+    this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (window.gsap && window.ScrollTrigger && !this._reduced && this.rootEl) {
+      gsap.registerPlugin(ScrollTrigger);
+      const intense = (this.props.motionIntensity ?? 'padrao') === 'sutil'
+        ? { y: 12, duration: 0.5 }
+        : { y: 24, duration: 0.7 };
+      const groups = this.rootEl.querySelectorAll('[data-reveal-group]');
+      groups.forEach((g) => {
+        const items = g.querySelectorAll('[data-reveal-item]');
+        const targets = items.length ? Array.from(items) : [g];
+        const alreadyVisible = g.getBoundingClientRect().top < window.innerHeight;
+        if (alreadyVisible) {
+          this._reveal(targets, { opacity: 0, y: intense.y, duration: intense.duration, ease: 'power2.out', stagger: 0.08 });
+        } else {
+          this._reveal(targets, {
+            opacity: 0, y: intense.y, duration: intense.duration, ease: 'power2.out', stagger: 0.08,
+            scrollTrigger: { trigger: g, start: 'top 82%' }
+          });
+        }
+      });
+      ScrollTrigger.refresh();
+    }
+
+    if (this.countersEl) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !this.state.countersDone) {
+            this.setState({ countersDone: true });
+            this.animateCounters();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(this.countersEl);
+      this._countersIO = io;
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._resizeHandler);
+    window.removeEventListener('scroll', this._scrollHandler);
+    if (this._countersIO) this._countersIO.disconnect();
+  }
+
+  checkMobile() {
+    const isMobile = window.innerWidth < 900;
+    if (isMobile !== this.state.isMobile) {
+      this.setState({ isMobile, mobileMenuOpen: isMobile ? this.state.mobileMenuOpen : false });
+    }
+  }
+
+  animateCounters() {
+    const SITE = window.BRASLECTRA_SITE || {};
+    const targets = { anosVal: parseInt(SITE.stat_years, 10) || 29, colabVal: parseInt(SITE.stat_employees, 10) || 250 };
+    if (this._reduced) { this.setState(targets); return; }
+    const start = performance.now();
+    const duration = 1400;
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / duration);
+      const ease = 1 - Math.pow(1 - p, 3);
+      this.setState({
+        anosVal: Math.round(targets.anosVal * ease),
+        colabVal: Math.round(targets.colabVal * ease)
+      });
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  toggleMobileMenu() { this.setState((s) => ({ mobileMenuOpen: !s.mobileMenuOpen })); }
+  openMenu(name) { this.setState({ openDropdown: name }); }
+  closeMenu() { this.setState({ openDropdown: null }); }
+  setDiffHover(i) { this.setState({ diffHover: i }); }
+  clearDiffHover() { this.setState({ diffHover: null }); }
+  closeMobileMenu() { this.setState({ mobileMenuOpen: false }); }
+  setTipoViagem(v) { this.setState({ tipoViagem: v }); }
+  toggleVeiculo(v) {
+    this.setState((s) => {
+      const has = s.veiculos.includes(v);
+      return { veiculos: has ? s.veiculos.filter((x) => x !== v) : [...s.veiculos, v] };
+    });
+  }
+  setVeiculoDisposicao(v) { this.setState({ veiculoDisposicao: v }); }
+  goNextStep() { this.setState((s) => ({ formStep: Math.min(2, s.formStep + 1) })); }
+  goPrevStep() { this.setState((s) => ({ formStep: Math.max(0, s.formStep - 1) })); }
+  submitForm(e) { e.preventDefault(); this.setState({ formSubmitted: true }); }
+
+  chip(active) {
+    return active
+      ? { border: '#1E1B18', bg: '#1E1B18', color: '#FBF8F3' }
+      : { border: '#ECE3D2', bg: '#FFFFFF', color: '#1E1B18' };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const heroOverlay = this.props.heroOverlay ?? 0.55;
+    const a0 = 0.15 + heroOverlay * 0.2;
+    const a1 = 0.35 + heroOverlay * 0.45;
+    const sustOn = this.props.sustentabilidadeAccent ?? true;
+    const tipoIda = this.chip(s.tipoViagem === 'somente_ida');
+    const tipoIdaVolta = this.chip(s.tipoViagem === 'ida_volta');
+    const vConv = this.chip(s.veiculos.includes('conv'));
+    const vCarga = this.chip(s.veiculos.includes('carga'));
+    const vBlindado = this.chip(s.veiculos.includes('blindado'));
+    const vVan = this.chip(s.veiculos.includes('van'));
+    const vMicro = this.chip(s.veiculos.includes('micro'));
+    const vOnibus = this.chip(s.veiculos.includes('onibus'));
+    const dispSim = this.chip(s.veiculoDisposicao === 'sim');
+    const dispNao = this.chip(s.veiculoDisposicao === 'nao');
+    const barOn = '#C8850F', barOff = '#EFE9DC';
+
+    const prevBtnBase = 'height:50px;padding:0 24px;border-radius:999px;font-weight:700;font-size:14.5px;cursor:pointer;transition:opacity .2s ease;';
+    const nextBtnBase = 'flex:1;height:50px;padding:0 24px;border-radius:999px;font-weight:700;font-size:14.5px;cursor:pointer;border:none;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 8px 18px rgba(200,133,15,.3);transition:transform .25s ease, box-shadow .25s ease;';
+
+    return {
+      setRootEl: (el) => { this.rootEl = el; },
+      setCountersEl: (el) => { this.countersEl = el; },
+      isMobile: s.isMobile,
+      isDesktop: !s.isMobile,
+      mobileMenuOpen: s.mobileMenuOpen,
+      sobreMenuOpen: s.openDropdown === 'sobre',
+      frotaMenuOpen: s.openDropdown === 'frota',
+      servicosMenuOpen: s.openDropdown === 'servicos',
+      openSobreMenu: () => this.openMenu('sobre'),
+      openFrotaMenu: () => this.openMenu('frota'),
+      openServicosMenu: () => this.openMenu('servicos'),
+      closeMenu: () => this.closeMenu(),
+      setDiffHover0: () => this.setDiffHover(0),
+      setDiffHover1: () => this.setDiffHover(1),
+      setDiffHover2: () => this.setDiffHover(2),
+      setDiffHover3: () => this.setDiffHover(3),
+      clearDiffHover: () => this.clearDiffHover(),
+      diffBorder0: s.diffHover === 0 ? '#E3AE4F' : '#ECE3D2',
+      diffBorder1: s.diffHover === 1 ? '#E3AE4F' : '#ECE3D2',
+      diffBorder2: s.diffHover === 2 ? '#E3AE4F' : '#ECE3D2',
+      diffBorder3: s.diffHover === 3 ? '#E3AE4F' : '#ECE3D2',
+      diffIconBg0: s.diffHover === 0 ? 'linear-gradient(135deg, #E9BC61, #C8850F)' : '#F6E8CC',
+      diffIconBg1: s.diffHover === 1 ? 'linear-gradient(135deg, #E9BC61, #C8850F)' : '#F6E8CC',
+      diffIconBg2: s.diffHover === 2 ? 'linear-gradient(135deg, #E9BC61, #C8850F)' : '#F6E8CC',
+      diffIconBg3: s.diffHover === 3 ? 'linear-gradient(135deg, #E9BC61, #C8850F)' : '#F6E8CC',
+      diffIconStroke0: s.diffHover === 0 ? '#FFFFFF' : '#8A5B0A',
+      diffIconStroke1: s.diffHover === 1 ? '#FFFFFF' : '#8A5B0A',
+      diffIconStroke2: s.diffHover === 2 ? '#FFFFFF' : '#8A5B0A',
+      diffIconStroke3: s.diffHover === 3 ? '#FFFFFF' : '#8A5B0A',
+      diffIconTransform0: s.diffHover === 0 ? 'scale(1.15) rotate(-6deg)' : 'scale(1) rotate(0deg)',
+      diffIconTransform1: s.diffHover === 1 ? 'scale(1.15) rotate(-6deg)' : 'scale(1) rotate(0deg)',
+      diffIconTransform2: s.diffHover === 2 ? 'scale(1.15) rotate(-6deg)' : 'scale(1) rotate(0deg)',
+      diffIconTransform3: s.diffHover === 3 ? 'scale(1.15) rotate(-6deg)' : 'scale(1) rotate(0deg)',
+      toggleMobileMenu: () => this.toggleMobileMenu(),
+      closeMobileMenu: () => this.closeMobileMenu(),
+      headerPadding: s.scrolled ? '14px 0' : '22px 0',
+      headerShadow: s.scrolled ? '0 1px 0 rgba(30,27,24,.08), 0 12px 24px rgba(30,27,24,.06)' : 'none',
+      heroOverlayGradient: `linear-gradient(180deg, rgba(30,27,24,${a0}) 0%, rgba(30,27,24,${a1}) 100%)`,
+      anosVal: s.anosVal,
+      colabVal: s.colabVal,
+      formStep: s.formStep,
+      isStep0: s.formStep === 0,
+      isStep1: s.formStep === 1,
+      isStep2: s.formStep === 2,
+      formSubmitted: s.formSubmitted,
+      formVisibleStyle: s.formSubmitted ? 'display:none' : 'display:block',
+      step0BarColor: barOn,
+      step1BarColor: s.formStep >= 1 ? barOn : barOff,
+      step2BarColor: s.formStep >= 2 ? barOn : barOff,
+      isIdaVolta: s.tipoViagem === 'ida_volta',
+      setTipoIda: () => this.setTipoViagem('somente_ida'),
+      setTipoIdaVolta: () => this.setTipoViagem('ida_volta'),
+      tipoIdaBorder: tipoIda.border, tipoIdaBg: tipoIda.bg, tipoIdaColor: tipoIda.color,
+      tipoIdaVoltaBorder: tipoIdaVolta.border, tipoIdaVoltaBg: tipoIdaVolta.bg, tipoIdaVoltaColor: tipoIdaVolta.color,
+      toggleVeiculoConv: () => this.toggleVeiculo('conv'),
+      toggleVeiculoCarga: () => this.toggleVeiculo('carga'),
+      toggleVeiculoBlindado: () => this.toggleVeiculo('blindado'),
+      toggleVeiculoVan: () => this.toggleVeiculo('van'),
+      toggleVeiculoMicro: () => this.toggleVeiculo('micro'),
+      toggleVeiculoOnibus: () => this.toggleVeiculo('onibus'),
+      vConvBorder: vConv.border, vConvBg: vConv.bg, vConvColor: vConv.color,
+      vCargaBorder: vCarga.border, vCargaBg: vCarga.bg, vCargaColor: vCarga.color,
+      vBlindadoBorder: vBlindado.border, vBlindadoBg: vBlindado.bg, vBlindadoColor: vBlindado.color,
+      vVanBorder: vVan.border, vVanBg: vVan.bg, vVanColor: vVan.color,
+      vMicroBorder: vMicro.border, vMicroBg: vMicro.bg, vMicroColor: vMicro.color,
+      vOnibusBorder: vOnibus.border, vOnibusBg: vOnibus.bg, vOnibusColor: vOnibus.color,
+      setDisposicaoSim: () => this.setVeiculoDisposicao('sim'),
+      setDisposicaoNao: () => this.setVeiculoDisposicao('nao'),
+      dispSimBorder: dispSim.border, dispSimBg: dispSim.bg, dispSimColor: dispSim.color,
+      dispNaoBorder: dispNao.border, dispNaoBg: dispNao.bg, dispNaoColor: dispNao.color,
+      goNextStep: () => this.goNextStep(),
+      goPrevStep: () => this.goPrevStep(),
+      submitForm: (e) => this.submitForm(e),
+      prevBtnStyle: prevBtnBase + (s.formStep === 0 ? 'visibility:hidden;background:transparent;border:none;color:#1E1B18' : 'background:transparent;border:1.5px solid #ECE3D2;color:#1E1B18'),
+      nextBtnStyle: s.formStep === 2 ? 'display:none' : nextBtnBase,
+      sustBg: sustOn ? 'linear-gradient(150deg, #EAF6EF 0%, #FBF8F3 45%, #FBF8F3 100%)' : '#FBF8F3',
+      sustBadgeBg: sustOn ? 'rgba(47,110,82,0.12)' : '#F6E8CC',
+      sustBadgeColor: sustOn ? '#2F6E52' : '#8A5B0A',
+      sustCtaColor: sustOn ? '#2F6E52' : '#1E1B18',
+      sustCtaHover: sustOn ? 'background:#2F6E52;color:#E4EFE8' : 'background:#1E1B18;color:#FBF8F3'
+    };
+  }
+}
+</script>
+</body>
+</html>
