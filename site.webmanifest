@@ -1,0 +1,14 @@
+{
+  "name": "Grupo Braslectra",
+  "short_name": "Braslectra",
+  "description": "Transporte executivo, fretamento, turismo e rodoviário — há 29 anos transportando pessoas com segurança.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#FBF8F3",
+  "theme_color": "#C8850F",
+  "icons": [
+    { "src": "midia/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "midia/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

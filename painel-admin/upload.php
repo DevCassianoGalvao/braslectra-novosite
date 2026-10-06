@@ -35,5 +35,56 @@ $name = $base . '-' . substr(bin2hex(random_bytes(4)), 0, 6) . '.' . $ext;
 if (!move_uploaded_file($f['tmp_name'], $dir . '/' . $name)) {
     json_out(['ok' => false, 'error' => 'Falha ao salvar a imagem.'], 500);
 }
+[$name, $w, $h] = optimize_blog_image($dir, $name, $info[2], (int) $info[0], (int) $info[1]);
 $rel = 'uploads/' . $sub . '/' . $name;
-json_out(['ok' => true, 'path' => $rel, 'url' => url($rel), 'width' => $info[0], 'height' => $info[1]]);
+json_out(['ok' => true, 'path' => $rel, 'url' => url($rel), 'width' => $w, 'height' => $h]);
+
+/**
+ * Deixa a imagem leve para o site: no máximo 1600 px de largura e convertida para WebP.
+ * Sem a extensão GD (ou em GIF animado), mantém o arquivo original.
+ */
+function optimize_blog_image(string $dir, string $name, int $type, int $w, int $h): array
+{
+    if (!function_exists('imagewebp') || !in_array($type, [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_WEBP], true)) {
+        return [$name, $w, $h];
+    }
+    $src = $dir . '/' . $name;
+    $img = match ($type) {
+        IMAGETYPE_JPEG => @imagecreatefromjpeg($src),
+        IMAGETYPE_PNG => @imagecreatefrompng($src),
+        default => @imagecreatefromwebp($src),
+    };
+    if (!$img) {
+        return [$name, $w, $h];
+    }
+    if ($type === IMAGETYPE_JPEG && function_exists('exif_read_data')) { // foto de celular "deitada"
+        $o = (int) (@exif_read_data($src)['Orientation'] ?? 1);
+        $rot = [3 => 180, 6 => -90, 8 => 90][$o] ?? 0;
+        if ($rot && ($r = imagerotate($img, $rot, 0))) {
+            $img = $r;
+        }
+    }
+    $w = imagesx($img);
+    $h = imagesy($img);
+    if ($w > 1600) {
+        $nh = (int) round($h * 1600 / $w);
+        $dst = imagecreatetruecolor(1600, $nh);
+        imagealphablending($dst, false);
+        imagesavealpha($dst, true);
+        imagecopyresampled($dst, $img, 0, 0, 0, 0, 1600, $nh, $w, $h);
+        $img = $dst;
+        [$w, $h] = [1600, $nh];
+    } else {
+        imagepalettetotruecolor($img);
+        imagealphablending($img, false);
+        imagesavealpha($img, true);
+    }
+    $out = preg_replace('/\.(jpe?g|png|webp)$/i', '', $name) . '.webp';
+    if (!@imagewebp($img, $dir . '/' . $out, 80)) {
+        return [$name, $w, $h];
+    }
+    if ($out !== $name) {
+        @unlink($src);
+    }
+    return [$out, $w, $h];
+}

@@ -4,20 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- SEO -->
-<title>Blog | Grupo Braslectra</title>
-<meta name="description" content="Notícias, novidades da frota e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.">
-<link rel="canonical" href="https://braslectra.com.br/blog">
-<meta name="robots" content="index, follow">
+<title>Blog do Grupo Braslectra | Transporte Executivo e Fretamento</title>
+<meta name="description" content="Notícias da frota, novidades do Grupo Braslectra e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.">
+<link rel="canonical" href="https://www.braslectra.com.br/blog">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Grupo Braslectra">
 <meta name="theme-color" content="#C8850F">
+<meta name="geo.region" content="BR-RJ">
+<meta name="geo.placename" content="Macaé, Rio de Janeiro">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Grupo Braslectra">
-<meta property="og:title" content="Blog | Grupo Braslectra">
-<meta property="og:description" content="Notícias, novidades da frota e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.">
-<meta property="og:url" content="https://braslectra.com.br/blog">
-<meta property="og:image" content="https://braslectra.com.br/midia/home/hero-frota.jpg">
+<meta property="og:title" content="Blog do Grupo Braslectra | Transporte Executivo e Fretamento">
+<meta property="og:description" content="Notícias da frota, novidades do Grupo Braslectra e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.">
+<meta property="og:url" content="https://www.braslectra.com.br/blog">
+<meta property="og:image" content="https://www.braslectra.com.br/midia/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blog — Grupo Braslectra">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="uploads/logo-grupo-braslectra.png.webp">
+<meta name="twitter:title" content="Blog do Grupo Braslectra | Transporte Executivo e Fretamento">
+<meta name="twitter:description" content="Notícias da frota, novidades do Grupo Braslectra e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.">
+<meta name="twitter:image" content="https://www.braslectra.com.br/midia/og/home.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.braslectra.com.br/#site","url":"https://www.braslectra.com.br/","name":"Grupo Braslectra","inLanguage":"pt-BR","publisher":{"@id":"https://www.braslectra.com.br/#organizacao"}},{"@type":"Organization","@id":"https://www.braslectra.com.br/#organizacao","name":"Grupo Braslectra","url":"https://www.braslectra.com.br/","logo":"https://www.braslectra.com.br/midia/logo-grupo-braslectra.png","sameAs":["https://www.instagram.com/grupobraslectra/","https://www.facebook.com/grupobraslectra","https://www.linkedin.com/company/grupobraslectra/"]},{"@type":"BreadcrumbList","@id":"https://www.braslectra.com.br/blog#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.braslectra.com.br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.braslectra.com.br/blog"}]},{"@type":"CollectionPage","@id":"https://www.braslectra.com.br/blog#pagina","url":"https://www.braslectra.com.br/blog","name":"Blog do Grupo Braslectra | Transporte Executivo e Fretamento","description":"Notícias da frota, novidades do Grupo Braslectra e conteúdos sobre transporte executivo, fretamento e gestão de transporte corporativo.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.braslectra.com.br/#site"},"about":{"@id":"https://www.braslectra.com.br/#organizacao"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.braslectra.com.br/midia/og/home.jpg"},"breadcrumb":{"@id":"https://www.braslectra.com.br/blog#breadcrumb"}}]}</script>
 <!-- /SEO -->
 <script src="./support.js"></script>
 </head>
@@ -31,7 +46,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="./braslectra-config.js"></script>
@@ -41,53 +55,53 @@
 
 <header style="position:sticky;top:0;z-index:100;background:rgba(251,248,243,0.96);backdrop-filter:blur(10px);border-bottom:1px solid #ECE3D2;box-shadow:{{ headerShadow }};transition:padding .3s ease, box-shadow .3s ease">
   <div style="max-width:1280px;margin:0 auto;padding:{{ headerPadding }};display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .3s ease">
-    <a href="Braslectra Home.dc.html" style="display:flex;align-items:center;flex:0 0 auto" aria-label="Grupo Braslectra">
+    <a href="./" style="display:flex;align-items:center;flex:0 0 auto" aria-label="Grupo Braslectra">
       <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:38px;display:block"/>
     </a>
     <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
       <nav style="display:flex;align-items:center;gap:36px">
-        <a href="Braslectra Home.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Início</a>
+        <a href="./" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Início</a>
         <div style="position:relative;display:flex" onMouseEnter="{{ openSobreMenu }}" onMouseLeave="{{ closeMenu }}">
-          <a href="Sobre.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Sobre</a>
+          <a href="sobre" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Sobre</a>
           <sc-if value="{{ sobreMenuOpen }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
               <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:200px;display:flex;flex-direction:column;gap:2px">
-                <a href="Sustentabilidade.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
+                <a href="sustentabilidade" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
               </div>
             </div>
           </sc-if>
         </div>
         <div style="position:relative;display:flex" onMouseEnter="{{ openFrotaMenu }}" onMouseLeave="{{ closeMenu }}">
-          <a href="Frota.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Frota</a>
+          <a href="frota" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Frota</a>
           <sc-if value="{{ frotaMenuOpen }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
               <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:190px;display:flex;flex-direction:column;gap:2px">
-                <a href="Frota-Carros.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Carros</a>
-                <a href="Frota-Vans.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Vans</a>
-                <a href="Frota-Micro-Onibus.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Micro-Ônibus</a>
-                <a href="Frota-Onibus.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Ônibus</a>
+                <a href="frota-carros" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Carros</a>
+                <a href="frota-vans" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Vans</a>
+                <a href="frota-micro-onibus" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Micro-Ônibus</a>
+                <a href="frota-onibus" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Ônibus</a>
               </div>
             </div>
           </sc-if>
         </div>
         <div style="position:relative;display:flex" onMouseEnter="{{ openServicosMenu }}" onMouseLeave="{{ closeMenu }}">
-          <a href="Servicos.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Serviços</a>
+          <a href="servicos" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Serviços</a>
           <sc-if value="{{ servicosMenuOpen }}" hint-placeholder-val="{{ false }}">
             <div style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:12px;z-index:50">
               <div style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:16px;box-shadow:0 16px 32px rgba(30,27,24,.14);padding:10px;min-width:190px;display:flex;flex-direction:column;gap:2px">
-                <a href="Servicos-Executivo.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Executivo</a>
-                <a href="Servicos-Fretamento.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Fretamento</a>
-                <a href="Servicos-Turismo.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Turismo</a>
-                <a href="Servicos-Rodoviario.dc.html" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Rodoviário</a>
+                <a href="servicos-executivo" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Executivo</a>
+                <a href="servicos-fretamento" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Fretamento</a>
+                <a href="servicos-turismo" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Turismo</a>
+                <a href="servicos-rodoviario" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Rodoviário</a>
               </div>
             </div>
           </sc-if>
         </div>
-        <a href="Contato.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Contato</a>
-        <a href="Treinamentos.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Treinamentos</a>
-        <a href="Blog.dc.html" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px">Blog</a>
+        <a href="contato" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Contato</a>
+        <a href="treinamentos" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:0% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px;transition:background-size .3s ease" style-hover="background-size:100% 2px">Treinamentos</a>
+        <a href="blog" style="font-weight:600;font-size:14.5px;color:#1E1B18;text-decoration:none;background-image:linear-gradient(#C8850F,#C8850F);background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:5px">Blog</a>
       </nav>
-      <a href="Contato.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 22px rgba(200,133,15,.35)">Orçamento</a>
+      <a href="contato" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 22px rgba(200,133,15,.35)">Orçamento</a>
     </sc-if>
     <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
       <button onClick="{{ toggleMobileMenu }}" aria-label="Abrir menu" style="width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer">
@@ -106,30 +120,30 @@
       </button>
     </div>
     <nav style="display:flex;flex-direction:column;gap:6px;margin-top:40px">
-      <a href="Braslectra Home.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Início</a>
-      <a href="Sobre.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Sobre</a>
+      <a href="./" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Início</a>
+      <a href="sobre" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Sobre</a>
       <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="Sustentabilidade.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Sustentabilidade</a>
+        <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Sustentabilidade</a>
       </div>
-      <a href="Frota.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Frota</a>
+      <a href="frota" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Frota</a>
       <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="Frota-Carros.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Carros</a>
-        <a href="Frota-Vans.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Vans</a>
-        <a href="Frota-Micro-Onibus.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Micro-Ônibus</a>
-        <a href="Frota-Onibus.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Ônibus</a>
+        <a href="frota-carros" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Carros</a>
+        <a href="frota-vans" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Vans</a>
+        <a href="frota-micro-onibus" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Micro-Ônibus</a>
+        <a href="frota-onibus" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Ônibus</a>
       </div>
-      <a href="Servicos.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Serviços</a>
+      <a href="servicos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Serviços</a>
       <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="Servicos-Executivo.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Executivo</a>
-        <a href="Servicos-Fretamento.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Fretamento</a>
-        <a href="Servicos-Turismo.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Turismo</a>
-        <a href="Servicos-Rodoviario.dc.html" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Rodoviário</a>
+        <a href="servicos-executivo" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Executivo</a>
+        <a href="servicos-fretamento" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Fretamento</a>
+        <a href="servicos-turismo" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Turismo</a>
+        <a href="servicos-rodoviario" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Rodoviário</a>
       </div>
-      <a href="Contato.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Contato</a>
-      <a href="Treinamentos.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Treinamentos</a>
-      <a href="Blog.dc.html" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#C8850F;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Blog</a>
+      <a href="contato" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Contato</a>
+      <a href="treinamentos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Treinamentos</a>
+      <a href="blog" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#C8850F;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Blog</a>
     </nav>
-    <a href="Contato.dc.html" onClick="{{ closeMobileMenu }}" style="margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:16px;padding:16px 24px;border-radius:999px;text-decoration:none">Solicitar orçamento</a>
+    <a href="contato" onClick="{{ closeMobileMenu }}" style="margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:16px;padding:16px 24px;border-radius:999px;text-decoration:none">Solicitar orçamento</a>
   </div>
 </sc-if>
 
@@ -138,7 +152,7 @@
 <section style="padding:clamp(56px,8vw,88px) 0 clamp(40px,6vw,56px);background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <div data-reveal-item="" style="font-size:13px;color:#8A8377;display:flex;gap:8px;align-items:center">
-      <a href="Braslectra Home.dc.html" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Início</a> / <span style="color:#1E1B18">Blog</span>
+      <a href="./" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Início</a> / <span style="color:#1E1B18">Blog</span>
     </div>
     <h1 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(2rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.01em;margin:16px 0 0">Nosso Blog</h1>
     <div data-reveal-item="" style="margin-top:26px;max-width:440px;position:relative">
@@ -154,7 +168,7 @@
       <sc-if value="{{ hasApi }}" hint-placeholder-val="{{ false }}">
         <sc-for list="{{ apiCards }}" as="p">
           <a href="{{ p.href }}" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.18)">
-            <div style="height:200px;overflow:hidden;background:#F3EDE0"><img src="{{ p.image }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+            <div style="height:200px;overflow:hidden;background:#F3EDE0"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
             <div style="padding:24px;flex:1;display:flex;flex-direction:column">
               <div style="font-size:12.5px;color:#8A8377;font-weight:600">{{ p.date }}</div>
               <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35;margin-top:6px">{{ p.title }}</div>
@@ -166,8 +180,8 @@
       </sc-if>
       <sc-if value="{{ showStatic }}" hint-placeholder-val="{{ true }}">
       <sc-if value="{{ post1Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="Blog-Post.dc.html" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-1-photo" shape="rect" src="midia/blog/selo-co2-neutro.png" placeholder="Foto: frota com selo CO₂ neutro" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/blog/selo-co2-neutro.webp" alt="Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras." loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-1-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras.</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -175,8 +189,8 @@
       </a>
       </sc-if>
       <sc-if value="{{ post2Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="#" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-2-photo" shape="rect" src="midia/blog/renovacao-frota-transit.png" placeholder="Foto: renovação de frota" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/blog/renovacao-frota-transit.webp" alt="Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-2-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -184,8 +198,8 @@
       </a>
       </sc-if>
       <sc-if value="{{ post3Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="#" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-3-photo" shape="rect" src="midia/blog/gestao-transporte.jpg" placeholder="Foto: gestão de transporte" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/blog/gestao-transporte.webp" alt="Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-3-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -193,8 +207,8 @@
       </a>
       </sc-if>
       <sc-if value="{{ post4Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="#" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-4-photo" shape="rect" src="midia/blog/produtividade-corporativa.jpg" placeholder="Foto: produtividade corporativa" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=como-a-gestao-de-transporte-impacta-a-produtividade-e-a-imagem-corporativa" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/blog/produtividade-corporativa.webp" alt="Como a gestão de transporte impacta a produtividade e a imagem corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-4-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Como a gestão de transporte impacta a produtividade e a imagem corporativa</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -202,8 +216,8 @@
       </a>
       </sc-if>
       <sc-if value="{{ post5Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="#" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-5-photo" shape="rect" src="midia/blog/grupo-empresas.png" placeholder="Foto: parceria estratégica" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=por-que-grandes-empresas-estao-terceirizando-o-transporte-corporativo-com-parceiros-estrategicos" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/blog/grupo-empresas.webp" alt="Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-5-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -211,8 +225,8 @@
       </a>
       </sc-if>
       <sc-if value="{{ post6Visible }}" hint-placeholder-val="{{ true }}">
-      <a data-reveal-item="" href="#" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><image-slot id="blog-6-photo" shape="rect" src="midia/frota-vans/master-minibus.png" placeholder="Foto: fretamento de van" style="width:100%;height:100%"></image-slot></div>
+      <a data-reveal-item="" href="blog-post?slug=fretamento-de-van" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
+        <div style="height:200px;overflow:hidden"><img src="midia/frota-vans/master-minibus.webp" alt="Fretamento de Van: A Braslectra Oferecendo Eficiência" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-6-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Fretamento de Van: A Braslectra Oferecendo Eficiência</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -278,21 +292,21 @@
       <div>
         <div style="color:#FFFFFF;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Mapa do Site</div>
         <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
-          <a href="Braslectra Home.dc.html#hero" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Início</a>
-          <a href="Sobre.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sobre o Grupo</a>
-          <a href="Frota.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Frota</a>
-          <a href="Servicos.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Serviços</a>
-          <a href="Sustentabilidade.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
-          <a href="Contato.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Contato</a>
-          <a href="Politica-de-Privacidade.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Política de Privacidade</a>
+          <a href="./#hero" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Início</a>
+          <a href="sobre" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sobre o Grupo</a>
+          <a href="frota" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Frota</a>
+          <a href="servicos" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Serviços</a>
+          <a href="sustentabilidade" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
+          <a href="contato" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Contato</a>
+          <a href="politica-de-privacidade" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Política de Privacidade</a>
         </div>
       </div>
       <div>
         <div style="color:#FFFFFF;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Links Úteis</div>
         <div style="display:flex;flex-direction:column;gap:12px;font-size:14px">
-          <a href="Treinamentos.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Nossos Cursos</a>
-          <a href="Trabalhe-Conosco.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Trabalhe Conosco</a>
-          <a href="Sustentabilidade.dc.html" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
+          <a href="treinamentos" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Nossos Cursos</a>
+          <a href="trabalhe-conosco" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Trabalhe Conosco</a>
+          <a href="sustentabilidade" style="color:#C9C2B6;text-decoration:none;transition:color .2s ease, transform .2s ease;display:inline-block" style-hover="color:#E3AE4F;transform:translateX(3px)">Sustentabilidade</a>
         </div>
       </div>
     </div>
@@ -397,7 +411,7 @@ class Component extends DCLogic {
     const page = Math.min(s.page, pages);
     const apiCards = found.slice((page - 1) * this.perPage, page * this.perPage).map((p) => ({
       title: p.title, excerpt: p.excerpt, image: p.image || blank, date: fmtDate(p.published_at),
-      href: 'Blog-Post.dc.html?slug=' + encodeURIComponent(p.slug),
+      href: 'blog-post?slug=' + encodeURIComponent(p.slug),
     }));
     return {
       setRootEl: (el) => { this.rootEl = el; },

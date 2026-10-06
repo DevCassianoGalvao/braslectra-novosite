@@ -1,22 +1,29 @@
 # ============================================================
-#  Grupo Braslectra — URLs amigáveis, redirecionamentos e cache
-#  Funciona na raiz do domínio ou numa subpasta (ex.: /novosite/).
+#  Grupo Braslectra — domínio, URLs amigáveis, redirecionamentos, cache e segurança
+#  Funciona na raiz do domínio ou numa subpasta (ex.: /novosite/). Testado em Apache 2.4.
+#  Se algo der errado, renomeie este arquivo para .htaccess-off.
 # ============================================================
 Options -Indexes -MultiViews
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .xml .webmanifest .json
 AddType image/webp .webp
+AddType application/manifest+json .webmanifest
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# BASE = pasta onde o site está (vazio na raiz)
+# BASE = pasta onde o site está ("/" na raiz)
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
 RewriteRule ^(.*)$ - [E=BASE:%1]
 
-# HTTPS (descomente quando o SSL estiver ativo)
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# --- 0) Domínio oficial: https://www.braslectra.com.br (só age nesse domínio; ambientes de teste não são afetados) ---
+RewriteCond %{HTTP_HOST} ^braslectra\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://www.braslectra.com.br/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.braslectra\.com\.br$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://www.braslectra.com.br/$1 [R=301,L]
 
 # --- 1) URLs do site antigo (WordPress) -> páginas novas (301) ---
 RewriteRule ^sobre-o-grupo-braslectra-4/sobre-o-grupo-braslectra/?$ %{ENV:BASE}sobre [R=301,L,NC]
@@ -39,7 +46,8 @@ RewriteRule ^transfer-[a-z-]+/?$ %{ENV:BASE}servicos-executivo [R=301,L,NC]
 RewriteRule ^sustentabilidade-no-transporte-corporativo/?$ %{ENV:BASE}sustentabilidade [R=301,L,NC]
 RewriteRule ^(category|tag|author)/.*/?$ %{ENV:BASE}blog [R=301,L,NC]
 RewriteRule ^feed/?$ %{ENV:BASE}blog [R=301,L,NC]
-# artigos do blog antigo (/slug/) -> /blog-post?slug=slug
+RewriteRule ^wp-login\.php/?$ %{ENV:BASE} [R=301,L,NC]
+RewriteRule ^wp-admin(/.*)?/?$ %{ENV:BASE} [R=301,L,NC]
 RewriteRule ^frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras/?$ %{ENV:BASE}blog-post?slug=frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras [R=301,L,NC]
 RewriteRule ^renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa/?$ %{ENV:BASE}blog-post?slug=renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa [R=301,L,NC]
 RewriteRule ^seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra/?$ %{ENV:BASE}blog-post?slug=seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra [R=301,L,NC]
@@ -61,54 +69,65 @@ RewriteRule ^parceria-buser/?$ %{ENV:BASE}blog-post?slug=parceria-buser [R=301,L
 RewriteRule ^poltronas/?$ %{ENV:BASE}blog-post?slug=poltronas [R=301,L,NC]
 RewriteRule ^a-jornada-de-renovacao-do-grupo-braslectra-no-mundo-do-transporte-executivo/?$ %{ENV:BASE}blog-post?slug=a-jornada-de-renovacao-do-grupo-braslectra-no-mundo-do-transporte-executivo [R=301,L,NC]
 
-# --- 2) Endereços antigos dos arquivos (.dc.html) -> URL amigável (301) ---
-#     (só quando o visitante pediu o arquivo; os rewrites internos abaixo não entram em loop)
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Braslectra%20Home\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE} [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Sobre\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}sobre [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}frota [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Carros\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}frota-carros [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Vans\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}frota-vans [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Micro\-Onibus\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}frota-micro-onibus [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Frota\-Onibus\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}frota-onibus [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}servicos [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Executivo\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}servicos-executivo [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Fretamento\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}servicos-fretamento [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Turismo\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}servicos-turismo [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Servicos\-Rodoviario\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}servicos-rodoviario [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Sustentabilidade\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}sustentabilidade [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Treinamentos\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}treinamentos [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Blog\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}blog [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Blog\-Post\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}blog-post [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Contato\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}contato [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Trabalhe\-Conosco\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}trabalhe-conosco [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?Politica\-de\-Privacidade\.dc\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE}politica-de-privacidade [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+(?:[^\s?]*/)?index\.html[\s?] [NC]
-RewriteRule ^ %{ENV:BASE} [R=301,L]
+# --- 2) Endereços dos arquivos (.dc.html / index.html) -> URL amigável (301) ---
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Braslectra\ Home\.dc\.html$ %{ENV:BASE} [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Sobre\.dc\.html$ %{ENV:BASE}sobre [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Frota\.dc\.html$ %{ENV:BASE}frota [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Frota\-Carros\.dc\.html$ %{ENV:BASE}frota-carros [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Frota\-Vans\.dc\.html$ %{ENV:BASE}frota-vans [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Frota\-Micro\-Onibus\.dc\.html$ %{ENV:BASE}frota-micro-onibus [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Frota\-Onibus\.dc\.html$ %{ENV:BASE}frota-onibus [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Servicos\.dc\.html$ %{ENV:BASE}servicos [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Servicos\-Executivo\.dc\.html$ %{ENV:BASE}servicos-executivo [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Servicos\-Fretamento\.dc\.html$ %{ENV:BASE}servicos-fretamento [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Servicos\-Turismo\.dc\.html$ %{ENV:BASE}servicos-turismo [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Servicos\-Rodoviario\.dc\.html$ %{ENV:BASE}servicos-rodoviario [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Sustentabilidade\.dc\.html$ %{ENV:BASE}sustentabilidade [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Treinamentos\.dc\.html$ %{ENV:BASE}treinamentos [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Blog\.dc\.html$ %{ENV:BASE}blog [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Blog\-Post\.dc\.html$ %{ENV:BASE}blog-post [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Contato\.dc\.html$ %{ENV:BASE}contato [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Trabalhe\-Conosco\.dc\.html$ %{ENV:BASE}trabalhe-conosco [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Politica\-de\-Privacidade\.dc\.html$ %{ENV:BASE}politica-de-privacidade [R=301,L,NC]
+RewriteCond %{THE_REQUEST} index\.html[\s?] [NC]
+RewriteRule ^index\.html$ %{ENV:BASE} [R=301,L,NC]
+RewriteCond %{THE_REQUEST} blog-post\.php[\s?] [NC]
+RewriteRule ^blog-post\.php$ %{ENV:BASE}blog-post [R=301,L,NC]
+RewriteCond %{THE_REQUEST} blog\.php[\s?] [NC]
+RewriteRule ^blog\.php$ %{ENV:BASE}blog [R=301,L,NC]
+RewriteCond %{THE_REQUEST} sitemap\.php[\s?] [NC]
+RewriteRule ^sitemap\.php$ %{ENV:BASE}sitemap.xml [R=301,L,NC]
+RewriteCond %{THE_REQUEST} llms-full\.php[\s?] [NC]
+RewriteRule ^llms-full\.php$ %{ENV:BASE}llms-full.txt [R=301,L,NC]
 
 # --- 3) Barra no final -> sem barra (as páginas usam caminhos relativos) ---
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)/$ %{ENV:BASE}$1 [R=301,L]
 
-# --- 4) URL amigável -> arquivo (interno, sem redirecionar) ---
+# --- 4) URL amigável -> arquivo (interno) ---
+RewriteRule ^sitemap\.xml$ sitemap.php [L,NC]
+RewriteRule ^llms-full\.txt$ llms-full.php [L,NC]
+RewriteRule ^blog-post$ blog-post.php [L,NC,QSA]
+RewriteRule ^blog$ blog.php [L,NC,QSA]
 RewriteRule ^$ Braslectra\ Home.dc.html [L]
 RewriteRule ^sobre$ Sobre.dc.html [L,NC]
 RewriteRule ^frota$ Frota.dc.html [L,NC]
@@ -123,28 +142,40 @@ RewriteRule ^servicos-turismo$ Servicos-Turismo.dc.html [L,NC]
 RewriteRule ^servicos-rodoviario$ Servicos-Rodoviario.dc.html [L,NC]
 RewriteRule ^sustentabilidade$ Sustentabilidade.dc.html [L,NC]
 RewriteRule ^treinamentos$ Treinamentos.dc.html [L,NC]
-RewriteRule ^blog$ Blog.dc.html [L,NC]
-RewriteRule ^blog-post$ Blog-Post.dc.html [L,NC]
 RewriteRule ^contato$ Contato.dc.html [L,NC]
 RewriteRule ^trabalhe-conosco$ Trabalhe-Conosco.dc.html [L,NC]
 RewriteRule ^politica-de-privacidade$ Politica-de-Privacidade.dc.html [L,NC]
 </IfModule>
 
-
-# Cache de arquivos estáticos
+# Cabeçalhos de segurança e cache
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "\.(webp|jpe?g|png|gif|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
 <IfModule mod_expires.c>
   ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
   ExpiresByType image/jpeg "access plus 30 days"
   ExpiresByType image/png "access plus 30 days"
-  ExpiresByType image/webp "access plus 30 days"
-  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
   ExpiresByType text/javascript "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
-  ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml text/xml image/svg+xml application/manifest+json
 </IfModule>
-<FilesMatch "\.(md|json)$">
+
+# Arquivos internos
+<FilesMatch "(\.md|^router\.php|^README.*)$">
   Require all denied
 </FilesMatch>

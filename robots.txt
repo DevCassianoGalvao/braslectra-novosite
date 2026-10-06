@@ -1,5 +1,30 @@
+# Grupo Braslectra — https://www.braslectra.com.br
+# Buscadores e assistentes de IA são bem-vindos (resumo para IAs em /llms.txt).
+
 User-agent: *
 Allow: /
 Disallow: /painel-admin/
+Allow: /painel-admin/uploads/
+Allow: /painel-admin/api/
 
-Sitemap: https://braslectra.com.br/sitemap.xml
+# Assistentes e buscadores de IA (GEO)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /painel-admin/
+Allow: /painel-admin/uploads/
+Allow: /painel-admin/api/
+
+Sitemap: https://www.braslectra.com.br/sitemap.xml
