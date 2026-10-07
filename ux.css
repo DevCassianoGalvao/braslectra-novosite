@@ -1,0 +1,28 @@
+/* Ajustes globais de responsividade e usabilidade (todas as páginas) */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+[id] { scroll-margin-top: 96px; }
+fieldset { min-width: 0; }
+img { max-width: 100%; }
+
+/* foco visível para quem navega pelo teclado */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible { outline: 3px solid #E3AE4F; outline-offset: 2px; }
+
+/* área de toque mínima (44px) em links pequenos, sem mudar o visual */
+.tl, .bc a { position: relative; }
+.tl::after, .bc a::after { content: ""; position: absolute; left: -6px; right: -6px; top: 50%; height: 44px; transform: translateY(-50%); }
+
+/* rodapé: 4 colunas -> 2 -> 1 */
+@media (max-width: 960px) {
+  footer .ft-grid { grid-template-columns: 1fr 1fr !important; gap: 36px 28px !important; }
+}
+@media (max-width: 600px) {
+  footer .ft-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  footer a[href^="mailto:"], footer a[href^="tel:"] { word-break: break-word; }
+}
+
+/* celular: campos com 16px evitam o zoom automático do iPhone ao tocar */
+@media (max-width: 800px) {
+  footer a:not([aria-label]) { display: inline-block; padding: 9px 0; }
+  input:not([type=checkbox]):not([type=radio]):not([type=file]), select, textarea { font-size: 16px !important; }
+}

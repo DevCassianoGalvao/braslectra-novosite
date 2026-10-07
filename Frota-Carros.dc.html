@@ -35,6 +35,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.braslectra.com.br/#site","url":"https://www.braslectra.com.br/","name":"Grupo Braslectra","inLanguage":"pt-BR","publisher":{"@id":"https://www.braslectra.com.br/#organizacao"}},{"@type":"Organization","@id":"https://www.braslectra.com.br/#organizacao","name":"Grupo Braslectra","url":"https://www.braslectra.com.br/","logo":"https://www.braslectra.com.br/midia/logo-grupo-braslectra.png","sameAs":["https://www.instagram.com/grupobraslectra/","https://www.facebook.com/grupobraslectra","https://www.linkedin.com/company/grupobraslectra/"]},{"@type":"BreadcrumbList","@id":"https://www.braslectra.com.br/frota-carros#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.braslectra.com.br/"},{"@type":"ListItem","position":2,"name":"Frota","item":"https://www.braslectra.com.br/frota"},{"@type":"ListItem","position":3,"name":"Carros executivos","item":"https://www.braslectra.com.br/frota-carros"}]},{"@type":"WebPage","@id":"https://www.braslectra.com.br/frota-carros#pagina","url":"https://www.braslectra.com.br/frota-carros","name":"Carros Executivos e SUVs para Empresas | Frota Braslectra","description":"Carros executivos para transporte corporativo: Toyota Corolla, VW Virtus, Hilux, SW4 e Tiguan, com motoristas capacitados, ar-condicionado e veículos rastreados.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.braslectra.com.br/#site"},"about":{"@id":"https://www.braslectra.com.br/#organizacao"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.braslectra.com.br/midia/og/frota-carros.jpg"},"breadcrumb":{"@id":"https://www.braslectra.com.br/frota-carros#breadcrumb"}}]}</script>
 <!-- /SEO -->
 <script src="./support.js"></script>
+<link rel="stylesheet" href="ux.css">
 </head>
 <body>
 <x-dc>
@@ -151,7 +152,7 @@
 
 <section style="padding:clamp(48px,7vw,72px) 0 clamp(32px,4vw,44px);background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
-    <div data-reveal-item="" style="font-size:13px;color:#8A8377;display:flex;gap:8px;align-items:center">
+    <div class="bc" data-reveal-item="" style="font-size:13px;color:#8A8377;display:flex;gap:8px;align-items:center">
       <a href="./" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Início</a> / <a href="frota" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Frota</a> / <span style="color:#1E1B18">Carros</span>
     </div>
     <h1 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(2rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.01em;margin:16px 0 0">Frota completa de carros</h1>
@@ -167,14 +168,14 @@
 <section id="passeio" style="padding:clamp(40px,6vw,64px) 0;background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.4rem,2.4vw,1.8rem);margin:0">Carros de passeio</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px;margin-top:28px">
       <div data-reveal-item="" style="background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
         <div style="height:200px;overflow:hidden;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:14px 16px 4px"><img data-slot="carro-virtus-1" src="midia/frota/virtus-1.webp" alt="Volkswagen Virtus TSI da frota Grupo Braslectra" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
         <div style="padding:18px">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Virtus TSI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2022/2023</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Virtus_1 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Virtus_1 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -185,7 +186,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Virtus TSI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2025/2026</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Virtus_2 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Virtus_2 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -196,7 +197,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Corolla XEI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2023/2023</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Corolla_1 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Corolla_1 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -207,7 +208,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Corolla XEI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2024/2024</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Corolla_2 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Corolla_2 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -219,14 +220,14 @@
 <section id="carga" style="padding:clamp(40px,6vw,64px) 0;background:#FBF8F3">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.4rem,2.4vw,1.8rem);margin:0">Carros de carga</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px;margin-top:28px">
       <div data-reveal-item="" style="background:#FFFFFF;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;max-width:340px" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
         <div style="height:200px;overflow:hidden;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:14px 16px 4px"><img data-slot="carro-hilux-cd" src="midia/frota/hilux-cd.webp" alt="Toyota Hilux CD 4x4 da frota Grupo Braslectra" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
         <div style="padding:18px">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Hilux CD 4X4</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2020/2021</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Hilux_CD }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Hilux_CD }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -238,14 +239,14 @@
 <section id="blindados" style="padding:clamp(40px,6vw,64px) 0;background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <h2 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(1.4rem,2.4vw,1.8rem);margin:0">Carros Blindados</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px;margin-top:28px">
       <div data-reveal-item="" style="background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
         <div style="height:200px;overflow:hidden;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:14px 16px 4px"><img data-slot="carro-tiguan" src="midia/frota/tiguan.webp" alt="Volkswagen Tiguan R-Line da frota Grupo Braslectra" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
         <div style="padding:18px">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Tiguan R-Line</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2019/2020</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Tiguan }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Tiguan }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -256,7 +257,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Hilux SW4 SRX</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2023/2024</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Hilux_SW4 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Hilux_SW4 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -267,7 +268,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Corolla XEI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2023/2024</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Corolla_3 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Corolla_3 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -278,7 +279,7 @@
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1E1B18">Corolla XEI</div>
           <div style="font-size:13px;color:#6B6459;margin-top:6px">2024/2025</div>
           <span style="display:inline-flex;align-items:center;background:#ECE3D2;color:#4A443C;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px;margin-top:10px">Banheiro: Indisponível</span>
-          <button onClick="{{ openLightbox_Corolla_4 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
+          <button class="tl" onClick="{{ openLightbox_Corolla_4 }}" style="margin-top:14px;background:transparent;border:none;color:#8A5B0A;font-weight:700;font-size:13px;cursor:pointer;padding:0;display:flex;width:fit-content;align-items:center;gap:6px">VER FOTOS
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"></line><path d="M13 6l6 6-6 6"></path></svg>
           </button>
         </div>
@@ -330,7 +331,7 @@
 
 <footer style="background-color:#1E1B18;background-image:radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1.6px);background-size:24px 24px;padding:clamp(60px,7vw,92px) 0 0;color:#C9C2B6">
   <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
-    <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
+    <div class="ft-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
       <div>
         <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:34px"/>
         <p data-site="footer_text" style="font-size:14px;line-height:1.7;color:#8A8377;margin:20px 0 0;max-width:34ch">Transporte executivo de pessoas com segurança, conforto e pontualidade há 29 anos.</p>
