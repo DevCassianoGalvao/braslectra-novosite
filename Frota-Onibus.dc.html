@@ -113,36 +113,57 @@
 </header>
 
 <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
-  <div style="position:fixed;inset:0;z-index:200;background:#FBF8F3;display:flex;flex-direction:column;padding:22px clamp(20px,6vw,40px)">
+  <div style="position:fixed;inset:0;z-index:200;background:#FBF8F3;display:flex;flex-direction:column;padding:18px clamp(16px,5vw,40px) 28px;overflow-y:auto;-webkit-overflow-scrolling:touch">
     <div style="display:flex;align-items:center;justify-content:space-between">
       <img src="uploads/logo-grupo-braslectra.png.webp" alt="Grupo Braslectra" style="height:34px"/>
       <button onClick="{{ closeMobileMenu }}" aria-label="Fechar menu" style="width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
       </button>
     </div>
-    <nav style="display:flex;flex-direction:column;gap:6px;margin-top:40px">
-      <a href="./" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Início</a>
-      <a href="sobre" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Sobre</a>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Sustentabilidade</a>
+    <nav style="display:flex;flex-direction:column;gap:0;margin-top:24px">
+      <a href="./" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Início</a>
+      <div style="border-bottom:1px solid #ECE3D2">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <a href="sobre" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;flex:1">Sobre</a>
+          <button type="button" onClick="{{ toggleSub_sobre }}" aria-expanded="{{ subOpen_sobre }}" aria-label="Mostrar páginas de Sobre" style="flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:{{ subBg_sobre }};display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .3s ease;transform:rotate({{ subRot_sobre }})"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </div>
+        <sc-if value="{{ subIs_sobre }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px">
+        <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Sustentabilidade</a>
+          </div>
+        </sc-if>
       </div>
-      <a href="frota" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#C8850F;text-decoration:none;padding:14px 0 8px">Frota</a>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="frota-carros" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Carros</a>
-        <a href="frota-vans" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Vans</a>
-        <a href="frota-micro-onibus" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Micro-Ônibus</a>
-        <a href="frota-onibus" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Ônibus</a>
+      <div style="border-bottom:1px solid #ECE3D2">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <a href="frota" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#C8850F;text-decoration:none;padding:14px 0;flex:1">Frota</a>
+          <button type="button" onClick="{{ toggleSub_frota }}" aria-expanded="{{ subOpen_frota }}" aria-label="Mostrar páginas de Frota" style="flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:{{ subBg_frota }};display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .3s ease;transform:rotate({{ subRot_frota }})"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </div>
+        <sc-if value="{{ subIs_frota }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px">
+        <a href="frota-carros" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Carros</a>
+        <a href="frota-vans" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Vans</a>
+        <a href="frota-micro-onibus" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Micro-Ônibus</a>
+        <a href="frota-onibus" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Ônibus</a>
+          </div>
+        </sc-if>
       </div>
-      <a href="servicos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0 8px">Serviços</a>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid #ECE3D2">
-        <a href="servicos-executivo" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Executivo (Call Out)</a>
-        <a href="servicos-fretamento" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Fretamento</a>
-        <a href="servicos-turismo" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Turismo</a>
-        <a href="servicos-rodoviario" onClick="{{ closeMobileMenu }}" style="font-size:14px;font-weight:700;color:#5A5348;text-decoration:none;background:#FBF8F3;border:1px solid #ECE3D2;padding:7px 13px;border-radius:999px">Rodoviário</a>
+      <div style="border-bottom:1px solid #ECE3D2">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <a href="servicos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;flex:1">Serviços</a>
+          <button type="button" onClick="{{ toggleSub_servicos }}" aria-expanded="{{ subOpen_servicos }}" aria-label="Mostrar páginas de Serviços" style="flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1.5px solid #ECE3D2;background:{{ subBg_servicos }};display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .3s ease;transform:rotate({{ subRot_servicos }})"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </div>
+        <sc-if value="{{ subIs_servicos }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px">
+        <a href="servicos-executivo" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Executivo (Call Out)</a>
+        <a href="servicos-fretamento" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Fretamento</a>
+        <a href="servicos-turismo" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Turismo</a>
+        <a href="servicos-rodoviario" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Rodoviário</a>
+          </div>
+        </sc-if>
       </div>
-      <a href="contato" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Contato</a>
-      <a href="treinamentos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Treinamentos</a>
-      <a href="blog" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Blog</a>
+      <a href="contato" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Contato</a>
+      <a href="treinamentos" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Treinamentos</a>
+      <a href="blog" onClick="{{ closeMobileMenu }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:23px;color:#1E1B18;text-decoration:none;padding:14px 0;border-bottom:1px solid #ECE3D2">Blog</a>
     </nav>
     <a href="contato" onClick="{{ closeMobileMenu }}" style="margin-top:32px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:16px;padding:16px 24px;border-radius:999px;text-decoration:none">Solicitar orçamento</a>
   </div>
@@ -374,7 +395,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { isMobile: false, mobileMenuOpen: false, scrolled: false, openDropdown: null, lightboxOpen: false, lightboxLabel: '', lbKey: null, lbIndex: 0 };
+  state = { mobileSub: '', isMobile: false, mobileMenuOpen: false, scrolled: false, openDropdown: null, lightboxOpen: false, lightboxLabel: '', lbKey: null, lbIndex: 0 };
   gallery = {"mascarello":["midia/galerias/mascarello/01.webp","midia/galerias/mascarello/02.webp","midia/galerias/mascarello/03.webp","midia/galerias/mascarello/04.webp","midia/galerias/mascarello/05.webp","midia/galerias/mascarello/06.webp","midia/galerias/mascarello/07.webp","midia/galerias/mascarello/08.webp"],"ideale":["midia/galerias/ideale/01.webp","midia/galerias/ideale/02.webp","midia/galerias/ideale/03.webp","midia/galerias/ideale/04.webp","midia/galerias/ideale/05.webp"],"el340":["midia/galerias/el340/01.webp","midia/galerias/el340/02.webp","midia/galerias/el340/03.webp","midia/galerias/el340/04.webp","midia/galerias/el340/05.webp","midia/galerias/el340/06.webp"],"viaggio":["midia/galerias/viaggio/01.webp","midia/galerias/viaggio/02.webp","midia/galerias/viaggio/03.webp","midia/galerias/viaggio/04.webp","midia/galerias/viaggio/05.webp"],"idealer":["midia/galerias/idealer/01.webp","midia/galerias/idealer/02.webp","midia/galerias/idealer/03.webp","midia/galerias/idealer/04.webp","midia/galerias/idealer/05.webp"],"campione":["midia/galerias/campione/01.webp","midia/galerias/campione/02.webp","midia/galerias/campione/03.webp","midia/galerias/campione/04.webp","midia/galerias/campione/05.webp","midia/galerias/campione/06.webp"],"irizar":["midia/galerias/irizar/01.webp","midia/galerias/irizar/02.webp","midia/galerias/irizar/03.webp","midia/galerias/irizar/04.webp","midia/galerias/irizar/05.webp"]};
 
   _reveal(targets, vars) {
@@ -426,7 +447,8 @@ class Component extends DCLogic {
   toggleMobileMenu() { this.setState((s) => ({ mobileMenuOpen: !s.mobileMenuOpen })); }
   openMenu(name) { this.setState({ openDropdown: name }); }
   closeMenu() { this.setState({ openDropdown: null }); }
-  closeMobileMenu() { this.setState({ mobileMenuOpen: false }); }
+  closeMobileMenu() { this.setState({ mobileMenuOpen: false, mobileSub: '' }); }
+  toggleSub(k) { this.setState((st) => ({ mobileSub: st.mobileSub === k ? '' : k })); }
   openLightbox(label, key) {
     this.setState({ lightboxOpen: true, lightboxLabel: label, lbKey: key, lbIndex: 0 });
     document.body.style.overflow = 'hidden';
@@ -448,6 +470,9 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state;
     return {
+      toggleSub_sobre: () => this.toggleSub('sobre'), subIs_sobre: s.mobileSub === 'sobre', subOpen_sobre: s.mobileSub === 'sobre' ? 'true' : 'false', subRot_sobre: s.mobileSub === 'sobre' ? '180deg' : '0deg', subBg_sobre: s.mobileSub === 'sobre' ? '#F6EEDD' : '#FFFFFF',
+      toggleSub_frota: () => this.toggleSub('frota'), subIs_frota: s.mobileSub === 'frota', subOpen_frota: s.mobileSub === 'frota' ? 'true' : 'false', subRot_frota: s.mobileSub === 'frota' ? '180deg' : '0deg', subBg_frota: s.mobileSub === 'frota' ? '#F6EEDD' : '#FFFFFF',
+      toggleSub_servicos: () => this.toggleSub('servicos'), subIs_servicos: s.mobileSub === 'servicos', subOpen_servicos: s.mobileSub === 'servicos' ? 'true' : 'false', subRot_servicos: s.mobileSub === 'servicos' ? '180deg' : '0deg', subBg_servicos: s.mobileSub === 'servicos' ? '#F6EEDD' : '#FFFFFF',
       setRootEl: (el) => { this.rootEl = el; },
       isMobile: s.isMobile,
       isDesktop: !s.isMobile,
@@ -461,7 +486,7 @@ class Component extends DCLogic {
       closeMenu: () => this.closeMenu(),
       toggleMobileMenu: () => this.toggleMobileMenu(),
       closeMobileMenu: () => this.closeMobileMenu(),
-      headerPadding: s.scrolled ? '14px 0' : '22px 0',
+      headerPadding: s.scrolled ? '12px clamp(16px,5vw,48px)' : '18px clamp(16px,5vw,48px)',
       headerShadow: s.scrolled ? '0 1px 0 rgba(30,27,24,.08), 0 12px 24px rgba(30,27,24,.06)' : 'none',
       lightboxOpen: s.lightboxOpen,
       lightboxLabel: s.lightboxLabel,
