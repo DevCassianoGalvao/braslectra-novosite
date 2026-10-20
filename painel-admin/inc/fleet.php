@@ -9,7 +9,7 @@ declare(strict_types=1);
 function fleet_categories(): array
 {
     return [
-        'carros'       => ['label' => 'Carros', 'page' => 'frota-carros', 'groups' => ['passeio' => 'Carros de passeio', 'suv' => 'SUVs', 'carga' => 'Carros de carga', 'blindados' => 'Carros Blindados']],
+        'carros'       => ['label' => 'Carros', 'page' => 'frota-carros', 'groups' => ['passeio' => 'Carros de passeio', 'carga' => 'Carros de carga', 'blindados' => 'Carros Blindados']],
         'vans'         => ['label' => 'Vans', 'page' => 'frota-vans', 'groups' => ['' => '']],
         'micro-onibus' => ['label' => 'Micro-ônibus', 'page' => 'frota-micro-onibus', 'groups' => ['' => '']],
         'onibus'       => ['label' => 'Ônibus', 'page' => 'frota-onibus', 'groups' => ['' => '']],
@@ -20,8 +20,8 @@ function fleet_categories(): array
 function fleet_spec_fields(string $cat): array
 {
     return match ($cat) {
-        'vans', 'onibus' => ['Classe', 'Lotação'],
-        'micro-onibus'   => ['Classe', 'Lotação', 'Banheiro'],
+        'vans'           => ['Classe', 'Lotação'],
+        'micro-onibus', 'onibus' => ['Classe', 'Lotação', 'Banheiro'],
         default          => [],
     };
 }

@@ -342,7 +342,8 @@
   "year": "2024/2025",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 46"
+   "Lotação: 46",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/mascarello.webp",
   "alt": "Ônibus Mascarello Elo da frota Grupo Braslectra",
@@ -365,7 +366,8 @@
   "year": "2024/2025",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 45"
+   "Lotação: 45",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/ideale.webp",
   "alt": "Ônibus Marcopolo Ideale da frota Grupo Braslectra",
@@ -385,7 +387,8 @@
   "year": "2022/2023",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 46"
+   "Lotação: 46",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/el340.webp",
   "alt": "Ônibus Busscar El 340 da frota Grupo Braslectra",
@@ -406,7 +409,8 @@
   "year": "2022/2023",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 46"
+   "Lotação: 46",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/viaggio.webp",
   "alt": "Ônibus Marcopolo Viaggio R da frota Grupo Braslectra",
@@ -426,7 +430,8 @@
   "year": "2021/2022",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 45"
+   "Lotação: 45",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/idealer.webp",
   "alt": "Ônibus Marcopolo Ideale R da frota Grupo Braslectra",
@@ -446,7 +451,8 @@
   "year": "2014/2014",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 46"
+   "Lotação: 46",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/campione.webp",
   "alt": "Ônibus Comil Campione R da frota Grupo Braslectra",
@@ -467,7 +473,8 @@
   "year": "2013/2014",
   "specs": [
    "Classe: Executiva",
-   "Lotação: 46"
+   "Lotação: 46",
+   "Banheiro: Disponível"
   ],
   "image": "midia/frota/irizar.webp",
   "alt": "Ônibus Irizar i6 370 da frota Grupo Braslectra",

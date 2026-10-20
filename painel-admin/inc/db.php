@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
 
 function db(): PDO
 {
@@ -179,6 +179,15 @@ function migrate(PDO $pdo): void
     $pdo->exec("UPDATE lead_sources SET label = 'Executivo (Call Out)' WHERE slug = 'executivo' AND label = 'Serviço Executivo'");
     require_once __DIR__ . '/fleet.php';
     fleet_seed($pdo);
+    // v5: todo ônibus mostra a informação de banheiro; grupo SUV deixa de existir (SUVs ficam em Blindados/Passeio)
+    foreach ($pdo->query("SELECT id, specs FROM vehicles WHERE category = 'onibus'")->fetchAll() as $r) {
+        $sp = json_decode((string) $r['specs'], true) ?: [];
+        if (!array_filter($sp, static fn ($x) => stripos((string) $x, 'Banheiro') === 0)) {
+            $sp[] = 'Banheiro: Disponível';
+            $pdo->prepare('UPDATE vehicles SET specs = ? WHERE id = ?')->execute([json_encode($sp, JSON_UNESCAPED_UNICODE), $r['id']]);
+        }
+    }
+    $pdo->exec("UPDATE vehicles SET grp = 'passeio' WHERE category = 'carros' AND grp = 'suv'");
     $pdo->exec('PRAGMA user_version = ' . SCHEMA_VERSION);
 }
 
