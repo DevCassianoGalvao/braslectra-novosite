@@ -246,19 +246,19 @@
         <form onSubmit="{{ handleSubmit }}" style="display:flex;flex-direction:column;gap:16px;margin-top:22px">
           <div>
             <label style="font-size:13px;font-weight:700;color:#4A443C">Nome completo</label>
-            <input type="text" required="" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
+            <input type="text" required="required" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
           </div>
           <div>
             <label style="font-size:13px;font-weight:700;color:#4A443C">E-mail</label>
-            <input type="email" required="" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" title="Informe um e-mail válido, como nome@empresa.com.br" inputmode="email" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
+            <input type="email" required="required" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" title="Informe um e-mail válido, como nome@empresa.com.br" inputmode="email" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
           </div>
           <div>
             <label style="font-size:13px;font-weight:700;color:#4A443C">WhatsApp com DDD</label>
-            <input type="tel" required="" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
+            <input type="tel" required="required" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none" style-focus="border-color:#C8850F"/>
           </div>
           <div>
             <label style="font-size:13px;font-weight:700;color:#4A443C">Mensagem</label>
-            <textarea required="" rows="5" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none;resize:vertical;font-family:inherit" style-focus="border-color:#C8850F"></textarea>
+            <textarea required="required" rows="5" style="width:100%;margin-top:6px;padding:13px 16px;border-radius:12px;border:1.5px solid #ECE3D2;font-size:15px;background:#FBF8F3;outline:none;resize:vertical;font-family:inherit" style-focus="border-color:#C8850F"></textarea>
           </div>
           <button type="submit" style="margin-top:6px;background:linear-gradient(135deg, #E9BC61 0%, #C8850F 55%, #A66B0C 100%);color:#FFFFFF;font-weight:700;font-size:15px;padding:16px 24px;border-radius:999px;border:none;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 12px 24px rgba(200,133,15,.35)">Enviar</button>
                 <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
