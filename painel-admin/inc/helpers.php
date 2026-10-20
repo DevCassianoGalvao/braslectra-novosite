@@ -112,6 +112,24 @@ function truncate(string $s, int $n = 140): string
     return mb_strlen($s) > $n ? mb_substr($s, 0, $n - 1) . '…' : $s;
 }
 
+/** Resumo para os cards: ignora índice/sumário colado no começo do artigo e resumos longos demais. */
+function clean_excerpt(string $excerpt, string $content, int $n = 180): string
+{
+    $ex = trim($excerpt);
+    if ($ex !== '' && mb_strlen($ex) <= 260 && !preg_match('/^\s*[ÍI]ndice/u', $ex)) {
+        return $ex;
+    }
+    if (preg_match_all('#<p[^>]*>(.*?)</p>#is', $content, $m)) {
+        foreach ($m[1] as $p) {
+            $t = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($p), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?? '');
+            if (mb_strlen($t) >= 70 && !preg_match('/^[ÍI]ndice/u', $t)) {
+                return mb_strlen($t) > $n ? rtrim(mb_substr($t, 0, $n - 1), ' ,.;:') . '…' : $t;
+            }
+        }
+    }
+    return truncate($ex !== '' ? $ex : $content, $n);
+}
+
 function fmt_date(?string $d, bool $time = true): string
 {
     if (!$d) {

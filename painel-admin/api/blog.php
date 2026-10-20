@@ -17,7 +17,7 @@ function post_public(array $p, bool $full, bool $text = false): array
         'id'              => (int) $p['id'],
         'title'           => $p['title'],
         'slug'            => $p['slug'],
-        'excerpt'         => $p['excerpt'],
+        'excerpt'         => clean_excerpt((string) $p['excerpt'], (string) $p['content']),
         'image'           => $img !== '' && !preg_match('#^https?://#i', $img) ? abs_url($img) : $img,
         'published_at'    => $p['published_at'],
         'seo_title'       => $p['seo_title'] ?: $p['title'],
