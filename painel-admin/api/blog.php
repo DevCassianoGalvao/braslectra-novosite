@@ -37,7 +37,11 @@ function post_public(array $p, bool $full, bool $text = false): array
 
 $slug = (string) ($_GET['slug'] ?? '');
 if ($slug !== '') {
-    $p = row("SELECT * FROM posts WHERE slug = ? AND status = 'published' AND (published_at IS NULL OR published_at <= ?)", [$slug, now()]);
+    $q = "SELECT * FROM posts WHERE slug = ? AND status = 'published' AND (published_at IS NULL OR published_at <= ?)";
+    $p = row($q, [$slug, now()]);
+    if (!$p) {   // links antigos trazem o endereço completo; o painel guarda no máximo 80 caracteres
+        $p = row("SELECT * FROM posts WHERE ? LIKE slug || '%' AND length(slug) >= 40 AND status = 'published' AND (published_at IS NULL OR published_at <= ?) ORDER BY length(slug) DESC LIMIT 1", [$slug, now()]);
+    }
     if (!$p) {
         json_out(['ok' => false, 'error' => 'Artigo não encontrado.'], 404);
     }

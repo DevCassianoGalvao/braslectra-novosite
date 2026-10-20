@@ -76,6 +76,11 @@ function seo_post(string $slug): ?array
             return $p;
         }
     }
+    foreach (seo_posts() as $p) {   // endereço antigo completo; o painel guarda no máximo 80 caracteres
+        if (strlen($p['slug']) >= 40 && str_starts_with($slug, $p['slug'])) {
+            return $p;
+        }
+    }
     return null;
 }
 
