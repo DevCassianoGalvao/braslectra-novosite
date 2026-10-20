@@ -192,7 +192,7 @@
 
 <section id="blog-lista" style="padding:0 0 clamp(64px,9vw,100px);background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:28px">
       <sc-if value="{{ hasApi }}" hint-placeholder-val="{{ false }}">
         <sc-for list="{{ apiCards }}" as="p">
           <a href="{{ p.href }}" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.18)">
