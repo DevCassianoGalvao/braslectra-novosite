@@ -36,6 +36,7 @@ require __DIR__ . '/auth.php';
 require __DIR__ . '/sanitize.php';
 require __DIR__ . '/brevo.php';
 require __DIR__ . '/view.php';
+require_once __DIR__ . '/fleet.php';
 
 function send_security_headers(): void
 {

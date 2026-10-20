@@ -63,7 +63,7 @@ function is_admin(?array $u = null): bool
 }
 
 /**
- * Permissões: 'blog', 'scripts', 'settings', 'leads' (qualquer acesso a leads), 'users' (somente admin).
+ * Permissões: 'blog', 'fleet', 'scripts', 'settings', 'leads' (qualquer acesso a leads), 'users' (somente admin).
  */
 function can(string $perm, ?array $u = null): bool
 {
@@ -198,7 +198,7 @@ function password_problem(string $pw): ?string
 function build_perms_from_post(): array
 {
     $perm = [];
-    foreach (['blog', 'scripts', 'settings'] as $k) {
+    foreach (['blog', 'fleet', 'scripts', 'settings'] as $k) {
         $perm[$k] = !empty($_POST['perm_' . $k]);
     }
     $mode = post('leads_mode', 'none');

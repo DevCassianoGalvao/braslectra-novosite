@@ -114,6 +114,8 @@ RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
 RewriteRule ^Trabalhe\-Conosco\.dc\.html$ %{ENV:BASE}trabalhe-conosco [R=301,L,NC]
 RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
 RewriteRule ^Politica\-de\-Privacidade\.dc\.html$ %{ENV:BASE}politica-de-privacidade [R=301,L,NC]
+RewriteCond %{THE_REQUEST} \.dc\.html[\s?] [NC]
+RewriteRule ^Orcamento\.dc\.html$ %{ENV:BASE}orcamento [R=301,L,NC]
 RewriteCond %{THE_REQUEST} index\.html[\s?] [NC]
 RewriteRule ^index\.html$ %{ENV:BASE} [R=301,L,NC]
 RewriteCond %{THE_REQUEST} blog-post\.php[\s?] [NC]
@@ -151,6 +153,7 @@ RewriteRule ^treinamentos$ Treinamentos.dc.html [L,NC]
 RewriteRule ^contato$ Contato.dc.html [L,NC]
 RewriteRule ^trabalhe-conosco$ Trabalhe-Conosco.dc.html [L,NC]
 RewriteRule ^politica-de-privacidade$ Politica-de-Privacidade.dc.html [L,NC]
+RewriteRule ^orcamento$ Orcamento.dc.html [L,NC]
 </IfModule>
 
 # Cabeçalhos de segurança e cache

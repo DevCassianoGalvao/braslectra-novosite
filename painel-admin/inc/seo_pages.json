@@ -86,7 +86,7 @@
       "changefreq": "monthly",
       "name": "Serviços",
       "title": "Serviços de Transporte para Empresas e Grupos | Grupo Braslectra",
-      "description": "Executivo (Call Out) sob demanda, fretamento com foco industrial, rodoviário em parceria com a Buser e turismo. Encontre o serviço certo e fale com o comercial.",
+      "description": "Executivo (Call Out) sob demanda, fretamento para empresas, escolas e condomínios, rodoviário em parceria com a Buser e turismo. Encontre o serviço certo e fale com o comercial.",
       "summary": "Visão geral dos 4 segmentos (Executivo/Call Out, Fretamento, Rodoviário, Turismo), escolha por necessidade, estrutura da Braslectra e formulário comercial por segmento."
     },
     {
@@ -122,9 +122,9 @@
       "priority": "0.8",
       "changefreq": "monthly",
       "name": "Fretamento",
-      "title": "Fretamento para Indústrias e Transporte Recorrente | Braslectra",
-      "description": "Fretamento com foco no transporte de colaboradores da indústria, por rotas e turnos. Também avaliamos projetos para condomínios, escolas e faculdades.",
-      "summary": "Fretamento com foco industrial (rotas, turnos e escalas) e consultas para condomínios, escolas e faculdades; como a operação é planejada e formulário por público.",
+      "title": "Fretamento para Empresas, Escolas e Condomínios | Braslectra",
+      "description": "Fretamento contínuo para indústrias, empresas, escolas, faculdades e condomínios: rotas, horários e veículos dimensionados para cada operação.",
+      "summary": "Fretamento contínuo para indústrias, empresas de todos os ramos, escolas, faculdades e condomínios (rotas, turnos e horários); como a operação é planejada e formulário por público.",
       "service": "Fretamento de transporte recorrente",
       "faq": [
         [
@@ -155,7 +155,7 @@
         ],
         [
           "O serviço inclui hospedagem, ingressos e passeios?",
-          "Esta página apresenta o serviço de transporte. A proposta identifica exatamente o que está incluído no atendimento."
+          "Nosso foco é o transporte do grupo. Se a programação incluir hospedagem, ingressos ou passeios, conte para a gente na solicitação: organizamos os deslocamentos de acordo com esse roteiro, e a proposta detalha tudo o que está incluído."
         ]
       ]
     },
@@ -215,6 +215,17 @@
       "title": "Blog | Grupo Braslectra",
       "description": "Artigos do Grupo Braslectra sobre transporte executivo, fretamento e mobilidade corporativa.",
       "summary": "Artigo do blog."
+    },
+    {
+      "file": "Orcamento",
+      "slug": "orcamento",
+      "og": "servicos",
+      "priority": "0.8",
+      "changefreq": "monthly",
+      "name": "Orçamento",
+      "title": "Solicite um Orçamento de Transporte | Grupo Braslectra",
+      "description": "Peça um orçamento de transporte executivo (Call Out), fretamento ou turismo: escolha o serviço e envie os dados ao comercial do Grupo Braslectra.",
+      "summary": "Página de orçamento: escolha do serviço (Executivo, Fretamento, Turismo; Rodoviário via Buser) e formulário comercial correspondente."
     },
     {
       "file": "Contato",

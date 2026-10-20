@@ -58,7 +58,7 @@ $phone = $str($in['phone'] ?? $in['telefone'] ?? $in['whatsapp'] ?? '', 40);
 $company = $str($in['company'] ?? $in['empresa'] ?? '', 160);
 $message = $str($in['message'] ?? $in['mensagem'] ?? '', 4000);
 
-if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email !== '' && (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/', $email))) {
     json_out(['ok' => false, 'error' => 'Informe um e-mail válido.'], 422);
 }
 $pd = digits($phone);

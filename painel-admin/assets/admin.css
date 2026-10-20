@@ -131,3 +131,13 @@ table.tbl.compact{min-width:0}
   .side.open{transform:none}.burger{display:grid}.g2,.g3,.g4{grid-template-columns:1fr}.kv{grid-template-columns:1fr;gap:2px 0}.kv dd{margin-bottom:10px}
   .scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:40}
 }
+
+/* gerenciador de frota */
+.fl-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:12px 0}
+.fl-item{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#14110E;aspect-ratio:4/3}
+.fl-item img{width:100%;height:100%;object-fit:cover;display:block}
+.fl-ctl{position:absolute;left:0;right:0;bottom:0;display:flex;gap:4px;justify-content:center;padding:6px;background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,0))}
+.fl-ctl button{width:28px;height:26px;border:0;border-radius:8px;background:rgba(255,255,255,.92);font-weight:800;cursor:pointer}
+.fl-ctl button[data-rm]{background:#FEE4E2;color:#B42318}
+.fl-main{background:radial-gradient(120% 95% at 50% 35%,#fff 0%,#F6F1E8 62%,#EEE5D4 100%);border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0}
+.fl-main img{width:100%;aspect-ratio:900/563;object-fit:contain;display:block}

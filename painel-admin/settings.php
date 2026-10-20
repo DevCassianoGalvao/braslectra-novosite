@@ -119,7 +119,7 @@ $field = static function (string $key, string $label, string $type = 'text', str
   <h2>Dados de contato do site</h2>
   <p class="sub">Alterou um telefone ou e-mail? Edite aqui e o site se atualiza sozinho.</p>
   <div class="row">
-    <?php $field('company_name', 'Nome da empresa'); $field('phone_main', 'Telefone principal', 'text', 'Ex.: (22) 2773-2800'); $field('whatsapp', 'WhatsApp', 'text', 'Ex.: (22) 9.9758-6858'); ?>
+    <?php $field('company_name', 'Nome da empresa'); $field('phone_main', 'Telefone principal', 'text', 'Ex.: (22) 2773-2800'); $field('whatsapp', 'WhatsApp', 'text', 'Ex.: (22) 99758-6858'); ?>
   </div>
   <div class="row">
     <?php $field('email_orcamento', 'E-mail de orçamentos', 'email'); $field('email_atendimento', 'E-mail de atendimento', 'email'); ?>

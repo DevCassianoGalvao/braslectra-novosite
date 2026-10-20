@@ -11,6 +11,7 @@ function icon(string $name): string
         'scripts'  => '<path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/>',
         'users'    => '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5S15 16.4 15.6 20"/><path d="M16 5a3.2 3.2 0 0 1 0 6M18 14.8c2 .6 3.2 2.3 3.5 5.2"/>',
         'logout'   => '<path d="M9 4H4v16h5M16 8l4 4-4 4M20 12H9"/>',
+        'fleet'    => '<path d="M3 16.5h-.6c-.3 0-.4-.2-.4-.4V13c0-.6.3-1 .8-1.2L5 10.8l2-2.4c.4-.4.9-.6 1.4-.6h5.2c.5 0 1 .2 1.4.6l2.1 2.5 1.7.5c.6.2 1 .7 1 1.3v2.4c0 .2-.2.4-.4.4H19"/><circle cx="7" cy="16.5" r="1.9"/><circle cx="16.5" cy="16.5" r="1.9"/><path d="M8.9 16.5h5.7"/>',
         'plus'     => '<path d="M12 5v14M5 12h14"/>',
         'search'   => '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/>',
         'download' => '<path d="M12 3v12M7 11l5 5 5-5M4 20h16"/>',
@@ -39,6 +40,7 @@ function view_header(array $o = []): void
     $nav = [
         ['dashboard', 'Visão geral', 'dashboard.php', 'home', true],
         ['leads', 'Leads', 'leads.php', 'leads', $u && can('leads', $u)],
+        ['fleet', 'Frota', 'fleet.php', 'fleet', $u && can('fleet', $u)],
         ['blog', 'Blog', 'blog.php', 'blog', $u && can('blog', $u)],
         ['settings', 'Configurações', 'settings.php', 'settings', $u && can('settings', $u)],
         ['scripts', 'Scripts e rastreamento', 'scripts.php', 'scripts', $u && can('scripts', $u)],
@@ -55,7 +57,7 @@ function view_header(array $o = []): void
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=1">
+<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=2">
 <meta name="csrf" content="<?= e(csrf_token()) ?>">
 </head>
 <body class="app<?= $u ? '' : ' app-guest' ?>">

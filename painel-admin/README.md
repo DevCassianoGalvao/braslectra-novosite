@@ -7,11 +7,12 @@ Painel administrativo em **PHP 8+ puro** (sem framework, sem Composer) com banco
 | Área | Para quê |
 |---|---|
 | **Leads (mini CRM)** | Cada formulário do site cai numa *origem* separada (Turismo, Fretamento, Executivo, Contato, Trabalhe Conosco…). Filtros, busca, status (Novo → Em atendimento → Proposta → Fechado/Perdido), anotações, botão de WhatsApp, exportar CSV, download de currículo. |
+| **Frota** | Adicionar, editar, ocultar, reordenar e remover veículos (Carros, Vans, Micro-ônibus, Ônibus), com foto principal e galeria. As páginas da frota leem os dados da API `api/fleet.php`; no primeiro acesso os 24 veículos atuais são importados. Foto principal em PNG recortado (fundo transparente) é centralizada e padronizada automaticamente. |
 | **Blog** | Os 20 artigos do site antigo já vêm importados e editáveis (editor visual, capa, SEO, rascunho/agendamento). |
 | **Configurações** | Telefones, WhatsApp, e-mails, endereços, redes sociais, frase do rodapé, números (anos/colaboradores), link dos cursos. O site se atualiza sozinho. |
 | **Notificações** | E-mail via **API da Brevo** a cada lead novo, com destinatários padrão e por origem. |
 | **Scripts e rastreamento** | GTM, GA4, Pixel da Meta, Google Ads + códigos personalizados (head/body). Dispara `generate_lead` / `Lead` automaticamente. |
-| **Usuários** | Administrador (tudo) e colaboradores com acessos escolhidos: só Blog, só Scripts, só Configurações, leads de **todas** as origens ou **somente** de algumas (ex.: só Turismo e Fretamento). |
+| **Usuários** | Administrador (tudo) e colaboradores com acessos escolhidos: só Frota, só Blog, só Scripts, só Configurações, leads de **todas** as origens ou **somente** de algumas (ex.: só Turismo e Fretamento). |
 
 ## Requisitos
 PHP **8.0+** com `pdo_sqlite`, `mbstring`, `curl`, `fileinfo`, `dom` (todos vêm ativos na maioria das hospedagens). Apache (`.htaccess` incluído) ou Nginx.

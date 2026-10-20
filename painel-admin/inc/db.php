@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 function db(): PDO
 {
@@ -124,6 +124,21 @@ function migrate(PDO $pdo): void
         updated_at TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status, published_at);
+    CREATE TABLE IF NOT EXISTS vehicles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category TEXT NOT NULL,
+        grp TEXT NOT NULL DEFAULT '',
+        name TEXT NOT NULL,
+        year TEXT NOT NULL DEFAULT '',
+        specs TEXT NOT NULL DEFAULT '[]',
+        image TEXT NOT NULL DEFAULT '',
+        gallery TEXT NOT NULL DEFAULT '[]',
+        sort_order INTEGER NOT NULL DEFAULT 0,
+        active INTEGER NOT NULL DEFAULT 1,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_vehicles_cat ON vehicles(category, active, sort_order);
     CREATE TABLE IF NOT EXISTS settings (
         k TEXT PRIMARY KEY,
         v TEXT NOT NULL DEFAULT ''
@@ -158,6 +173,8 @@ function migrate(PDO $pdo): void
     }
     // nome atualizado no briefing (só troca se ainda estiver com o nome antigo padrão)
     $pdo->exec("UPDATE lead_sources SET label = 'Executivo (Call Out)' WHERE slug = 'executivo' AND label = 'Serviço Executivo'");
+    require_once __DIR__ . '/fleet.php';
+    fleet_seed($pdo);
     $pdo->exec('PRAGMA user_version = ' . SCHEMA_VERSION);
 }
 
@@ -199,7 +216,7 @@ function settings_defaults(): array
     return [
         'company_name'      => 'Grupo Braslectra',
         'phone_main'        => '(22) 2773-2800',
-        'whatsapp'          => '(22) 9.9758-6858',
+        'whatsapp'          => '(22) 99758-6858',
         'email_orcamento'   => 'orcamento@braslectra.com.br',
         'email_atendimento' => 'atendimento@braslectra.com.br',
         'email_rh'          => 'rh@braslectra.com.br',
