@@ -57,7 +57,7 @@ function view_header(array $o = []): void
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=2">
+<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=3">
 <meta name="csrf" content="<?= e(csrf_token()) ?>">
 </head>
 <body class="app<?= $u ? '' : ' app-guest' ?>">
@@ -77,6 +77,10 @@ function view_header(array $o = []): void
       <?php endforeach; ?>
     </nav>
     <div class="side-foot">
+      <?php
+      $siteUrl = trim((string) cfg('site_url')) !== '' ? rtrim((string) cfg('site_url'), '/') . '/' : (preg_replace('#/[^/]*$#', '', rtrim(admin_base(), '/')) . '/');
+      ?>
+      <a class="btn-site" href="<?= e($siteUrl) ?>" target="_blank" rel="noopener"><?= icon('external') ?> Ver site</a>
       <a href="<?= e(url('profile.php')) ?>" class="me <?= $active === 'profile' ? 'on' : '' ?>">
         <span class="av"><?= e(mb_strtoupper(mb_substr($u['name'], 0, 1))) ?></span>
         <span class="me-t"><b><?= e($u['name']) ?></b><small><?= $u['role'] === 'admin' ? 'Administrador' : 'Colaborador' ?></small></span>
