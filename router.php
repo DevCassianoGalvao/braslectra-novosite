@@ -13,7 +13,7 @@ $routes = [
     '/servicos-rodoviario' => 'Servicos-Rodoviario.dc.html', '/sustentabilidade' => 'Sustentabilidade.dc.html',
     '/treinamentos' => 'Treinamentos.dc.html', '/blog' => 'blog.php', '/blog-post' => 'blog-post.php',
     '/contato' => 'Contato.dc.html', '/trabalhe-conosco' => 'Trabalhe-Conosco.dc.html',
-    '/politica-de-privacidade' => 'Politica-de-Privacidade.dc.html', '/orcamento' => 'Orcamento.dc.html',
+    '/politica-de-privacidade' => 'Politica-de-Privacidade.dc.html', '/orcamento' => 'Orcamento.dc.html', '/canal-de-denuncia' => 'Denuncia.dc.html',
     '/sitemap.xml' => 'sitemap.php', '/llms-full.txt' => 'llms-full.php',
 ];
 $key = rtrim($path, '/') === '' ? '/' : rtrim($path, '/');

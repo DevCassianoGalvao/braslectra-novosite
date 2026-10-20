@@ -58,7 +58,12 @@ if (is_post()) {
             'brevo_sender_email' => strtolower(post('brevo_sender_email')),
             'brevo_sender_name'  => mb_substr(post('brevo_sender_name'), 0, 80),
             'allowed_origins'    => mb_substr(post('allowed_origins'), 0, 1000),
+            'complaint_email'    => strtolower(post('complaint_email')),
         ];
+        if ($kv['complaint_email'] !== '' && !filter_var($kv['complaint_email'], FILTER_VALIDATE_EMAIL)) {
+            flash('err', 'E-mail do Canal de Denúncia inválido.');
+            redirect('settings.php#notificacoes');
+        }
         $emails = valid_emails_list(post('notify_emails'));
         $kv['notify_emails'] = implode(', ', $emails);
         $newKey = trim((string) ($_POST['brevo_api_key'] ?? ''));
@@ -147,6 +152,7 @@ $field = static function (string $key, string $label, string $type = 'text', str
   <p class="sub">Cada vez que um formulário do site for enviado, um e-mail é disparado pela API da Brevo.</p>
   <label class="chk"><input type="checkbox" name="notify_enabled" value="1" <?= $S['notify_enabled'] === '1' ? 'checked' : '' ?>><span>Enviar e-mail quando entrar um lead novo</span></label>
   <label class="f" style="margin-top:8px"><span class="h">Quem recebe (padrão para todas as origens)</span><textarea name="notify_emails" rows="2" placeholder="comercial@braslectra.com.br, gestor@braslectra.com.br"><?= e($S['notify_emails']) ?></textarea><small>Mais de um e-mail: separe por vírgula. Cada origem pode ter destinatários próprios (abaixo).</small></label>
+  <label class="f" style="margin-top:8px"><span class="h">E-mail do Canal de Denúncia</span><input type="text" name="complaint_email" value="<?= e($S['complaint_email']) ?>" placeholder="denuncia@braslectra.com.br"><small>Recebe as denúncias da página <b>Canal de Denúncia</b>. Usa a mesma chave da Brevo abaixo, mas é independente dos leads (não passa pelo CRM e nada é guardado no painel).</small></label>
   <div class="row">
     <label class="f"><span class="h">Chave da API Brevo</span>
       <input type="password" id="bkey" name="brevo_api_key" value="" autocomplete="off" placeholder="<?= $S['brevo_api_key'] !== '' ? '•••••••• (salva — deixe em branco para manter)' : 'xkeysib-…' ?>">

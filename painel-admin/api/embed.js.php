@@ -87,7 +87,7 @@ $json = json_encode($cfg, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON
     var doBody = function () { inject(T.body_start, 'body_start'); inject(T.body_end, 'body_end'); };
     if (document.body) doBody(); else document.addEventListener('DOMContentLoaded', doBody);
   }
-  loadTracking();
+  if (!window.BRASLECTRA_NO_TRACKING) loadTracking();   // páginas sensíveis (Canal de Denúncia) não carregam rastreamento
 
   /* ---------- Formulários -> CRM ---------- */
   var MAP = [

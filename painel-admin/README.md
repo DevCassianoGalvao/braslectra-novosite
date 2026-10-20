@@ -8,6 +8,7 @@ Painel administrativo em **PHP 8+ puro** (sem framework, sem Composer) com banco
 |---|---|
 | **Leads (mini CRM)** | Cada formulário do site cai numa *origem* separada (Turismo, Fretamento, Executivo, Contato, Trabalhe Conosco…). Filtros, busca, status (Novo → Em atendimento → Proposta → Fechado/Perdido), anotações, botão de WhatsApp, exportar CSV, download de currículo. |
 | **Frota** | Adicionar, editar, ocultar, reordenar e remover veículos (Carros, Vans, Micro-ônibus, Ônibus), com foto principal e galeria. As páginas da frota leem os dados da API `api/fleet.php`; no primeiro acesso os 24 veículos atuais são importados. Foto principal em PNG recortado (fundo transparente) é centralizada e padronizada automaticamente. |
+| **Canal de Denúncia** | Página pública `/canal-de-denuncia` (identificada ou anônima). Envia por e-mail (Brevo) ao endereço exclusivo definido em Configurações → Notificações (padrão denuncia@braslectra.com.br). Nada da denúncia é gravado no painel; não guarda IP, aparelho nem página de origem; não carrega rastreamento. Gera protocolo CD-AAAA-NNNN. |
 | **Blog** | Os 20 artigos do site antigo já vêm importados e editáveis (editor visual, capa, SEO, rascunho/agendamento). |
 | **Configurações** | Telefones, WhatsApp, e-mails, endereços, redes sociais, frase do rodapé, números (anos/colaboradores), link dos cursos. O site se atualiza sozinho. |
 | **Notificações** | E-mail via **API da Brevo** a cada lead novo, com destinatários padrão e por origem. |

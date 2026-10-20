@@ -259,6 +259,17 @@
       "title": "Política de Privacidade | Grupo Braslectra",
       "description": "Saiba como o Grupo Braslectra coleta, utiliza e protege os seus dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).",
       "summary": "Política de privacidade (LGPD)."
+    },
+    {
+      "file": "Denuncia",
+      "slug": "canal-de-denuncia",
+      "og": "home",
+      "priority": "0.3",
+      "changefreq": "yearly",
+      "name": "Canal de Denúncia",
+      "title": "Canal de Denúncia | Grupo Braslectra",
+      "description": "Canal de Denúncia do Grupo Braslectra: relate assédio, discriminação, fraude, corrupção ou condutas antiéticas de forma identificada ou anônima, com sigilo e sem retaliação.",
+      "summary": "Canal de Denúncia: relato identificado ou anônimo de assédio, discriminação, fraude e condutas antiéticas, com sigilo e sem retaliação."
     }
   ]
 }

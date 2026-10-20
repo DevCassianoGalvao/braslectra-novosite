@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 function db(): PDO
 {
@@ -139,6 +139,10 @@ function migrate(PDO $pdo): void
         updated_at TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS idx_vehicles_cat ON vehicles(category, active, sort_order);
+    CREATE TABLE IF NOT EXISTS complaint_seq (
+        year INTEGER PRIMARY KEY,
+        n INTEGER NOT NULL DEFAULT 0
+    );
     CREATE TABLE IF NOT EXISTS settings (
         k TEXT PRIMARY KEY,
         v TEXT NOT NULL DEFAULT ''
@@ -231,6 +235,9 @@ function settings_defaults(): array
         'stat_years'        => '29',
         'stat_employees'    => '250',
         'url_courses'       => 'https://treinamentos.braslectra.com.br/',
+        // Canal de Denúncia (e-mail exclusivo; o sal só serve para limitar abuso sem guardar IP)
+        'complaint_email'   => 'denuncia@braslectra.com.br',
+        'complaint_salt'    => '',
         // Notificações
         'notify_enabled'    => '0',
         'notify_emails'     => '',
