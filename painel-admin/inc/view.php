@@ -58,7 +58,7 @@ function view_header(array $o = []): void
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=5">
+<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=6">
 <meta name="csrf" content="<?= e(csrf_token()) ?>">
 </head>
 <body class="app<?= $u ? '' : ' app-guest' ?>">

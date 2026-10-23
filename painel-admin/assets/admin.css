@@ -157,3 +157,6 @@ table.tbl.compact{min-width:0}
 .login .brand-center .brand-logo{height:56px}
 .login .brand-sub{color:var(--gold-d);background:var(--gold-l);border-color:#E9D6AB}
 .login h2,.login p.sub{text-align:center}
+/* barra lateral: logo menor, centralizada, com a etiqueta logo abaixo */
+.side .brand{align-items:center;text-align:center;gap:10px;padding:6px 8px 22px}
+.side .brand-logo{height:32px}
