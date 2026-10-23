@@ -61,7 +61,7 @@ view_header([
     <thead><tr><th>Contato</th><th>Origem</th><th>Mensagem</th><th>Status</th><th class="right">Recebido</th></tr></thead>
     <tbody>
     <?php foreach ($list as $l): ?>
-      <tr class="<?= $l['status'] === 'novo' ? 'is-new' : '' ?>">
+      <tr class="row-link <?= $l['status'] === 'novo' ? 'is-new' : '' ?>" data-href="<?= e(url('lead.php?id=' . $l['id'])) ?>">
         <td>
           <a class="t-main" href="<?= e(url('lead.php?id=' . $l['id'])) ?>"><?= e($l['name'] ?: '(sem nome)') ?></a>
           <div class="t-sub"><?= e($l['phone']) ?><?= $l['phone'] && $l['email'] ? ' · ' : '' ?><?= e($l['email']) ?></div>

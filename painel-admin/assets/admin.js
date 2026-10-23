@@ -52,6 +52,14 @@
     return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
   }
 
+  // linha inteira clicável (lista de leads); selects, links e botões continuam funcionando
+  document.addEventListener('click', function (e) {
+    var tr = e.target.closest && e.target.closest('tr[data-href]');
+    if (!tr || e.target.closest('a, button, select, input, textarea, label')) return;
+    if (window.getSelection && String(window.getSelection())) return;   // não atrapalha quem está selecionando texto
+    window.location.href = tr.getAttribute('data-href');
+  });
+
   // status do lead inline
   document.querySelectorAll('select[data-lead-status]').forEach(function (sel) {
     paint(sel);

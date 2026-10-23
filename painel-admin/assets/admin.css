@@ -146,3 +146,5 @@ table.tbl.compact{min-width:0}
 .side .btn-site{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#E9BC61,#C8850F);color:#1E1B18;font:800 14px var(--f-body);padding:11px 16px;border-radius:999px;text-decoration:none!important;transition:transform .15s,box-shadow .15s}
 .side .btn-site:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(200,133,15,.35)}
 .side .btn-site .ico{width:17px;height:17px}
+
+.tbl tr.row-link{cursor:pointer}
