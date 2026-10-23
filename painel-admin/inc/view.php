@@ -53,11 +53,12 @@ function view_header(array $o = []): void
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="<?= e(url('assets/simbolo.svg')) ?>">
 <title><?= e($title) ?> · Painel Braslectra</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=4">
+<link rel="stylesheet" href="<?= e(url('assets/admin.css')) ?>?v=5">
 <meta name="csrf" content="<?= e(csrf_token()) ?>">
 </head>
 <body class="app<?= $u ? '' : ' app-guest' ?>">
@@ -65,8 +66,8 @@ function view_header(array $o = []): void
 <div class="shell">
   <aside class="side" id="side">
     <a class="brand" href="<?= e(url('dashboard.php')) ?>">
-      <span class="brand-mark">B</span>
-      <span class="brand-txt"><b>Braslectra</b><small>Painel de gestão</small></span>
+      <img class="brand-logo" src="<?= e(url('assets/logo-grupo-branco.svg')) ?>" alt="Grupo Braslectra">
+      <span class="brand-sub">Painel de gestão</span>
     </a>
     <nav class="nav">
       <?php foreach ($nav as [$key, $label, $href, $ic, $show]): if (!$show) continue; ?>

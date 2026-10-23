@@ -43,7 +43,7 @@ if (is_post()) {
 view_header(['title' => 'Instalação']);
 ?>
 <div class="login">
-  <div class="brand"><span class="brand-mark">B</span><span class="brand-txt"><b>Braslectra</b><small>Instalação do painel</small></span></div>
+  <div class="brand brand-center"><img class="brand-logo" src="<?= e(url('assets/logo-grupo.svg')) ?>" alt="Grupo Braslectra"><span class="brand-sub">Instalação do painel</span></div>
   <h2>Criar administrador</h2>
   <p class="sub">Primeiro acesso: cadastre o usuário administrador principal.</p>
   <?php if ($err): ?><div class="flash flash-err"><?= e($err) ?></div><?php endif; ?>

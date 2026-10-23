@@ -148,3 +148,12 @@ table.tbl.compact{min-width:0}
 .side .btn-site .ico{width:17px;height:17px}
 
 .tbl tr.row-link{cursor:pointer}
+
+/* logotipo oficial no painel */
+.side .brand{flex-direction:column;align-items:flex-start;gap:8px;padding:4px 8px 24px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:14px}
+.brand-logo{display:block;height:44px;width:auto;max-width:100%}
+.brand-sub{display:inline-block;font:700 10.5px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#E3AE4F;background:rgba(227,174,79,.12);border:1px solid rgba(227,174,79,.25);padding:4px 10px;border-radius:999px}
+.login .brand-center{flex-direction:column;align-items:center;gap:12px;padding:4px 0 22px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.login .brand-center .brand-logo{height:56px}
+.login .brand-sub{color:var(--gold-d);background:var(--gold-l);border-color:#E9D6AB}
+.login h2,.login p.sub{text-align:center}

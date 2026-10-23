@@ -29,7 +29,7 @@ if (is_post()) {
 view_header(['title' => 'Entrar']);
 ?>
 <div class="login">
-  <div class="brand"><span class="brand-mark">B</span><span class="brand-txt"><b>Braslectra</b><small>Painel de gestão</small></span></div>
+  <div class="brand brand-center"><img class="brand-logo" src="<?= e(url('assets/logo-grupo.svg')) ?>" alt="Grupo Braslectra"><span class="brand-sub">Painel de gestão</span></div>
   <h2>Acessar o painel</h2>
   <p class="sub">Entre com seu e-mail e senha.</p>
   <?php if ($error): ?><div class="flash flash-err"><?= e($error) ?></div><?php endif; ?>
