@@ -3,15 +3,15 @@
  * Canal de Denúncia: recebe o formulário (com fotos opcionais) e envia por e-mail (Brevo) ao endereço exclusivo.
  *
  * PRIVACIDADE (denúncias anônimas):
- *  - NADA da denúncia (texto ou fotos) é gravado no banco, em arquivo ou em log. Só existe no e-mail enviado.
- *    As fotos ficam apenas na pasta temporária do PHP durante o envio, que o PHP apaga ao fim da requisição.
- *  - Não guarda IP, user-agent, referrer, UTM, página de origem nem cookies, e não entra no CRM de leads.
+ *  - A denúncia (texto e fotos) fica no painel, em área restrita (permissão "Canal de Denúncia"), e vai por e-mail
+ *    como cópia. As fotos ficam na pasta privada (fora da área pública) e só são servidas a quem tem a permissão.
+ *  - Nada da denúncia vai para logs.
+ *  - Não guarda IP, user-agent, referrer, UTM, página de origem nem cookies, e não entra na lista de leads.
  *  - O IP só é usado para limitar abuso, e apenas como hash com sal (não reversível), apagado em 24 h.
  *  - Em denúncia anônima, qualquer nome/contato enviado pelo navegador é descartado no servidor.
  *  - As fotos são decodificadas e recodificadas como JPEG: isso remove EXIF/GPS/modelo do aparelho/data e
  *    garante que o arquivo é mesmo uma imagem. O nome original do arquivo também é descartado.
  *  - O e-mail não leva Reply-To nem dados técnicos do denunciante.
- * Gravado apenas: o contador do protocolo (ano + número), sem relação com o conteúdo.
  */
 require dirname(__DIR__) . '/inc/bootstrap.php';
 require dirname(__DIR__) . '/inc/public_api.php';
@@ -95,10 +95,7 @@ if (!$truthy($in['goodfaith'] ?? false)) {
     json_out(['ok' => false, 'error' => 'Confirme que o relato é feito de boa-fé.'], 422);
 }
 $to = trim(setting('complaint_email', 'denuncia@braslectra.com.br'));
-if (!filter_var($to, FILTER_VALIDATE_EMAIL) || trim(setting('brevo_api_key')) === '') {
-    error_log('denuncia: canal sem destinatário válido ou Brevo sem chave');
-    json_out(['ok' => false, 'error' => 'O canal está temporariamente indisponível. Tente novamente mais tarde.'], 503);
-}
+$canEmail = filter_var($to, FILTER_VALIDATE_EMAIL) && trim(setting('brevo_api_key')) !== '';   // o e-mail é cópia; a denúncia fica no painel
 
 // ---------- fotos (opcionais): valida, recodifica sem metadados e prepara como anexo ----------
 $attachments = [];
@@ -209,9 +206,37 @@ $html = '<div style="background:#f3f3f3;padding:18px 0;font-family:Arial,Helveti
     . '<tr><td colspan="2" style="padding:14px 16px;background:#fafafa;border-top:1px solid #eeeeee;color:#888888;font-size:12.5px;line-height:1.45">Mensagem gerada automaticamente pelo Canal de Denúncia do site. Conteúdo confidencial — acesso restrito aos responsáveis pela apuração.</td></tr>'
     . '</table></div>';
 
-[$ok, $msg] = brevo_send([$to], 'Canal de Denúncia | Nova denúncia ' . $protocol, $html, $txt, null, null, $attachments);   // sem Reply-To
-if (!$ok) {
-    error_log('denuncia: falha no envio (' . substr($msg, 0, 120) . ')');   // nunca registra o conteúdo
-    json_out(['ok' => false, 'error' => 'Não foi possível enviar agora. Seus dados não foram guardados: tente novamente em alguns minutos.'], 502);
+// grava no painel (área restrita): fotos já sem metadados ficam na pasta privada, fora da área pública
+$saved = [];
+$private = rtrim((string) cfg('private_dir'), '/\\');
+$sub = 'denuncias/' . date('Y-m');
+if ($attachments) {
+    if (!is_dir($private . '/' . $sub)) {
+        @mkdir($private . '/' . $sub, 0755, true);
+    }
+    protect_dir($private);
+    foreach ($attachments as $a) {
+        $fn = $sub . '/' . bin2hex(random_bytes(12)) . '.jpg';
+        if (@file_put_contents($private . '/' . $fn, base64_decode($a['content'])) !== false) {
+            $saved[] = $fn;
+        }
+    }
 }
+$t = now();
+q(
+    'INSERT INTO complaints (protocol, ident, name, contact, subject, people, place, description, photos, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    [$protocol, $identified ? 'identificada' : 'anonima', $name, $contact, $subject, $people, $place, $desc, json_encode($saved), 'nova', $t, $t]
+);
+$cid = insert_id();
+
+$ok = false;
+if ($canEmail) {
+    $link = (cfg('site_url') ? rtrim((string) cfg('site_url'), '/') . url('denuncias.php?id=' . $cid) : abs_url('denuncias.php?id=' . $cid));
+    $html = str_replace('</table></div>', '<tr><td colspan="2" style="padding:0 14px 18px"><a href="' . e($link) . '" style="display:inline-block;background:#e8a21a;color:#000;text-decoration:none;font-weight:bold;padding:11px 18px;border-radius:999px">Abrir no painel</a></td></tr></table></div>', $html);
+    [$ok, $msg] = brevo_send([$to], 'Canal de Denúncia | Nova denúncia ' . $protocol, $html, $txt . "\nAbrir no painel: $link\n", null, null, $attachments);   // sem Reply-To
+    if (!$ok) {
+        error_log('denuncia: falha no envio do e-mail (' . substr($msg, 0, 120) . ')');   // nunca registra o conteúdo
+    }
+}
+q('UPDATE complaints SET email_ok = ? WHERE id = ?', [$ok ? 1 : 0, $cid]);
 json_out(['ok' => true, 'protocol' => $protocol]);

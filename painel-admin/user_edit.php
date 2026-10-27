@@ -94,6 +94,7 @@ $ls = (array) ($perm['leads']['sources'] ?? []);
       <p class="sub">Ignorado se o perfil for Administrador.</p>
       <label class="chk"><input type="checkbox" name="perm_blog" value="1" <?= !empty($perm['blog']) ? 'checked' : '' ?>><span>Blog<small>Criar, editar e excluir artigos.</small></span></label>
       <label class="chk"><input type="checkbox" name="perm_fleet" value="1" <?= !empty($perm['fleet']) ? 'checked' : '' ?>><span>Frota (veículos)<small>Adicionar, editar, ocultar e remover veículos e fotos.</small></span></label>
+      <label class="chk"><input type="checkbox" name="perm_complaints" value="1" <?= !empty($perm['complaints']) ? 'checked' : '' ?>><span>Canal de Denúncia<small>Ver e tratar as denúncias recebidas (conteúdo confidencial). Dê só a quem faz a apuração.</small></span></label>
       <label class="chk"><input type="checkbox" name="perm_settings" value="1" <?= !empty($perm['settings']) ? 'checked' : '' ?>><span>Configurações do site<small>Telefones, e-mails, endereços e redes sociais.</small></span></label>
       <label class="chk"><input type="checkbox" name="perm_scripts" value="1" <?= !empty($perm['scripts']) ? 'checked' : '' ?>><span>Scripts e rastreamento<small>Perfil de gestor de tráfego: GTM, Pixel, GA4.</small></span></label>
       <hr style="border:0;border-top:1px solid var(--line);margin:12px 0">

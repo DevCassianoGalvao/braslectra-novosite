@@ -196,7 +196,7 @@
       <sc-if value="{{ hasApi }}" hint-placeholder-val="{{ false }}">
         <sc-for list="{{ apiCards }}" as="p">
           <a href="{{ p.href }}" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(200,133,15,.18)">
-            <div style="height:200px;overflow:hidden;background:#F3EDE0"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+            <div style="aspect-ratio:16/9;overflow:hidden;background:#F3EDE0"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
             <div style="padding:24px;flex:1;display:flex;flex-direction:column">
               <div style="font-size:12.5px;color:#8A8377;font-weight:600">{{ p.date }}</div>
               <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35;margin-top:6px">{{ p.title }}</div>
@@ -209,7 +209,7 @@
       <sc-if value="{{ showStatic }}" hint-placeholder-val="{{ true }}">
       <sc-if value="{{ post1Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-frota-com-compensacao-certificada-internacionalm.webp" alt="Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras." loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-1-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-frota-com-compensacao-certificada-internacionalm.webp" alt="Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras." loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-1-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Frota com Compensação Certificada Internacionalmente, com projetos ambientais e soluções inovadoras.</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -218,7 +218,7 @@
       </sc-if>
       <sc-if value="{{ post2Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=renovacao-de-frota-braslectra-modernizacao-seguranca-e-continuidade-da-operacao-corporativa" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-renovacao-de-frota-braslectra-modernizacao-segur.webp" alt="Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-2-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-renovacao-de-frota-braslectra-modernizacao-segur.webp" alt="Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-2-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Renovação de Frota Braslectra: Modernização, Segurança e Continuidade da Operação Corporativa</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -227,7 +227,7 @@
       </sc-if>
       <sc-if value="{{ post3Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=seguranca-e-previsibilidade-na-gestao-de-transporte-os-pilares-da-operacao-braslectra" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-seguranca-e-previsibilidade-na-gestao-de-transpo.webp" alt="Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-3-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-seguranca-e-previsibilidade-na-gestao-de-transpo.webp" alt="Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-3-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Segurança e previsibilidade na gestão de transporte: os pilares da operação Braslectra</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -236,7 +236,7 @@
       </sc-if>
       <sc-if value="{{ post4Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=como-a-gestao-de-transporte-impacta-a-produtividade-e-a-imagem-corporativa" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-como-a-gestao-de-transporte-impacta-a-produtivid.webp" alt="Como a gestão de transporte impacta a produtividade e a imagem corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-4-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-como-a-gestao-de-transporte-impacta-a-produtivid.webp" alt="Como a gestão de transporte impacta a produtividade e a imagem corporativa" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-4-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Como a gestão de transporte impacta a produtividade e a imagem corporativa</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -245,7 +245,7 @@
       </sc-if>
       <sc-if value="{{ post5Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=por-que-grandes-empresas-estao-terceirizando-o-transporte-corporativo-com-parceiros-estrategicos" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-por-que-grandes-empresas-estao-terceirizando-o-t.webp" alt="Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-5-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-por-que-grandes-empresas-estao-terceirizando-o-t.webp" alt="Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-5-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Por que grandes empresas estão terceirizando o transporte corporativo com parceiros estratégicos</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>
@@ -254,7 +254,7 @@
       </sc-if>
       <sc-if value="{{ post6Visible }}" hint-placeholder-val="{{ true }}">
       <a data-reveal-item="" href="blog-post?slug=fretamento-de-van" style="text-decoration:none;color:inherit;background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;display:flex;flex-direction:column" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-        <div style="height:200px;overflow:hidden"><img src="midia/blog/capa-fretamento-de-van.webp" alt="Fretamento de Van: A Braslectra Oferecendo Eficiência" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-6-photo"/></div>
+        <div style="aspect-ratio:16/9;overflow:hidden"><img src="midia/blog/capa-fretamento-de-van.webp" alt="Fretamento de Van: A Braslectra Oferecendo Eficiência" loading="lazy" decoding="async" style="width:100%;height:100%;display:block;object-fit:cover" data-slot="blog-6-photo"/></div>
         <div style="padding:24px;flex:1;display:flex;flex-direction:column">
           <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18;line-height:1.35">Fretamento de Van: A Braslectra Oferecendo Eficiência</div>
           <span style="margin-top:auto;padding-top:16px;color:#8A5B0A;font-weight:700;font-size:13.5px">Leia Mais &gt;</span>

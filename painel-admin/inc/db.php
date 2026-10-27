@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const SCHEMA_VERSION = 5;
+const SCHEMA_VERSION = 6;
 
 function db(): PDO
 {
@@ -139,6 +139,24 @@ function migrate(PDO $pdo): void
         updated_at TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS idx_vehicles_cat ON vehicles(category, active, sort_order);
+    CREATE TABLE IF NOT EXISTS complaints (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        protocol TEXT NOT NULL UNIQUE,
+        ident TEXT NOT NULL DEFAULT 'anonima',
+        name TEXT NOT NULL DEFAULT '',
+        contact TEXT NOT NULL DEFAULT '',
+        subject TEXT NOT NULL DEFAULT '',
+        people TEXT NOT NULL DEFAULT '',
+        place TEXT NOT NULL DEFAULT '',
+        description TEXT NOT NULL DEFAULT '',
+        photos TEXT NOT NULL DEFAULT '[]',
+        status TEXT NOT NULL DEFAULT 'nova',
+        notes TEXT NOT NULL DEFAULT '',
+        email_ok INTEGER NOT NULL DEFAULT 0,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_complaints_status ON complaints(status, created_at);
     CREATE TABLE IF NOT EXISTS complaint_seq (
         year INTEGER PRIMARY KEY,
         n INTEGER NOT NULL DEFAULT 0
