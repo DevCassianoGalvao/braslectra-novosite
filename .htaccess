@@ -3,6 +3,12 @@
 #  Funciona na raiz do domínio ou numa subpasta (ex.: /novosite/). Testado em Apache 2.4.
 #  Se algo der errado, renomeie este arquivo para .htaccess-off.
 # ============================================================
+# Segurança: nunca servir o repositório Git nem arquivos de deploy/configuração
+RedirectMatch 404 /\.git
+<FilesMatch "^(\.cpanel\.yml|\.gitignore|\.gitkeep|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+
 Options -Indexes -MultiViews
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
