@@ -11,6 +11,13 @@ if (is_post() && post('action') === 'fetch_images' && is_admin()) {
     redirect('blog.php');
 }
 
+if (is_post() && post('action') === 'import_seed' && is_admin()) {
+    csrf_check();
+    $r = import_blog_seed(__DIR__ . '/tools/blog_seed.json', (int) $u['id']);
+    flash('ok', $r['imported'] . ' artigo(s) importado(s) do site antigo; ' . $r['skipped'] . ' já existiam.');
+    redirect('blog.php');
+}
+
 // Excluir
 if (is_post() && post('action') === 'delete') {
     csrf_check();
@@ -90,6 +97,15 @@ view_header([
   </table>
 </div>
 <?= pager_html($pg) ?>
+<?php endif; ?>
+<?php
+$seedFile = __DIR__ . '/tools/blog_seed.json';
+$seedTotal = is_file($seedFile) ? count((json_decode((string) file_get_contents($seedFile), true)['posts'] ?? json_decode((string) file_get_contents($seedFile), true)) ?: []) : 0;
+if (is_admin() && $seedTotal > 0 && ($nPub + $nDraft) < $seedTotal): ?>
+<div class="hint" style="margin-top:20px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+  <span><b>Artigos do site antigo não importados.</b> Há <?= $seedTotal ?> artigos prontos para importar (os que já existem são ignorados).</span>
+  <form method="post"><?= csrf_field() ?><input type="hidden" name="action" value="import_seed"><button class="btn dark sm" type="submit"><?= icon('download') ?> Importar artigos do site antigo</button></form>
+</div>
 <?php endif; ?>
 <?php $nRemote = is_admin() ? count(remote_blog_images()) : 0; if ($nRemote): ?>
 <div class="hint" style="margin-top:20px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap">
