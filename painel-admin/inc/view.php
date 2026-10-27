@@ -45,6 +45,7 @@ function view_header(array $o = []): void
         ['settings', 'Configurações', 'settings.php', 'settings', $u && can('settings', $u)],
         ['scripts', 'Scripts e rastreamento', 'scripts.php', 'scripts', $u && can('scripts', $u)],
         ['users', 'Usuários', 'users.php', 'users', $u && can('users', $u)],
+        ['diag', 'Diagnóstico', 'diagnostico.php', 'check', $u && is_admin($u)],
     ];
     ?>
 <!doctype html>
