@@ -5,7 +5,7 @@
 # ============================================================
 # Segurança: nunca servir o repositório Git nem arquivos de deploy/configuração
 RedirectMatch 404 /\.git
-<FilesMatch "^(\.cpanel\.yml|\.gitignore|\.gitkeep|composer\.(json|lock))$">
+<FilesMatch "^(\.env(\..*)?|\.cpanel\.yml|\.gitignore|\.gitkeep|composer\.(json|lock))$">
   Require all denied
 </FilesMatch>
 
