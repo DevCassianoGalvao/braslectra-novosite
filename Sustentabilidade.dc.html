@@ -30,12 +30,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.braslectra.com.br/#site","url":"https://www.braslectra.com.br/","name":"Grupo Braslectra","inLanguage":"pt-BR","publisher":{"@id":"https://www.braslectra.com.br/#organizacao"}},{"@type":"Organization","@id":"https://www.braslectra.com.br/#organizacao","name":"Grupo Braslectra","url":"https://www.braslectra.com.br/","logo":"https://www.braslectra.com.br/midia/logo-grupo-braslectra.png","sameAs":["https://www.instagram.com/grupobraslectra/","https://www.facebook.com/grupobraslectra","https://www.linkedin.com/company/grupobraslectra/"]},{"@type":"BreadcrumbList","@id":"https://www.braslectra.com.br/sustentabilidade#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.braslectra.com.br/"},{"@type":"ListItem","position":2,"name":"Sobre o Grupo","item":"https://www.braslectra.com.br/sobre"},{"@type":"ListItem","position":3,"name":"Sustentabilidade","item":"https://www.braslectra.com.br/sustentabilidade"}]},{"@type":"WebPage","@id":"https://www.braslectra.com.br/sustentabilidade#pagina","url":"https://www.braslectra.com.br/sustentabilidade","name":"Sustentabilidade no Transporte Corporativo: CO₂ Neutro | Braslectra","description":"Frota com selo CO₂ Neutro, carros híbridos e 100% elétricos: mobilidade corporativa alinhada aos critérios ESG das grandes empresas.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.braslectra.com.br/#site"},"about":{"@id":"https://www.braslectra.com.br/#organizacao"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.braslectra.com.br/midia/og/sustentabilidade.jpg"},"breadcrumb":{"@id":"https://www.braslectra.com.br/sustentabilidade#breadcrumb"}}]}</script>
 <!-- /SEO -->
-<script src="./support.js"></script>
-<link rel="stylesheet" href="ux.css?v=20261023">
+<style>x-dc{display:none!important}</style>
+<script>window.__dcSrc=fetch(location.href,{cache:'force-cache',credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).catch(function(){return ''});</script>
+<link rel="preload" href="midia/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ux.css?v=20261028">
+<script defer src="midia/js/react-18.3.1.min.js"></script>
+<script defer src="midia/js/react-dom-18.3.1.min.js"></script>
+<script defer src="./support.js?v=20261028"></script>
+<script defer src="./braslectra-config.js"></script>
 </head>
 <body>
 <x-dc>
@@ -44,12 +48,6 @@
   body { margin: 0; background: #FBF8F3; }
   * { box-sizing: border-box; }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="./braslectra-config.js"></script>
 </helmet>
 
 <div ref="{{ setRootEl }}" style="font-family:Manrope, sans-serif;color:#2A2622;background:#FBF8F3;overflow-x:hidden;position:relative">
@@ -70,6 +68,8 @@
                 <a data-ov="1" href="sobre" style="padding:10px 14px;border-radius:10px;color:#8A5B0A;text-decoration:none;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:12px" style-hover="background:#FBF8F3">Sobre o Grupo<span aria-hidden="true">→</span></a>
                 <div aria-hidden="true" style="height:1px;background:#ECE3D2;margin:4px 8px"></div>
                 <a href="sustentabilidade" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
+                <a href="trabalhe-conosco" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Trabalhe Conosco</a>
+                <a href="canal-de-denuncia" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Canal de Denúncia</a>
               </div>
             </div>
           </sc-if>
@@ -136,6 +136,8 @@
         <sc-if value="{{ subIs_sobre }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px"><a data-ov="1" href="sobre" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:#8A5B0A;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD">Sobre o Grupo →</a>
         <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Sustentabilidade</a>
+        <a href="trabalhe-conosco" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Trabalhe Conosco</a>
+        <a href="canal-de-denuncia" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Canal de Denúncia</a>
           </div>
         </sc-if>
       </div>
@@ -192,7 +194,7 @@
       </div>
     </div>
     <div data-reveal-item="" style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
-      <img src="midia/sustentabilidade/hibrida-corolla.webp" alt="Corolla híbrido verde da frota sustentável Braslectra" loading="lazy" decoding="async" style="width:100%;max-width:540px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-hero-photo"/>
+      <img loading="lazy" decoding="async" src="midia/sustentabilidade/hibrida-corolla.webp" srcset="midia/sustentabilidade/hibrida-corolla-680.webp 680w, midia/sustentabilidade/hibrida-corolla.webp 1000w" sizes="(max-width: 900px) 92vw, 530px" alt="Corolla híbrido verde da frota sustentável Braslectra" style="width:100%;max-width:540px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-hero-photo"/>
     </div>
   </div>
 </section>
@@ -244,7 +246,7 @@
       <div data-reveal-item="" style="display:flex;gap:12px;align-items:flex-start;background:#FBF3E3;border-left:3px solid #C8850F;border-radius:0 14px 14px 0;padding:14px 18px;margin-top:18px;font-size:14.5px;line-height:1.6;color:#4A443C">Um pilar essencial para empresas que buscam conformidade com políticas ESG e parceiros ambientalmente responsáveis.</div>
     </div>
     <div data-reveal-item="" style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
-      <img src="midia/sustentabilidade/co2-neutro-van.webp" alt="Montagem: van com selo CO₂ neutro" loading="lazy" decoding="async" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-co2-photo"/>
+      <img loading="lazy" decoding="async" src="midia/sustentabilidade/co2-neutro-van.webp" srcset="midia/sustentabilidade/co2-neutro-van-680.webp 680w, midia/sustentabilidade/co2-neutro-van.webp 1000w" sizes="(max-width: 900px) 92vw, 520px" alt="Montagem: van com selo CO₂ neutro" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-co2-photo"/>
     
       <a data-reveal-item="" href="blog-post?slug=frota-com-compensacao-certificada-internacionalmente-com-projetos-ambientais-e-solucoes-inovadoras" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#2F6E52;color:#FFFFFF;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:999px;text-decoration:none">Leia no blog: frota com compensação certificada →</a>
     </div>
@@ -254,7 +256,7 @@
 <section style="padding:clamp(51px,7vw,86px) 0;background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;flex-wrap:wrap-reverse;gap:clamp(36px,5vw,72px);align-items:center">
     <div data-reveal-item="" style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
-      <img src="midia/sustentabilidade/hibrida-corolla.webp" alt="Montagem: Corolla híbrido" loading="lazy" decoding="async" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-corolla-photo"/>
+      <img loading="lazy" decoding="async" src="midia/sustentabilidade/hibrida-corolla.webp" srcset="midia/sustentabilidade/hibrida-corolla-680.webp 680w, midia/sustentabilidade/hibrida-corolla.webp 1000w" sizes="(max-width: 900px) 92vw, 530px" alt="Montagem: Corolla híbrido" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-corolla-photo"/>
     </div>
     <div style="flex:1 1 480px;min-width:0">
       <span data-reveal-item="" style="display:inline-flex;align-items:center;gap:8px;background:#F6E8CC;color:#8A5B0A;font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:7px 14px;border-radius:999px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M6 9l2-4h8l2 4"></path></svg>Frota Híbrida</span>
@@ -294,7 +296,7 @@
       <p data-reveal-item="" style="font-size:16.5px;line-height:1.75;color:#4A443C;margin:20px 0 0">Cada deslocamento, cada rota e cada operação diária acontece sem emissões diretas, representando uma evolução concreta para empresas que monitoram indicadores ambientais e desejam avançar além do básico em suas estratégias ESG. A frota elétrica não é apenas uma tendência — é uma decisão estratégica para organizações que enxergam sustentabilidade como parte do futuro do negócio.</p>
     </div>
     <div data-reveal-item="" style="flex:1 1 420px;min-width:0;display:flex;justify-content:center">
-      <img src="midia/sustentabilidade/eletrica-byd.webp" alt="Montagem: BYD Dolphin elétrico" loading="lazy" decoding="async" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-byd-photo"/>
+      <img loading="lazy" decoding="async" src="midia/sustentabilidade/eletrica-byd.webp" srcset="midia/sustentabilidade/eletrica-byd-680.webp 680w, midia/sustentabilidade/eletrica-byd.webp 1000w" sizes="(max-width: 900px) 92vw, 520px" alt="Montagem: BYD Dolphin elétrico" style="width:100%;max-width:520px;aspect-ratio:1/1;height:auto;display:block;object-fit:contain" data-slot="sust-byd-photo"/>
     </div>
   </div>
 </section>
@@ -329,7 +331,7 @@
   <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <div class="ft-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
       <div>
-        <img src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
+        <img loading="lazy" src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
         <p data-site="footer_text" style="font-size:14px;line-height:1.7;color:#8A8377;margin:20px 0 0;max-width:34ch">Conforto e Segurança em nossas mãos. Transporte executivo de pessoas com segurança, conforto e pontualidade há 29 anos.</p>
         <div style="display:flex;gap:10px;margin-top:24px">
           <a href="https://www.instagram.com/grupobraslectra/" data-site-href="social_instagram" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
@@ -415,21 +417,19 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', this._scrollHandler, { passive: true });
     this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (window.gsap && window.ScrollTrigger && !this._reduced && this.rootEl) {
+    // GSAP chega depois da página pronta (não atrasa a primeira pintura); o que já está na tela aparece sem animação
+    if (!this._reduced && this.rootEl) window.__dcWhenGsap(() => {
+      if (!this.rootEl) return;
       gsap.registerPlugin(ScrollTrigger);
       const groups = this.rootEl.querySelectorAll('[data-reveal-group]');
       groups.forEach((g) => {
         const items = g.querySelectorAll('[data-reveal-item]');
         const targets = items.length ? Array.from(items) : [g];
-        const alreadyVisible = g.getBoundingClientRect().top < window.innerHeight;
-        if (alreadyVisible) {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07 });
-        } else {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: g, start: 'top 85%' } });
-        }
+        if (g.getBoundingClientRect().top < window.innerHeight) return;
+        this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: g, start: 'top 85%' } });
       });
       ScrollTrigger.refresh();
-    }
+    });
   }
 
   componentWillUnmount() {

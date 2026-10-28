@@ -13,8 +13,13 @@
   }
   base = String(base).replace(/\/$/, '');
   window.BRASLECTRA_ADMIN_URL = base;
-  var s = document.createElement('script');
-  s.src = base + '/api/embed.js.php';
-  s.async = true;
-  document.head.appendChild(s);
+  // carrega depois da página pronta: dados de contato, rastreamento e envio de formulários não precisam atrasar a primeira pintura
+  function add() {
+    var s = document.createElement('script');
+    s.src = base + '/api/embed.js.php';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  function idle() { if (window.requestIdleCallback) window.requestIdleCallback(add, { timeout: 1500 }); else setTimeout(add, 200); }
+  if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
 })();

@@ -31,12 +31,17 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.braslectra.com.br/#site","url":"https://www.braslectra.com.br/","name":"Grupo Braslectra","inLanguage":"pt-BR","publisher":{"@id":"https://www.braslectra.com.br/#organizacao"}},{"@type":"Organization","@id":"https://www.braslectra.com.br/#organizacao","name":"Grupo Braslectra","url":"https://www.braslectra.com.br/","logo":"https://www.braslectra.com.br/midia/logo-grupo-braslectra.png","sameAs":["https://www.instagram.com/grupobraslectra/","https://www.facebook.com/grupobraslectra","https://www.linkedin.com/company/grupobraslectra/"]},{"@type":"BreadcrumbList","@id":"https://www.braslectra.com.br/canal-de-denuncia#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.braslectra.com.br/"},{"@type":"ListItem","position":2,"name":"Canal de Denúncia","item":"https://www.braslectra.com.br/canal-de-denuncia"}]},{"@type":"WebPage","@id":"https://www.braslectra.com.br/canal-de-denuncia#pagina","url":"https://www.braslectra.com.br/canal-de-denuncia","name":"Canal de Denúncia | Grupo Braslectra","description":"Canal de Denúncia do Grupo Braslectra: relate assédio, discriminação, fraude, corrupção ou condutas antiéticas de forma identificada ou anônima, com sigilo e sem retaliação.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.braslectra.com.br/#site"},"about":{"@id":"https://www.braslectra.com.br/#organizacao"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.braslectra.com.br/midia/og/home.jpg"},"breadcrumb":{"@id":"https://www.braslectra.com.br/canal-de-denuncia#breadcrumb"}}]}</script>
 <!-- /SEO -->
-<script src="./support.js"></script>
-<link rel="stylesheet" href="ux.css?v=20261023">
+<style>x-dc{display:none!important}</style>
+<script>window.__dcSrc=fetch(location.href,{cache:'force-cache',credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).catch(function(){return ''});</script>
+<link rel="preload" href="midia/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ux.css?v=20261028">
+<script defer src="midia/js/react-18.3.1.min.js"></script>
+<script defer src="midia/js/react-dom-18.3.1.min.js"></script>
+<script defer src="./support.js?v=20261028"></script>
+<script>window.BRASLECTRA_NO_TRACKING = true; /* Canal de Denúncia: sem GTM/GA4/Pixel */</script>
+<script defer src="./braslectra-config.js"></script>
 </head>
 <body>
 <x-dc>
@@ -45,13 +50,6 @@
   body { margin: 0; background: #FBF8F3; }
   * { box-sizing: border-box; }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>window.BRASLECTRA_NO_TRACKING = true; /* Canal de Denúncia: sem GTM/GA4/Pixel */</script>
-<script src="./braslectra-config.js"></script>
 </helmet>
 
 <div ref="{{ setRootEl }}" style="font-family:Manrope, sans-serif;color:#2A2622;background:#FBF8F3;overflow-x:hidden;position:relative">
@@ -72,6 +70,8 @@
                 <a data-ov="1" href="sobre" style="padding:10px 14px;border-radius:10px;color:#8A5B0A;text-decoration:none;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:12px" style-hover="background:#FBF8F3">Sobre o Grupo<span aria-hidden="true">→</span></a>
                 <div aria-hidden="true" style="height:1px;background:#ECE3D2;margin:4px 8px"></div>
                 <a href="sustentabilidade" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
+                <a href="trabalhe-conosco" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Trabalhe Conosco</a>
+                <a href="canal-de-denuncia" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Canal de Denúncia</a>
               </div>
             </div>
           </sc-if>
@@ -138,6 +138,8 @@
         <sc-if value="{{ subIs_sobre }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px"><a data-ov="1" href="sobre" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:#8A5B0A;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD">Sobre o Grupo →</a>
         <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Sustentabilidade</a>
+        <a href="trabalhe-conosco" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Trabalhe Conosco</a>
+        <a href="canal-de-denuncia" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Canal de Denúncia</a>
           </div>
         </sc-if>
       </div>
@@ -241,7 +243,7 @@
         <sc-if value="{{ hasPhotos }}" hint-placeholder-val="{{ false }}">
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px">
             <sc-for list="{{ photoList }}" as="ph">
-              <div style="position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid #ECE3D2;background:#F3EDE0"><img src="{{ ph.url }}" alt="Foto anexada" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"/><button type="button" onClick="{{ ph.remove }}" aria-label="Remover foto" style="position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(30,27,24,.82);color:#fff;font-size:16px;line-height:1;cursor:pointer">×</button></div>
+              <div style="position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid #ECE3D2;background:#F3EDE0"><img loading="lazy" src="{{ ph.url }}" alt="Foto anexada" style="width:100%;height:100%;object-fit:cover;display:block"/><button type="button" onClick="{{ ph.remove }}" aria-label="Remover foto" style="position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(30,27,24,.82);color:#fff;font-size:16px;line-height:1;cursor:pointer">×</button></div>
             </sc-for>
           </div>
         </sc-if>
@@ -267,7 +269,7 @@
   <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <div class="ft-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
       <div>
-        <img src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
+        <img loading="lazy" src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
         <p data-site="footer_text" style="font-size:14px;line-height:1.7;color:#8A8377;margin:20px 0 0;max-width:34ch">Conforto e Segurança em nossas mãos. Transporte executivo de pessoas com segurança, conforto e pontualidade há 29 anos.</p>
         <div style="display:flex;gap:10px;margin-top:24px">
           <a href="https://www.instagram.com/grupobraslectra/" data-site-href="social_instagram" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
@@ -355,21 +357,19 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', this._scrollHandler, { passive: true });
     this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (window.gsap && window.ScrollTrigger && !this._reduced && this.rootEl) {
+    // GSAP chega depois da página pronta (não atrasa a primeira pintura); o que já está na tela aparece sem animação
+    if (!this._reduced && this.rootEl) window.__dcWhenGsap(() => {
+      if (!this.rootEl) return;
       gsap.registerPlugin(ScrollTrigger);
       const groups = this.rootEl.querySelectorAll('[data-reveal-group]');
       groups.forEach((g) => {
         const items = g.querySelectorAll('[data-reveal-item]');
         const targets = items.length ? Array.from(items) : [g];
-        const alreadyVisible = g.getBoundingClientRect().top < window.innerHeight;
-        if (alreadyVisible) {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07 });
-        } else {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: g, start: 'top 85%' } });
-        }
+        if (g.getBoundingClientRect().top < window.innerHeight) return;
+        this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: g, start: 'top 85%' } });
       });
       ScrollTrigger.refresh();
-    }
+    });
   }
 
   componentWillUnmount() {

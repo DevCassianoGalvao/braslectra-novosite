@@ -30,12 +30,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.braslectra.com.br/#site","url":"https://www.braslectra.com.br/","name":"Grupo Braslectra","inLanguage":"pt-BR","publisher":{"@id":"https://www.braslectra.com.br/#organizacao"}},{"@type":"Organization","@id":"https://www.braslectra.com.br/#organizacao","name":"Grupo Braslectra","url":"https://www.braslectra.com.br/","logo":"https://www.braslectra.com.br/midia/logo-grupo-braslectra.png","sameAs":["https://www.instagram.com/grupobraslectra/","https://www.facebook.com/grupobraslectra","https://www.linkedin.com/company/grupobraslectra/"]},{"@type":"BreadcrumbList","@id":"https://www.braslectra.com.br/frota-micro-onibus#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.braslectra.com.br/"},{"@type":"ListItem","position":2,"name":"Frota","item":"https://www.braslectra.com.br/frota"},{"@type":"ListItem","position":3,"name":"Micro-ônibus","item":"https://www.braslectra.com.br/frota-micro-onibus"}]},{"@type":"WebPage","@id":"https://www.braslectra.com.br/frota-micro-onibus#pagina","url":"https://www.braslectra.com.br/frota-micro-onibus","name":"Aluguel de Micro-ônibus com Banheiro | Frota Braslectra","description":"Micro-ônibus com ar-condicionado, bancos reclináveis, TV e banheiro para grupos de 26 a 30 passageiros. Fretamento e turismo no RJ e no ES.","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.braslectra.com.br/#site"},"about":{"@id":"https://www.braslectra.com.br/#organizacao"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.braslectra.com.br/midia/og/frota-micro-onibus.jpg"},"breadcrumb":{"@id":"https://www.braslectra.com.br/frota-micro-onibus#breadcrumb"}}]}</script>
 <!-- /SEO -->
-<script src="./support.js"></script>
-<link rel="stylesheet" href="ux.css?v=20261023">
+<style>x-dc{display:none!important}</style>
+<script>window.__dcSrc=fetch(location.href,{cache:'force-cache',credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).catch(function(){return ''});</script>
+<link rel="preload" href="midia/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ux.css?v=20261028">
+<script defer src="midia/js/react-18.3.1.min.js"></script>
+<script defer src="midia/js/react-dom-18.3.1.min.js"></script>
+<script defer src="./support.js?v=20261028"></script>
+<script defer src="./braslectra-config.js"></script>
 </head>
 <body>
 <x-dc>
@@ -44,12 +48,6 @@
   body { margin: 0; background: #FBF8F3; }
   * { box-sizing: border-box; }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="./braslectra-config.js"></script>
 </helmet>
 
 <div ref="{{ setRootEl }}" style="font-family:Manrope, sans-serif;color:#2A2622;background:#FBF8F3;overflow-x:hidden;position:relative">
@@ -70,6 +68,8 @@
                 <a data-ov="1" href="sobre" style="padding:10px 14px;border-radius:10px;color:#8A5B0A;text-decoration:none;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:12px" style-hover="background:#FBF8F3">Sobre o Grupo<span aria-hidden="true">→</span></a>
                 <div aria-hidden="true" style="height:1px;background:#ECE3D2;margin:4px 8px"></div>
                 <a href="sustentabilidade" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Sustentabilidade</a>
+                <a href="trabalhe-conosco" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Trabalhe Conosco</a>
+                <a href="canal-de-denuncia" style="padding:10px 14px;border-radius:10px;color:#1E1B18;text-decoration:none;font-weight:600;font-size:14px" style-hover="background:#FBF8F3;color:#8A5B0A">Canal de Denúncia</a>
               </div>
             </div>
           </sc-if>
@@ -136,6 +136,8 @@
         <sc-if value="{{ subIs_sobre }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:2px;padding:0 0 14px 4px"><a data-ov="1" href="sobre" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:#8A5B0A;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD">Sobre o Grupo →</a>
         <a href="sustentabilidade" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Sustentabilidade</a>
+        <a href="trabalhe-conosco" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Trabalhe Conosco</a>
+        <a href="canal-de-denuncia" onClick="{{ closeMobileMenu }}" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:#4A443C;text-decoration:none;padding:11px 12px;border-radius:12px" style-hover="background:#F6EEDD;color:#8A5B0A">Canal de Denúncia</a>
           </div>
         </sc-if>
       </div>
@@ -179,8 +181,8 @@
 
 <section style="padding:clamp(32px,4.5vw,56px) 0 clamp(32px,4vw,44px);background:#FFFFFF">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
-    <div class="bc" data-reveal-item="" style="font-size:13px;color:#8A8377;display:flex;gap:8px;align-items:center">
-      <a href="./" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Início</a> / <a href="frota" style="color:#8A8377;text-decoration:none" style-hover="color:#C8850F">Frota</a> / <span style="color:#1E1B18">Micro-Ônibus</span>
+    <div class="bc" data-reveal-item="" style="font-size:13px;color:#6F685D;display:flex;gap:8px;align-items:center">
+      <a href="./" style="color:#6F685D;text-decoration:none" style-hover="color:#C8850F">Início</a> / <a href="frota" style="color:#6F685D;text-decoration:none" style-hover="color:#C8850F">Frota</a> / <span style="color:#1E1B18">Micro-Ônibus</span>
     </div>
     <h1 data-reveal-item="" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:#1E1B18;font-size:clamp(2rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.01em;margin:16px 0 0">Frota completa de micro-ônibus</h1>
     <p data-reveal-item="" style="font-size:17.5px;line-height:1.7;color:#4A443C;margin:16px 0 0;max-width:680px">Transporte de grupos com mais conforto em micro-ônibus equipados com ar-condicionado, bancos reclináveis, película e cortinas nos vidros, TV e banheiro. Capacidade para 26 a 30 passageiros.</p>
@@ -194,7 +196,7 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:24px;opacity:{{ fleetOp }};transition:opacity .35s ease">
       <sc-for list="{{ g.items }}" as="v">
         <div data-reveal-item="" style="background:#FBF8F3;border:1px solid #ECE3D2;border-radius:24px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:0 18px 34px rgba(30,27,24,.1)">
-          <div style="height:200px;overflow:hidden;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:14px 16px 4px"><img src="{{ v.image }}" alt="{{ v.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
+          <div style="height:200px;overflow:hidden;background:radial-gradient(120% 95% at 50% 35%, #FFFFFF 0%, #F6F1E8 62%, #EEE5D4 100%);padding:14px 16px 4px"><img loading="lazy" src="{{ v.image }}" alt="{{ v.alt }}" style="width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.05)"/></div>
           <div style="padding:20px">
             <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px;color:#1E1B18">{{ v.name }}</div>
             <div style="font-size:13px;color:#6B6459;margin-top:6px">{{ v.year }}</div>
@@ -217,7 +219,7 @@
 <section style="background:#FFFFFF;padding:0 0 clamp(36px,5vw,64px)">
   <div data-reveal-group="" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <div data-reveal-item="" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;background:#F1F8F3;border:1px solid #D2E7DA;border-radius:22px;padding:14px 22px 14px 14px">
-      <img src="midia/sustentabilidade/hibrida-corolla.webp" alt="Corolla híbrido verde da frota sustentável Braslectra" loading="lazy" decoding="async" style="width:clamp(110px,14vw,150px);height:72px;object-fit:contain;flex:0 0 auto"/>
+      <img loading="lazy" decoding="async" src="midia/sustentabilidade/hibrida-corolla.webp" srcset="midia/sustentabilidade/hibrida-corolla-680.webp 680w, midia/sustentabilidade/hibrida-corolla.webp 1000w" sizes="(max-width: 900px) 92vw, 530px" alt="Corolla híbrido verde da frota sustentável Braslectra" style="width:clamp(110px,14vw,150px);height:72px;object-fit:contain;flex:0 0 auto"/>
       <p style="flex:1 1 280px;margin:0;font-size:16px;line-height:1.55;color:#2A4A3A"><b style="color:#1F6B3F">Sabia que temos frota híbrida e elétrica</b> e fazemos compensação de CO₂ para uma operação neutra?</p>
       <a href="sustentabilidade" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;border:1.5px solid #2F6E52;color:#2F6E52;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;text-decoration:none;background:#FFFFFF">Conheça nossa sustentabilidade →</a>
     </div>
@@ -230,7 +232,7 @@
   <div onClick="{{ closeLightbox }}" role="dialog" aria-modal="true" aria-label="Galeria de fotos" style="position:fixed;inset:0;z-index:300;background:rgba(18,16,13,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)">
     <div onClick="{{ stopProp }}" style="max-width:1080px;width:100%;max-height:100%;display:flex;flex-direction:column;background:#FBF8F3;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5)">
       <div style="position:relative;flex:1 1 auto;height:clamp(240px,62vh,640px);background:#14110E">
-        <img src="{{ lbSrc }}" alt="{{ lightboxLabel }}" style="width:100%;height:100%;object-fit:contain;display:block"/>
+        <img loading="lazy" src="{{ lbSrc }}" alt="{{ lightboxLabel }}" style="width:100%;height:100%;object-fit:contain;display:block"/>
         <span style="position:absolute;top:16px;left:16px;background:rgba(20,18,16,.62);color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:7px 12px;border-radius:999px;backdrop-filter:blur(6px)">{{ lbCounter }}</span>
         <sc-if value="{{ lbMulti }}">
           <button onClick="{{ lbPrev }}" aria-label="Foto anterior" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;border:none;background:rgba(251,248,243,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:transform .2s ease" style-hover="transform:translateY(-50%) scale(1.08)">
@@ -269,7 +271,7 @@
   <div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,48px)">
     <div class="ft-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px">
       <div>
-        <img src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
+        <img loading="lazy" src="midia/logos/grupo-branco.svg" alt="Grupo Braslectra" style="height:34px"/>
         <p data-site="footer_text" style="font-size:14px;line-height:1.7;color:#8A8377;margin:20px 0 0;max-width:34ch">Conforto e Segurança em nossas mãos. Transporte executivo de pessoas com segurança, conforto e pontualidade há 29 anos.</p>
         <div style="display:flex;gap:10px;margin-top:24px">
           <a href="https://www.instagram.com/grupobraslectra/" data-site-href="social_instagram" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#C9C2B6;transition:all .25s ease" style-hover="background:#C8850F;border-color:#C8850F;color:#1E1B18;transform:translateY(-3px)">
@@ -383,21 +385,19 @@ class Component extends DCLogic {
     };
     window.addEventListener('scroll', this._scrollHandler, { passive: true });
     this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (window.gsap && window.ScrollTrigger && !this._reduced && this.rootEl) {
+    // GSAP chega depois da página pronta (não atrasa a primeira pintura); o que já está na tela aparece sem animação
+    if (!this._reduced && this.rootEl) window.__dcWhenGsap(() => {
+      if (!this.rootEl) return;
       gsap.registerPlugin(ScrollTrigger);
       const groups = this.rootEl.querySelectorAll('[data-reveal-group]');
       groups.forEach((g) => {
         const items = g.querySelectorAll('[data-reveal-item]');
         const targets = items.length ? Array.from(items) : [g];
-        const alreadyVisible = g.getBoundingClientRect().top < window.innerHeight;
-        if (alreadyVisible) {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.06 });
-        } else {
-          this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.06, scrollTrigger: { trigger: g, start: 'top 85%' } });
-        }
+        if (g.getBoundingClientRect().top < window.innerHeight) return;
+        this._reveal(targets, { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.06, scrollTrigger: { trigger: g, start: 'top 85%' } });
       });
       ScrollTrigger.refresh();
-    }
+    });
   }
 
   componentWillUnmount() {

@@ -69,6 +69,7 @@ $seo = "<!-- SEO -->\n"
     . '<meta name="twitter:description" content="' . $h($desc) . "\">\n"
     . '<meta name="twitter:image" content="' . $h($img) . "\">\n"
     . "<link rel=\"icon\" href=\"favicon.ico\" sizes=\"any\">\n<link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">\n<link rel=\"manifest\" href=\"site.webmanifest\">\n"
+    . ($post['image'] ? '<link rel="preload" as="image" href="' . $h($post['image']) . "\" fetchpriority=\"high\">\n" : '')
     . seo_json_ld($ld) . "\n<!-- /SEO -->\n";
 
 $html = preg_replace('/<!-- SEO -->.*?<!-- \/SEO -->\n?/s', str_replace(['\\', '$'], ['\\\\', '\\$'], $seo), $template, 1);

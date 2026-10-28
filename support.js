@@ -147,15 +147,25 @@
       return s;
     }
   }
-  function boot(runtime, doc = document) {
+  // Braslectra: texto bruto entre <x-dc> e </x-dc> (sem passar pelo parser do navegador, que mexe em maiúsculas e tabelas).
+  function rawTemplateOf(src) {
+    const open = src ? /<x-dc(?:\s[^>]*)?>/.exec(src) : null;
+    const close = src ? src.lastIndexOf("</x-dc>") : -1;
+    return open && close > open.index ? src.slice(open.index + open[0].length, close) : "";
+  }
+  function boot(runtime, doc = document, rawSrc = null) {
     const parsed = parseDcDocument(doc);
     if (!parsed) return null;
     const React = getReact();
     const rootName = rootNameForDocument(doc, location);
     runtime.markFetched(rootName);
     runtime.setRootName(rootName);
+    // Braslectra: com o HTML original já em mãos (window.__dcSrc, pedido no <head>), renderiza uma vez só
+    // a partir dele; sem isso, renderiza do DOM e corrige depois com um segundo fetch (comportamento original).
+    const rawTpl = rawTemplateOf(rawSrc);
+    if (rawTpl) parsed.template = rawTpl;
     runtime.adoptParsed(rootName, parsed);
-    if (!window.__resources) {
+    if (!rawTpl && !window.__resources) {
       fetch(location.href).then((res) => res.ok ? res.text() : "").then((t) => {
         const raw = t ? parseDcText(t) : null;
         if (raw?.template) runtime.updateHtml(rootName, raw.template);
@@ -1888,8 +1898,21 @@
       /** Editor bridge — the *original* (decoded) template source. */
       __dcTemplateSource: (name) => runtime.templateSource(name),
       __dcBoot: () => {
-        rootName = boot(runtime, document) ?? rootName;
-        notifyHost();
+        const go = (src) => {
+          rootName = boot(runtime, document, src) ?? rootName;
+          notifyHost();
+        };
+        const pending = !window.__resources && window.__dcSrc;
+        if (!pending || typeof pending.then !== "function") return go(null);
+        let done = false;
+        const once = (src) => {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          go(src);
+        };
+        const timer = setTimeout(() => once(null), 3e3);
+        pending.then((t) => once(typeof t === "string" ? t : null), () => once(null));
       },
       __dcRegistry: runtime.registry.entries,
       getDC: (name) => runtime.getDC(name),
@@ -1903,6 +1926,30 @@
     if (document.readyState !== "loading") api.__dcBoot();
     else document.addEventListener("DOMContentLoaded", () => api.__dcBoot());
   }
+  // Braslectra: GSAP + ScrollTrigger só depois do carregamento (as animações de entrada não são essenciais à primeira pintura).
+  (function() {
+    const base = document.currentScript && document.currentScript.src || location.href;
+    const queue = [];
+    let loading = false;
+    const flush = () => queue.splice(0).forEach((cb) => {
+      try {
+        cb();
+      } catch (e) {
+        console.error("[dc] animação:", e);
+      }
+    });
+    window.__dcWhenGsap = (cb) => {
+      queue.push(cb);
+      if (window.gsap && window.ScrollTrigger) return flush();
+      if (loading) return;
+      loading = true;
+      const start = () => loadScript(new URL("midia/js/gsap-3.12.5.min.js", base).href).then(() => loadScript(new URL("midia/js/ScrollTrigger-3.12.5.min.js", base).href)).then(flush).catch(() => {
+      });
+      const idle = () => window.requestIdleCallback ? requestIdleCallback(start, { timeout: 1500 }) : setTimeout(start, 200);
+      if (document.readyState === "complete") idle();
+      else window.addEventListener("load", idle, { once: true });
+    };
+  })();
   hideRawTemplate();
   loadReactUmd().then(init).catch((err) => {
     console.error("[dc] failed to load React or boot:", err);
