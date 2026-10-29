@@ -52,3 +52,8 @@ h1,h2,h3{text-wrap:balance}
 .cmp-spin{animation:cmpSpin 120s linear infinite;will-change:transform}
 @keyframes cmpSpin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion: reduce){.cmp-spin{animation:none}}
+
+/* menu do topo com 8 itens: espaço entre itens acompanha a largura (notebooks de 900 a 1280px) */
+header nav { gap: clamp(12px, 1.9vw, 36px) !important; }
+header nav a { white-space: nowrap; }
+@media (max-width: 1100px) { header nav a { font-size: 13.5px !important; } header > div { gap: 16px !important; } }
