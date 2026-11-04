@@ -157,7 +157,7 @@ $field = static function (string $key, string $label, string $type = 'text', str
     <label class="f"><span class="h">Chave da API Brevo</span>
       <input type="password" id="bkey" name="brevo_api_key" value="" autocomplete="off" placeholder="<?= $S['brevo_api_key'] !== '' ? '•••••••• (salva — deixe em branco para manter)' : 'xkeysib-…' ?>">
       <small>Brevo → SMTP e API → Chaves de API. <?= $S['brevo_api_key'] !== '' ? '<label style="font-weight:600"><input type="checkbox" name="brevo_key_remove" value="1"> remover chave salva</label>' : '' ?></small></label>
-    <label class="f"><span class="h">E-mail remetente</span><input type="email" name="brevo_sender_email" value="<?= e($S['brevo_sender_email']) ?>" placeholder="site@braslectra.com.br"><small>Precisa estar validado como remetente na Brevo.</small></label>
+    <label class="f"><span class="h">E-mail remetente</span><input type="email" name="brevo_sender_email" value="<?= e($S['brevo_sender_email']) ?>" placeholder="noreply@braslectra.com.br"><small>Precisa estar validado como remetente na Brevo.</small></label>
     <label class="f"><span class="h">Nome do remetente</span><input type="text" name="brevo_sender_name" value="<?= e($S['brevo_sender_name']) ?>"></label>
   </div>
   <label class="f"><span class="h">Sites autorizados a enviar formulários <small style="display:inline">(opcional)</small></span><textarea name="allowed_origins" rows="2" placeholder="https://www.braslectra.com.br"><?= e($S['allowed_origins']) ?></textarea><small>Só é preciso se o site estiver em OUTRO domínio que o painel. Um endereço por linha.</small></label>
