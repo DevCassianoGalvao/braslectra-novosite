@@ -29,7 +29,7 @@ header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="leads-' . date('Y-m-d-His') . '.csv"');
 $out = fopen('php://output', 'w');
 fwrite($out, "\xEF\xBB\xBF"); // BOM p/ Excel
-fputcsv($out, array_merge(['ID', 'Data', 'Origem', 'Status', 'Nome', 'WhatsApp', 'E-mail', 'Empresa', 'Mensagem', 'Página', 'utm_source', 'utm_medium', 'utm_campaign'], $extra), ';');
+fputcsv($out, array_merge(['ID', 'Data', 'Formulário', 'Status', 'Nome', 'WhatsApp', 'E-mail', 'Empresa', 'Mensagem', 'Página', 'utm_source', 'utm_medium', 'utm_campaign'], $extra), ';');
 foreach ($list as $l) {
     $d = json_decode($l['data'], true) ?: [];
     $utm = json_decode($l['utm'], true) ?: [];

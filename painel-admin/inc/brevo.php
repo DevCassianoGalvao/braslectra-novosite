@@ -98,7 +98,7 @@ function notify_new_lead(int $leadId): void
     $label = source_label($lead['source']);
     $data = json_decode((string) $lead['data'], true) ?: [];
     $rows = [
-        'Origem'   => $label,
+        'Formulário' => $label, // não usar "Origem": o formulário de Turismo tem um campo com esse nome (cidade de partida)
         'Nome'     => $lead['name'],
         'WhatsApp' => $lead['phone'],
         'E-mail'   => $lead['email'],
