@@ -71,7 +71,14 @@ function brevo_send(array $to, string $subject, string $html, string $text = '',
 function notify_recipients(string $source): array
 {
     $over = (string) scalar('SELECT notify_emails FROM lead_sources WHERE slug = ?', [$source]);
-    $list = trim($over) !== '' ? $over : setting('notify_emails');
+    if (trim($over) !== '') {
+        $list = $over;
+    } elseif ($source === 'trabalhe-conosco' && trim(setting('email_vagas')) !== '') {
+        // currículos vão para o e-mail de vagas (Configurações → E-mail de vagas), não para a lista comercial
+        $list = setting('email_vagas');
+    } else {
+        $list = setting('notify_emails');
+    }
     $out = [];
     foreach (preg_split('/[,;\s]+/', $list) ?: [] as $e) {
         if (filter_var($e, FILTER_VALIDATE_EMAIL)) {
